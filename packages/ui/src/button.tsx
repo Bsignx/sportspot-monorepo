@@ -1,13 +1,17 @@
 import { colors } from '@sportspot/tokens'
 
-export const Button = () => {
+export type ButtonProps = {
+  children: string
+}
+
+export const Button = ({ children = 'hiii' }: ButtonProps) => {
   return (
     <button
       style={{
         backgroundColor: colors.primary,
       }}
     >
-      Boop
+      {children}
     </button>
   )
 }
