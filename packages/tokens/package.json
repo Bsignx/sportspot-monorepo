@@ -14,9 +14,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "tsconfig": "workspace:*",
+    "@sportspot/ts-config": "workspace:*",
     "tsup": "^6.2.3",
-    "eslint-config-custom": "workspace:*",
+    "@sportspot/eslint-config": "workspace:*",
     "typescript": "^4.8.4"
   }
 }

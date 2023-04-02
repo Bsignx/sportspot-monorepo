@@ -1,19 +1,19 @@
 {
   "name": "@sportspot/ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint \"**/*.ts*\""
+    "lint": "eslint **/*.ts* --fix"
   },
   "devDependencies": {
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "eslint": "^7.32.0",
-    "eslint-config-custom": "workspace:*",
+    "@sportspot/eslint-config": "workspace:*",
     "react": "^17.0.2",
-    "tsconfig": "workspace:*",
+    "@sportspot/ts-config": "workspace:*",
     "typescript": "^4.5.2"
   }
 }
