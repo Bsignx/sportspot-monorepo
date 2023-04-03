@@ -1,0 +1,8 @@
+{
+  "extends": "@sportspot/ts-config/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "preserveSymlinks": true
+  },
+  "include": ["src"]
+}

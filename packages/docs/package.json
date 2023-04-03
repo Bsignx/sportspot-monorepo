@@ -26,9 +26,11 @@
     "vite": "^4.2.1"
   },
   "dependencies": {
-    "@sportspot/ui": "workspace:*",
-    "@sportspot/tokens": "workspace:*",
     "@sportspot/eslint-config": "workspace:*",
+    "@sportspot/tokens": "workspace:*",
+    "@sportspot/ui": "workspace:*",
+    "@sportspot/ts-config": "workspace:*",
+    "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
