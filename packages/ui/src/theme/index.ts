@@ -8,10 +8,8 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 }
 
-const theme = extendTheme({
+export const theme = extendTheme({
   config,
   components,
   ...foundations,
 })
-
-export default theme
