@@ -1,10 +1,10 @@
-import { Button } from '@sportspot/ui'
+import Teste from './components/text'
 
 export default function Web() {
   return (
     <div>
       <h1>Web</h1>
-      <Button>Button</Button>
+      <Teste />
     </div>
   )
 }

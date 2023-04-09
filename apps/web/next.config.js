@@ -1,4 +1,11 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+  distDir: 'build',
   reactStrictMode: true,
-  transpilePackages: ["ui"],
-};
+  transpilePackages: ['@sportspot/ui'],
+}
+
+module.exports = nextConfig
