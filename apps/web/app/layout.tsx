@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import StylesProvider from './components/styles-provider'
+import StylesProvider from './styles/styles-provider'
 
 export const metadata = {
   title: 'Next.js',
