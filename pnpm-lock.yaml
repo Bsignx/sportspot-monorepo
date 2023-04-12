@@ -145,6 +145,7 @@ importers:
 
   packages/ui:
     specifiers:
+      '@chakra-ui/next-js': ^2.1.2
       '@chakra-ui/react': ^2.5.5
       '@chakra-ui/styled-system': ^2.8.0
       '@chakra-ui/theme-tools': ^2.0.16
@@ -161,6 +162,7 @@ importers:
       tsup: ^6.2.3
       typescript: ^4.9.3
     dependencies:
+      '@chakra-ui/next-js': 2.1.2_p7pzwejb6no4tfvzepoxnp3yya
       '@chakra-ui/react': 2.5.5_c6i5dr7jvjroelsqs3whefrvt4
       '@chakra-ui/styled-system': 2.8.0
       '@chakra-ui/theme-tools': 2.0.16_wv7sq5bj4kx5i3evdevscgumbi
@@ -1876,6 +1878,20 @@ packages:
       react-remove-scroll: 2.5.5_fan5qbzahqtxlm5dzefqlqx5ia
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /@chakra-ui/next-js/2.1.2_p7pzwejb6no4tfvzepoxnp3yya:
+    resolution: {integrity: sha512-fbTeuFDBBk72HQ2UgtKIAMdT7Zuoz9icQIxZMGJMuzbB91gHHs5ZVUB965qPB0lg9UkzqQdb/lmT13BYa0PG0A==}
+    peerDependencies:
+      '@chakra-ui/react': '>=2.4.0'
+      '@emotion/react': '>=11'
+      next: '>=13'
+      react: '>=18'
+    dependencies:
+      '@chakra-ui/react': 2.5.5_c6i5dr7jvjroelsqs3whefrvt4
+      '@emotion/cache': 11.10.7
+      '@emotion/react': 11.10.6_fan5qbzahqtxlm5dzefqlqx5ia
+      react: 18.2.0
     dev: false
 
   /@chakra-ui/number-input/2.0.19_lze4h7kxffpjhokvtqbtrlfkmq:
