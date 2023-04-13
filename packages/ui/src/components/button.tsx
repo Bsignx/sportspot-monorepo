@@ -1,13 +1,29 @@
-import { Button as RootButton } from '@chakra-ui/react'
+import {
+  Button as RootButton,
+  ButtonProps as ButtonPropsRoot,
+} from '@chakra-ui/react'
 
-export type ButtonProps = {
-  children: string
-  onClick: () => void
-}
+export type ButtonProps = ButtonPropsRoot
 
-export const Button = ({ children = 'hiii', onClick }: ButtonProps) => {
+export const Button = ({ children, ...props }: ButtonProps) => {
   return (
-    <RootButton bgColor="brand.200" onClick={onClick}>
+    <RootButton
+      width="100%"
+      bgColor="black"
+      borderRadius="100px"
+      color="white"
+      padding="24px"
+      cursor="pointer"
+      border="none"
+      fontFamily="Poppins"
+      _hover={{
+        filter: 'brightness(0.9)',
+      }}
+      _active={{
+        filter: 'brightness(0.8)',
+      }}
+      {...props}
+    >
       {children}
     </RootButton>
   )

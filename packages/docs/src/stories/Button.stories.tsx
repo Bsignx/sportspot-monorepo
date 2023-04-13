@@ -6,7 +6,7 @@ export default {
   component: Button,
 
   args: {
-    children: 'Noup',
+    children: 'Get Started',
   },
   argTypes: {
     onClick: { action: 'clicked' },
