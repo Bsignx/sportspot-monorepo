@@ -1,12 +1,12 @@
-const runtimeCaching = require('next-pwa/cache')
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  runtimeCaching,
-})
+// const runtimeCaching = require('next-pwa/cache')
+// const withPWA = require('next-pwa')({
+//   dest: 'public',
+//   runtimeCaching,
+// })
 
 const plugins = []
 
-plugins.push(withPWA)
+// plugins.push(withPWA)
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
