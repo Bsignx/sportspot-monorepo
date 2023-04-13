@@ -5,6 +5,7 @@ export const MediumSizeLogo = () => (
     viewBox="0 0 128 107"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-label="Sportspot Logo"
   >
     <ellipse
       cx="63.3283"
