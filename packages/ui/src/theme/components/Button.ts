@@ -86,8 +86,26 @@ const variantSolid = defineStyle((props) => {
   }
 })
 
+const variantPrimary = defineStyle((props) => {
+  return {
+    width: props.isFullWidth ? '100%' : 'auto',
+    bg: 'black',
+    color: 'white',
+    borderRadius: '100px',
+    padding: '24px',
+    cursor: 'pointer',
+    _hover: {
+      filter: 'brightness(0.9)',
+    },
+    _active: {
+      filter: 'brightness(0.8)',
+    },
+  }
+})
+
 const variants = {
   solid: variantSolid,
+  primary: variantPrimary,
 }
 
 const sizes = {
@@ -122,7 +140,7 @@ export const buttonTheme = defineStyleConfig({
   variants,
   sizes,
   defaultProps: {
-    variant: 'solid',
+    variant: 'primary',
     size: 'md',
     colorScheme: 'gray',
   },
