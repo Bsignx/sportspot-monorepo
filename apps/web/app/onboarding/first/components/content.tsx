@@ -1,12 +1,21 @@
 'use client'
 
-import { Box } from '@sportspot/ui'
+import Link from 'next/link'
+import { Box, Button, Flex } from '@sportspot/ui'
 
 import { MediumSizeLogo as Logo } from '../../../components/logo/medium-size-logo'
 
 const Content = () => {
   return (
-    <Box h="100vh" w="100%" bg="gradient.200">
+    <Flex
+      h="100vh"
+      w="100%"
+      bg="gradient.200"
+      flexDir="column"
+      justifyContent="flex-end"
+      paddingBlockEnd="16"
+      paddingInline="6"
+    >
       <Box
         pos="absolute"
         top="50%"
@@ -15,7 +24,11 @@ const Content = () => {
       >
         <Logo />
       </Box>
-    </Box>
+
+      <Button as={Link} href="/onboarding/second" isFullWidth>
+        Get Started
+      </Button>
+    </Flex>
   )
 }
 
