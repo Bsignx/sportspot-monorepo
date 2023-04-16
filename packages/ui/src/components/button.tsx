@@ -7,9 +7,13 @@ export type ButtonProps = ButtonPropsRoot & {
   isFullWidth?: boolean
 }
 
-export const Button = ({ children, ...props }: ButtonProps) => {
+export const Button = ({
+  children,
+  variant = 'primary',
+  ...props
+}: ButtonProps) => {
   return (
-    <RootButton variant="primary" {...props}>
+    <RootButton variant={variant} {...props}>
       {children}
     </RootButton>
   )
