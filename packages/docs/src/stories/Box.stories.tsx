@@ -9,10 +9,7 @@ export default {
     children: (
       <>
         <h1>Box</h1>
-        <p>
-          Box is a component that can be used to create a container for other
-          components.
-        </p>
+        <p>Box is a component that can be used to create a container for other components.</p>
       </>
     ),
   },

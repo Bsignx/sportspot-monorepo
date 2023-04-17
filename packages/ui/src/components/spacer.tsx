@@ -1,7 +1,4 @@
-import {
-  SpacerProps as SpacerPropsRoot,
-  Spacer as SpacerRoot,
-} from '@chakra-ui/react'
+import { SpacerProps as SpacerPropsRoot, Spacer as SpacerRoot } from '@chakra-ui/react'
 
 export type SpacerProps = SpacerPropsRoot
 

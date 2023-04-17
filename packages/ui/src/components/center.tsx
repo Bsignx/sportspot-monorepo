@@ -1,7 +1,4 @@
-import {
-  CenterProps as CenterPropsRoot,
-  Center as CenterRoot,
-} from '@chakra-ui/react'
+import { CenterProps as CenterPropsRoot, Center as CenterRoot } from '@chakra-ui/react'
 
 export type CenterProps = CenterPropsRoot
 

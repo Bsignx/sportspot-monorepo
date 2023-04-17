@@ -12,11 +12,7 @@ export function ColorsGrid() {
             display: 'flex',
             justifyContent: 'space-between',
             fontFamily: 'monospace',
-            color: isGradient(color)
-              ? '#000'
-              : getContrast(color, '#FFF') < 3.5
-              ? '#000'
-              : '#FFF',
+            color: isGradient(color) ? '#000' : getContrast(color, '#FFF') < 3.5 ? '#000' : '#FFF',
           }}
         >
           <strong>${key}</strong>

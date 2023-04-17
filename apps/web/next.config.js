@@ -18,5 +18,4 @@ const nextConfig = {
   transpilePackages: ['@sportspot/ui'],
 }
 
-module.exports = module.exports = () =>
-  plugins.reduce((acc, next) => next(acc), nextConfig)
+module.exports = module.exports = () => plugins.reduce((acc, next) => next(acc), nextConfig)

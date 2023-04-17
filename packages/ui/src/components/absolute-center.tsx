@@ -1,4 +1,7 @@
-import { AbsoluteCenterProps as AbsoluteCenterPropsRoot, AbsoluteCenter as AbsoluteCenterRoot } from '@chakra-ui/react'
+import {
+  AbsoluteCenterProps as AbsoluteCenterPropsRoot,
+  AbsoluteCenter as AbsoluteCenterRoot,
+} from '@chakra-ui/react'
 
 export type AbsoluteCenterProps = AbsoluteCenterPropsRoot
 

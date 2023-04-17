@@ -1,9 +1,9 @@
-import { themes } from "@storybook/theming";
+import { themes } from '@storybook/theming'
 
-import { ThemeDecorator } from "./decorators";
+import { ThemeDecorator } from './decorators'
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -13,6 +13,6 @@ export const parameters = {
   docs: {
     theme: themes.dark,
   },
-};
+}
 
-export const decorators = [ThemeDecorator];
+export const decorators = [ThemeDecorator]

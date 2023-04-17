@@ -1,7 +1,4 @@
-import {
-  StackProps as VStackPropsRoot,
-  VStack as VStackRoot,
-} from '@chakra-ui/react'
+import { StackProps as VStackPropsRoot, VStack as VStackRoot } from '@chakra-ui/react'
 
 export type VStackProps = VStackPropsRoot
 

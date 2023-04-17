@@ -1,7 +1,4 @@
-import {
-  ContainerProps as ContainerPropsRoot,
-  Container as ContainerRoot,
-} from '@chakra-ui/react'
+import { ContainerProps as ContainerPropsRoot, Container as ContainerRoot } from '@chakra-ui/react'
 
 export type ContainerProps = ContainerPropsRoot
 

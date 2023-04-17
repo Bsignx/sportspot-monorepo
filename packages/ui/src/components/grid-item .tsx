@@ -1,7 +1,4 @@
-import {
-  GridItemProps as GridItemPropsRoot,
-  GridItem as GridItemRoot,
-} from '@chakra-ui/react'
+import { GridItemProps as GridItemPropsRoot, GridItem as GridItemRoot } from '@chakra-ui/react'
 
 export type GridItemProps = GridItemPropsRoot
 

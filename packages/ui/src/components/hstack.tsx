@@ -1,7 +1,4 @@
-import {
-  StackProps as HStackPropsRoot,
-  HStack as HStackRoot,
-} from '@chakra-ui/react'
+import { StackProps as HStackPropsRoot, HStack as HStackRoot } from '@chakra-ui/react'
 
 export type HStackProps = HStackPropsRoot
 
