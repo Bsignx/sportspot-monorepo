@@ -1,9 +1,4 @@
 {
-  "root": true,
-  "extends": ["@sportspot/eslint-config"],
-  "settings": {
-    "next": {
-      "rootDir": ["apps/*/"]
-    }
-  }
+  "**/*.{js,jsx,ts,tsx}": ["eslint", "prettier --write"],
+  "**/*.json": ["prettier --write"]
 }

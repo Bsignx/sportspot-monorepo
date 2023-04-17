@@ -4,14 +4,15 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
   },
   "devDependencies": {
     "@sportspot/eslint-config": "workspace:*",
     "eslint": "^7.32.0",
     "husky": "^8.0.3",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.0",
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.15.0"
