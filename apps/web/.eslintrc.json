@@ -1,1 +1,1 @@
-{ "root": true, "extends": "@sportspot/eslint-config" }
+{ "root": true, "extends": ["@sportspot/eslint-config", "plugin:@next/next/recommended"] }

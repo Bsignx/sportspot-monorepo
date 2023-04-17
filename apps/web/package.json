@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.3.0",
     "@sportspot/eslint-config": "workspace:*",
     "@sportspot/ts-config": "workspace:*",
     "@types/node": "^17.0.12",
