@@ -13,11 +13,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint",
+      "pnpm run lint:fix",
       "pnpm run format:write"
     ],
     "**/*.json": [
-      "pnpm run lint"
+      "pnpm run format:write"
     ]
   },
   "devDependencies": {
