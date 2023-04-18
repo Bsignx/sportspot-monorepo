@@ -10,6 +10,11 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": [
+      "pnpm run format:write"
+    ]
+  },
   "devDependencies": {
     "@sportspot/eslint-config": "workspace:*",
     "eslint": "^7.32.0",
