@@ -11,15 +11,6 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "pnpm run lint:fix",
-      "pnpm run format:write"
-    ],
-    "**/*.json": [
-      "pnpm run format:write"
-    ]
-  },
   "devDependencies": {
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
