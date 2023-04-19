@@ -12,6 +12,8 @@
     "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.0",
