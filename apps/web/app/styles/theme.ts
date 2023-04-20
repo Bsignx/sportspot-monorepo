@@ -11,5 +11,11 @@ export const theme = {
   },
   styles: {
     ...rootTheme.styles,
+    global: {
+      ...rootTheme.styles.global,
+      'html, body': {
+        bg: 'gradient.200',
+      },
+    },
   },
 } as Chakra.Theme

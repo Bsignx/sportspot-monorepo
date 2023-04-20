@@ -10,7 +10,6 @@ const Content = () => {
     <Flex
       h="100vh"
       w="100%"
-      bg="gradient.200"
       flexDir="column"
       justifyContent="flex-end"
       paddingBlockEnd="16"
