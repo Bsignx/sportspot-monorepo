@@ -86,9 +86,8 @@ const variantSolid = defineStyle((props) => {
   }
 })
 
-const variantPrimary = defineStyle((props) => {
+const variantPrimary = defineStyle(() => {
   return {
-    width: props.isFullWidth ? '100%' : 'auto',
     bg: 'black',
     color: 'white',
     borderRadius: '100px',

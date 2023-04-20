@@ -5,9 +5,15 @@ export type ButtonProps = ButtonPropsRoot & {
   href?: string
 }
 
-export const Button = ({ children, variant = 'primary', href, ...props }: ButtonProps) => {
+export const Button = ({
+  children,
+  variant = 'primary',
+  href,
+  isFullWidth,
+  ...props
+}: ButtonProps) => {
   return (
-    <RootButton variant={variant} href={href} {...props}>
+    <RootButton variant={variant} href={href} w={isFullWidth ? '100%' : 'auto'} {...props}>
       {children}
     </RootButton>
   )
