@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
-import StylesProvider from './styles/styles-provider'
 import { Metadata } from 'next'
+
+import StylesProvider from './styles/styles-provider'
 
 export const metadata: Metadata = {
   title: 'Next.js',
@@ -12,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <StylesProvider>{children}</StylesProvider>
+        <StylesProvider> {children} </StylesProvider>
       </body>
     </html>
   )

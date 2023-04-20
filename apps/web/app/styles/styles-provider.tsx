@@ -1,6 +1,8 @@
 'use client'
 
-import { Chakra, theme, NextChakra } from '@sportspot/ui'
+import { Chakra, NextChakra } from '@sportspot/ui'
+
+import { theme } from './theme'
 
 const StylesProvider = ({ children }) => {
   return (
