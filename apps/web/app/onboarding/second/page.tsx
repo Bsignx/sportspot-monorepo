@@ -1,9 +1,7 @@
+import Template from './components/template'
+
 const OnboardingSecondPage = () => {
-  return (
-    <div>
-      <h1>OnboardingSecond</h1>
-    </div>
-  )
+  return <Template />
 }
 
 export default OnboardingSecondPage

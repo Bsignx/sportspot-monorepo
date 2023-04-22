@@ -1,11 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { Box, Button, Flex } from '@sportspot/ui'
+import { Box, Button, Flex, Icons } from '@sportspot/ui'
 
-import { Icons } from '../../../components/icons'
-
-const Content = () => {
+const Template = () => {
   return (
     <Flex
       h="100vh"
@@ -26,4 +24,4 @@ const Content = () => {
   )
 }
 
-export default Content
+export default Template

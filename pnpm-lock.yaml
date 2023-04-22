@@ -166,6 +166,7 @@ importers:
       '@types/react-dom': ^18.0.7
       eslint: ^7.32.0
       framer-motion: ^10.10.0
+      lucide-react: ^0.172.0
       react: ^18.2.0
       tsup: ^6.2.3
       typescript: ^4.9.3
@@ -177,6 +178,7 @@ importers:
       '@emotion/react': 11.10.6_fan5qbzahqtxlm5dzefqlqx5ia
       '@emotion/styled': 11.10.6_36w5hsinjku373i4fj56ptnobm
       framer-motion: 10.10.0_react@18.2.0
+      lucide-react: 0.172.0_react@18.2.0
     devDependencies:
       '@sportspot/eslint-config': link:../eslint-config
       '@sportspot/tokens': link:../tokens
@@ -8894,6 +8896,14 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lucide-react/0.172.0_react@18.2.0:
+    resolution: {integrity: sha512-Rpc0RSYGEFFrcT2toNjSzYKZ40rfc0D7vYp6C27e86Qyh5TwtPs5LS14hnjweH1REk45AFNeVnU+z+rXvb93ug==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /lz-string/1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
