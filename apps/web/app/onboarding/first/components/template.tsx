@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Box, Button, Flex } from '@sportspot/ui'
 
-import { MediumSizeLogo as Logo } from '../../../components/logo/medium-size-logo'
+import { Icons } from '../../../components/icons'
 
 const Content = () => {
   return (
@@ -16,7 +16,7 @@ const Content = () => {
       paddingInline="6"
     >
       <Box pos="absolute" top="50%" left="50%" transform="translate(-50%, -50%)">
-        <Logo />
+        <Icons.logo.medium />
       </Box>
 
       <Button as={Link} href="/onboarding/second" isFullWidth>
