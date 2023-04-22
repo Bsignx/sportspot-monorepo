@@ -1,12 +1,12 @@
 import {
-  AbsoluteCenterProps as AbsoluteCenterPropsRoot,
-  AbsoluteCenter as AbsoluteCenterRoot,
+  AbsoluteCenterProps as RootAbsoluteCenterProps,
+  AbsoluteCenter as RootAbsoluteCenter,
 } from '@chakra-ui/react'
 
-export type AbsoluteCenterProps = AbsoluteCenterPropsRoot
+export type AbsoluteCenterProps = RootAbsoluteCenterProps
 
 export const AbsoluteCenter = ({ children, ...props }: AbsoluteCenterProps) => (
-  <AbsoluteCenterRoot {...props}>{children}</AbsoluteCenterRoot>
+  <RootAbsoluteCenter {...props}>{children}</RootAbsoluteCenter>
 )
 
 AbsoluteCenter.displayName = 'AbsoluteCenter'

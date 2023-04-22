@@ -1,6 +1,6 @@
-import { Button as RootButton, ButtonProps as ButtonPropsRoot } from '@chakra-ui/react'
+import { Button as RootButton, ButtonProps as RootButtonProps } from '@chakra-ui/react'
 
-export type ButtonProps = ButtonPropsRoot & {
+export type ButtonProps = RootButtonProps & {
   isFullWidth?: boolean
   href?: string
 }

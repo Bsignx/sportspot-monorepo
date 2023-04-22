@@ -1,12 +1,12 @@
 import {
-  AspectRatioProps as AspectRatioPropsRoot,
-  AspectRatio as AspectRatioRoot,
+  AspectRatioProps as RootAspectRatioProps,
+  AspectRatio as RootAspectRatio,
 } from '@chakra-ui/react'
 
-export type AspectRatioProps = AspectRatioPropsRoot
+export type AspectRatioProps = RootAspectRatioProps
 
 export const AspectRatio = ({ children, ...props }: AspectRatioProps) => (
-  <AspectRatioRoot {...props}>{children}</AspectRatioRoot>
+  <RootAspectRatio {...props}>{children}</RootAspectRatio>
 )
 
 AspectRatio.displayName = 'AspectRatio'

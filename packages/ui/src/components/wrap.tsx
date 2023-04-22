@@ -1,9 +1,9 @@
-import { WrapProps as WrapPropsRoot, Wrap as WrapRoot } from '@chakra-ui/react'
+import { WrapProps as RootWrapProps, Wrap as RootWrap } from '@chakra-ui/react'
 
-export type WrapProps = WrapPropsRoot
+export type WrapProps = RootWrapProps
 
 export const Wrap = ({ children, ...props }: WrapProps) => (
-  <WrapRoot {...props}>{children}</WrapRoot>
+  <RootWrap {...props}>{children}</RootWrap>
 )
 
 Wrap.displayName = 'Wrap'

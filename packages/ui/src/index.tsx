@@ -13,6 +13,9 @@ export * from './components/container'
 export * from './components/simple-grid'
 export * from './components/spacer'
 export * from './components/absolute-center'
+export * from './components/text'
+export * from './components/heading'
+export * from './components/highlight'
 
 export * from './theme'
 

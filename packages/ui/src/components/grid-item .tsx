@@ -1,9 +1,9 @@
-import { GridItemProps as GridItemPropsRoot, GridItem as GridItemRoot } from '@chakra-ui/react'
+import { GridItemProps as RootGridItemProps, GridItem as RootGridItem } from '@chakra-ui/react'
 
-export type GridItemProps = GridItemPropsRoot
+export type GridItemProps = RootGridItemProps
 
 export const GridItem = ({ children, ...props }: GridItemProps) => (
-  <GridItemRoot {...props}>{children}</GridItemRoot>
+  <RootGridItem {...props}>{children}</RootGridItem>
 )
 
 GridItem.displayName = 'GridItem'

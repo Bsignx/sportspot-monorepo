@@ -1,9 +1,9 @@
-import { ContainerProps as ContainerPropsRoot, Container as ContainerRoot } from '@chakra-ui/react'
+import { ContainerProps as RootContainerProps, Container as RootContainer } from '@chakra-ui/react'
 
-export type ContainerProps = ContainerPropsRoot
+export type ContainerProps = RootContainerProps
 
 export const Container = ({ children, ...props }: ContainerProps) => (
-  <ContainerRoot {...props}>{children}</ContainerRoot>
+  <RootContainer {...props}>{children}</RootContainer>
 )
 
 Container.displayName = 'Container'

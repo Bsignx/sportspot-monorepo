@@ -1,7 +1,7 @@
-import { BoxProps as BoxPropsRoot, Box as BoxRoot } from '@chakra-ui/react'
+import { BoxProps as RootBoxProps, Box as RootBox } from '@chakra-ui/react'
 
-export type BoxProps = BoxPropsRoot
+export type BoxProps = RootBoxProps
 
-export const Box = ({ children, ...props }: BoxProps) => <BoxRoot {...props}>{children}</BoxRoot>
+export const Box = ({ children, ...props }: BoxProps) => <RootBox {...props}>{children}</RootBox>
 
 Box.displayName = 'Box'

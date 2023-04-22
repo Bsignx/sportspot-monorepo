@@ -1,12 +1,12 @@
 import {
-  SimpleGridProps as SimpleGridPropsRoot,
-  SimpleGrid as SimpleGridRoot,
+  SimpleGridProps as RootSimpleGridProps,
+  SimpleGrid as RootSimpleGrid,
 } from '@chakra-ui/react'
 
-export type SimpleGridProps = SimpleGridPropsRoot
+export type SimpleGridProps = RootSimpleGridProps
 
 export const SimpleGrid = ({ children, ...props }: SimpleGridProps) => (
-  <SimpleGridRoot {...props}>{children}</SimpleGridRoot>
+  <RootSimpleGrid {...props}>{children}</RootSimpleGrid>
 )
 
 SimpleGrid.displayName = 'SimpleGrid'

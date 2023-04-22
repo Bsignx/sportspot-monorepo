@@ -1,9 +1,9 @@
-import { WrapItemProps as WrapItemPropsRoot, WrapItem as WrapItemRoot } from '@chakra-ui/react'
+import { WrapItemProps as RootWrapItemProps, WrapItem as RootWrapItem } from '@chakra-ui/react'
 
-export type WrapItemProps = WrapItemPropsRoot
+export type WrapItemProps = RootWrapItemProps
 
 export const WrapItem = ({ children, ...props }: WrapItemProps) => (
-  <WrapItemRoot {...props}>{children}</WrapItemRoot>
+  <RootWrapItem {...props}>{children}</RootWrapItem>
 )
 
 WrapItem.displayName = 'WrapItem'

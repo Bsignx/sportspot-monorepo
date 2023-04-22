@@ -1,9 +1,9 @@
-import { StackProps as HStackPropsRoot, HStack as HStackRoot } from '@chakra-ui/react'
+import { StackProps as RootHStackProps, HStack as RootHStack } from '@chakra-ui/react'
 
-export type HStackProps = HStackPropsRoot
+export type HStackProps = RootHStackProps
 
 export const HStack = ({ children, ...props }: HStackProps) => (
-  <HStackRoot {...props}>{children}</HStackRoot>
+  <RootHStack {...props}>{children}</RootHStack>
 )
 
 HStack.displayName = 'HStack'

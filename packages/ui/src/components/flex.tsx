@@ -1,9 +1,9 @@
-import { FlexProps as FlexPropsRoot, Flex as FlexRoot } from '@chakra-ui/react'
+import { FlexProps as RootFlexProps, Flex as RootFlex } from '@chakra-ui/react'
 
-export type FlexProps = FlexPropsRoot
+export type FlexProps = RootFlexProps
 
 export const Flex = ({ children, ...props }: FlexProps) => (
-  <FlexRoot {...props}>{children}</FlexRoot>
+  <RootFlex {...props}>{children}</RootFlex>
 )
 
 Flex.displayName = 'Flex'

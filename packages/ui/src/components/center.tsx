@@ -1,9 +1,9 @@
-import { CenterProps as CenterPropsRoot, Center as CenterRoot } from '@chakra-ui/react'
+import { CenterProps as RootCenterProps, Center as RootCenter } from '@chakra-ui/react'
 
-export type CenterProps = CenterPropsRoot
+export type CenterProps = RootCenterProps
 
 export const Center = ({ children, ...props }: CenterProps) => (
-  <CenterRoot {...props}>{children}</CenterRoot>
+  <RootCenter {...props}>{children}</RootCenter>
 )
 
 Center.displayName = 'Center'

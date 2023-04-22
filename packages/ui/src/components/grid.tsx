@@ -1,9 +1,9 @@
-import { GridProps as GridPropsRoot, Grid as GridRoot } from '@chakra-ui/react'
+import { GridProps as RootGridProps, Grid as RootGrid } from '@chakra-ui/react'
 
-export type GridProps = GridPropsRoot
+export type GridProps = RootGridProps
 
 export const Grid = ({ children, ...props }: GridProps) => (
-  <GridRoot {...props}>{children}</GridRoot>
+  <RootGrid {...props}>{children}</RootGrid>
 )
 
 Grid.displayName = 'Grid'

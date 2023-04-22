@@ -1,9 +1,9 @@
-import { SpacerProps as SpacerPropsRoot, Spacer as SpacerRoot } from '@chakra-ui/react'
+import { SpacerProps as RootSpacerProps, Spacer as RootSpacer } from '@chakra-ui/react'
 
-export type SpacerProps = SpacerPropsRoot
+export type SpacerProps = RootSpacerProps
 
 export const Spacer = ({ children, ...props }: SpacerProps) => (
-  <SpacerRoot {...props}>{children}</SpacerRoot>
+  <RootSpacer {...props}>{children}</RootSpacer>
 )
 
 Spacer.displayName = 'Spacer'

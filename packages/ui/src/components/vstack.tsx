@@ -1,9 +1,9 @@
-import { StackProps as VStackPropsRoot, VStack as VStackRoot } from '@chakra-ui/react'
+import { StackProps as RootVStackProps, VStack as RootVStack } from '@chakra-ui/react'
 
-export type VStackProps = VStackPropsRoot
+export type VStackProps = RootVStackProps
 
 export const VStack = ({ children, ...props }: VStackProps) => (
-  <VStackRoot {...props}>{children}</VStackRoot>
+  <RootVStack {...props}>{children}</RootVStack>
 )
 
 VStack.displayName = 'VStack'

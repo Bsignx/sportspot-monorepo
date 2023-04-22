@@ -1,9 +1,9 @@
-import { StackProps as StackPropsRoot, Stack as StackRoot } from '@chakra-ui/react'
+import { StackProps as RootStackProps, Stack as RootStack } from '@chakra-ui/react'
 
-export type StackProps = StackPropsRoot
+export type StackProps = RootStackProps
 
 export const Stack = ({ children, ...props }: StackProps) => (
-  <StackRoot {...props}>{children}</StackRoot>
+  <RootStack {...props}>{children}</RootStack>
 )
 
 Stack.displayName = 'Stack'
