@@ -16,6 +16,8 @@ export * from './components/absolute-center'
 export * from './components/text'
 export * from './components/heading'
 export * from './components/highlight'
+export * from './components/floating-button'
+export * from './components/icons'
 
 export * from './theme'
 

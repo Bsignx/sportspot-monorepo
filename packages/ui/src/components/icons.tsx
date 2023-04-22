@@ -1,5 +1,7 @@
 import { SVGProps } from 'react'
 
+import { ChevronRight } from 'lucide-react'
+
 export const Icons = {
   logo: {
     medium: ({ ...props }: SVGProps<SVGSVGElement>) => (
@@ -23,5 +25,8 @@ export const Icons = {
         />
       </svg>
     ),
+  },
+  chevron: {
+    right: ChevronRight,
   },
 }
