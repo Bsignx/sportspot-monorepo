@@ -1,7 +1,7 @@
 import Template from './components/template'
 
-const OnboardingFirstPage = () => {
+const Onboarding2Page = () => {
   return <Template />
 }
 
-export default OnboardingFirstPage
+export default Onboarding2Page
