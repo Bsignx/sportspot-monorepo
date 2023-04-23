@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { NextChakra, Heading, VStack, Text, FloatingButton, Icons, Box } from '@sportspot/ui'
+import { NextChakra, Heading, VStack, Text, FloatingButton, Icons } from '@sportspot/ui'
 import { colors } from '@sportspot/tokens'
 
 const Template = () => {
