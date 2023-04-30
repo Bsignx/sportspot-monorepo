@@ -7,6 +7,7 @@ const brand = {
 }
 
 const gray = {
+  50: colorsTokens.grayscale50,
   100: colorsTokens.grayscale100,
   200: colorsTokens.grayscale200,
   300: colorsTokens.grayscale300,

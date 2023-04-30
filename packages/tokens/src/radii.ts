@@ -5,7 +5,7 @@ export const radii = {
   md: '0.375rem',
   lg: '0.5rem',
   xl: '0.75rem',
-  '2xl': '1rem',
+  '2xl': '0.875rem',
   '3xl': '1.5rem',
   full: '9999px',
 }
