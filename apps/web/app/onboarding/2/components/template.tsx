@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { NextChakra, Heading, VStack, Text, FloatingButton, Icons } from '@sportspot/ui'
+import { Heading, VStack, Text, FloatingButton, Icons, NextChakra } from '@sportspot/ui'
 import { colors } from '@sportspot/tokens'
 
 const Template = () => {
@@ -10,17 +10,14 @@ const Template = () => {
       <NextChakra.Image
         width={700}
         height={475}
-        placeholder="blur"
-        blurDataURL="/images/blur-onboarding-1.png"
+        sizes="100vw"
         css={{
-          width: '100%',
+          maxWidth: '100%',
           height: 'auto',
         }}
-        sizes="100vw"
         src="/images/onboarding-1.png"
         alt="Girl in fitness clothes waving"
       />
-
       <VStack paddingInline={6} paddingBlockStart={6} spacing="4">
         <Heading as="h1" fontSize="2xl" fontWeight="extrabold" color="black">
           Find the right sport spot for you
