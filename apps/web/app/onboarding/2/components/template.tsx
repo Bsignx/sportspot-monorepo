@@ -13,7 +13,8 @@ const Template = () => {
         sizes="100vw"
         css={{
           maxWidth: '100%',
-          height: 'auto',
+          height: '65vh',
+          objectFit: 'cover',
         }}
         src="/images/onboarding-1.png"
         alt="Girl in fitness clothes waving"
