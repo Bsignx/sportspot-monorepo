@@ -1,9 +1,9 @@
 'use client'
 
 import { OrAuth } from './or-auth'
-import { LoginInputs } from './login-inputs'
+import { RegisterForm } from './register-form'
+import { RedirectLogin } from './redirect-login'
 import { Authentication } from './authentication'
-import { RedirectRegister } from './redirect-register'
 
 import { Box, Heading, Text, Stack, VStack } from '@sportspot/ui'
 
@@ -16,13 +16,13 @@ const Template = () => {
             <Text as="span" fontSize="xl" fontWeight="normal">
               Hey there,
             </Text>
-            <br /> Welcome back
+            <br /> Create an Account
           </Heading>
-          <LoginInputs />
+          <RegisterForm />
           <OrAuth />
 
           <Authentication />
-          <RedirectRegister />
+          <RedirectLogin />
         </Stack>
       </Box>
     </VStack>

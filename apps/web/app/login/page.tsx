@@ -1,5 +1,5 @@
-import { getCurrentUser } from '../../helpers/session'
 import Template from './components/template'
+import { getCurrentUser } from '../../helpers/session'
 
 const LoginPage = async () => {
   const user = await getCurrentUser()

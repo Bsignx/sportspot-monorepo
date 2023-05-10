@@ -1,4 +1,4 @@
-import { buttonTheme } from './button'
+import { buttonTheme } from './Button'
 import { inputTheme } from './input'
 
 export const components = {
