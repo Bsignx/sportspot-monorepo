@@ -4,6 +4,7 @@ export const colors = {
   tertiary: '#25CAFE',
   dark: '#212121',
   light: '#FFFFFF',
+  lineBorder: '#DDDADA',
   grayscale50: '#F7F8F8',
   grayscale100: '#EFEDE9',
   grayscale200: '#BCBCBC',
