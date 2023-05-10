@@ -27,4 +27,3 @@ export * from './theme'
 
 export * as Chakra from '@chakra-ui/react'
 export * as NextChakra from '@chakra-ui/next-js'
-export * as FramerMotion from 'framer-motion'

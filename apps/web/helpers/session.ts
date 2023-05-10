@@ -1,6 +1,6 @@
-import { authOptions } from '../config/auth'
-
 import { getServerSession } from 'next-auth/next'
+
+import { authOptions } from '../config/auth'
 
 async function getSession() {
   return await getServerSession(authOptions)

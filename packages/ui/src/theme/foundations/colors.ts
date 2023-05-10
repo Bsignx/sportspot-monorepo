@@ -17,8 +17,6 @@ const black = colorsTokens.dark
 
 const white = colorsTokens.light
 
-const lineBorder = colorsTokens.lineBorder
-
 const gradient = {
   100: colorsTokens.gradient1,
   200: colorsTokens.gradient2,
@@ -30,7 +28,6 @@ const colors = {
   black,
   white,
   gradient,
-  lineBorder,
 }
 
 export default colors
