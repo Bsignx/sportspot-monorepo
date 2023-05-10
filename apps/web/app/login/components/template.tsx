@@ -1,9 +1,9 @@
 'use client'
 
 import { OrAuth } from './or-auth'
-import { RedirectRegister } from './redirect-register'
 import { LoginInputs } from './login-inputs'
 import { Authentication } from './authentication'
+import { RedirectRegister } from './redirect-register'
 
 import { Box, Heading, Text, Stack, VStack } from '@sportspot/ui'
 

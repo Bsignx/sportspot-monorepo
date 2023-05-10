@@ -1,8 +1,8 @@
 'use client'
 
-import { RedirectLogin } from './redirect-login'
 import { OrAuth } from './or-auth'
 import { RegisterForm } from './register-form'
+import { RedirectLogin } from './redirect-login'
 import { Authentication } from './authentication'
 
 import { Box, Heading, Text, Stack, VStack } from '@sportspot/ui'
