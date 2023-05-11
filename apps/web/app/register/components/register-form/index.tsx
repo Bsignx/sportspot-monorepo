@@ -5,10 +5,11 @@ import { InputPassword } from './input-password'
 import { CheckboxTerms } from './checkbox-terms'
 import { InputLastName } from './input-last-name'
 import { InputFirstName } from './input-first-name'
+import { responsiveRegister } from 'helpers/responsives'
 
 import { signIn } from 'next-auth/react'
 
-import { VStack, Button } from '@sportspot/ui'
+import { VStack, Button, Chakra } from '@sportspot/ui'
 
 import { useForm, UseFormRegister, FieldErrorsImpl } from 'react-hook-form'
 
@@ -23,6 +24,7 @@ type FormInputs = {
 export type FormRegisterProps = {
   register: UseFormRegister<FormInputs>
   errors: Partial<FieldErrorsImpl<FormInputs>>
+  rInput: Chakra.ResponsiveObject<string | number>
 }
 
 export const RegisterForm = () => {
@@ -34,6 +36,10 @@ export const RegisterForm = () => {
 
   const isErrorExists = Boolean(Object.keys(errors).length)
   const isDisabled = (isSubmitted && !isValid) || isErrorExists
+
+  const {
+    form: { rBottomBtn, rInput },
+  } = responsiveRegister(isErrorExists)
 
   async function onSubmit(data: FormInputs) {
     try {
@@ -61,25 +67,27 @@ export const RegisterForm = () => {
   }
 
   return (
-    <VStack as="form" spacing={4} onSubmit={handleSubmit(onSubmit)}>
-      <InputFirstName errors={errors} register={register} />
+    <VStack as="form" onSubmit={handleSubmit(onSubmit)}>
+      <VStack spacing={4}>
+        <InputFirstName errors={errors} register={register} rInput={rInput} />
 
-      <InputLastName errors={errors} register={register} />
+        <InputLastName errors={errors} register={register} rInput={rInput} />
 
-      <InputEmail errors={errors} register={register} />
+        <InputEmail errors={errors} register={register} rInput={rInput} />
 
-      <InputPassword errors={errors} register={register} />
+        <InputPassword errors={errors} register={register} rInput={rInput} />
 
-      <CheckboxTerms errors={errors} register={register} />
+        <CheckboxTerms errors={errors} register={register} rInput={rInput} />
+      </VStack>
 
       <Button
+        pos="relative"
+        bottom={rBottomBtn}
         type="submit"
-        pos="absolute"
-        top="547px"
-        w="full"
         bg="black"
         isDisabled={isDisabled}
         isLoading={isSubmitting}
+        w={rInput}
       >
         Register
       </Button>

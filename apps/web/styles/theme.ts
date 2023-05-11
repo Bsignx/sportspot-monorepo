@@ -10,6 +10,14 @@ type ThemeTypes = Chakra.Theme & {
   }
 }
 
+const breakpoints = {
+  sm: '23.438em',
+  md: '48em',
+  lg: '62em',
+  xl: '80em',
+  '2xl': '96em',
+}
+
 export const theme = {
   ...rootTheme,
   fonts: {
@@ -26,4 +34,6 @@ export const theme = {
       },
     },
   },
+
+  breakpoints,
 } as ThemeTypes

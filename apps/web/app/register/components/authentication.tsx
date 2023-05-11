@@ -7,7 +7,7 @@ import { HStack, Button } from '@sportspot/ui'
 
 export const Authentication = () => {
   return (
-    <HStack pos="absolute" top="667px" w="full" justify="center" spacing={8}>
+    <HStack w="full" justify="center" spacing={8} pb={2}>
       <Button
         variant="unstyled"
         onClick={() => signIn('google', { redirect: true, callbackUrl: '/' })}

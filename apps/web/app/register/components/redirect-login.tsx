@@ -4,12 +4,12 @@ import { Text, NextChakra } from '@sportspot/ui'
 export const RedirectLogin = () => {
   return (
     <Text
-      pos="absolute"
       w="full"
       fontFamily="altHeading"
       textAlign="center"
       color="grayscale300"
-      top="753px"
+      opacity=".7"
+      pb={{ base: 12, sm: 0 }}
     >
       Already have an account? &nbsp;
       <NextChakra.Link as={NextLink} href="/login" fontWeight="bold">

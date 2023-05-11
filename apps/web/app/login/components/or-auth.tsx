@@ -3,9 +3,7 @@ import { Text } from '@sportspot/ui'
 export const OrAuth = () => {
   return (
     <Text
-      pos="absolute"
-      top="630px"
-      w="full"
+      w={{ base: '88%', md: 'full' }}
       display="flex"
       alignItems="center"
       gap={3}

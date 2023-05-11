@@ -2,10 +2,11 @@
 
 import { InputEmail } from './input-email'
 import { InputPassword } from './input-password'
+import { responsiveLogin } from 'helpers/responsives'
 
 import { signIn } from 'next-auth/react'
 
-import { VStack, Button } from '@sportspot/ui'
+import { VStack, Button, NextChakra, Chakra } from '@sportspot/ui'
 
 import { useForm, UseFormRegister, FieldErrorsImpl } from 'react-hook-form'
 
@@ -17,6 +18,7 @@ type FormInputs = {
 export type FormLoginInputs = {
   register: UseFormRegister<FormInputs>
   errors: Partial<FieldErrorsImpl<FormInputs>>
+  rInput: Chakra.ResponsiveObject<string | number>
 }
 
 export const LoginInputs = () => {
@@ -28,6 +30,10 @@ export const LoginInputs = () => {
 
   const isErrorExists = Boolean(Object.keys(errors).length)
   const isDisabled = (isSubmitted && !isValid) || isErrorExists
+
+  const {
+    form: { rInput, rBottomBtn },
+  } = responsiveLogin(isErrorExists)
 
   async function onSubmit({ email, password }: FormInputs) {
     try {
@@ -42,19 +48,34 @@ export const LoginInputs = () => {
   }
 
   return (
-    <VStack as="form" spacing={4} onSubmit={handleSubmit(onSubmit)}>
-      <InputEmail errors={errors} register={register} />
+    <VStack as="form" onSubmit={handleSubmit(onSubmit)}>
+      <VStack spacing={4} pos="relative">
+        <InputEmail errors={errors} register={register} rInput={rInput} />
 
-      <InputPassword errors={errors} register={register} />
+        <InputPassword errors={errors} register={register} rInput={rInput} />
+
+        <NextChakra.Link
+          pos="absolute"
+          bottom="-9"
+          as={NextChakra.Link}
+          href="#"
+          opacity=".7"
+          textAlign="center"
+          color="grayscale300"
+          fontFamily="altHeading"
+        >
+          Forgot your password?
+        </NextChakra.Link>
+      </VStack>
 
       <Button
+        pos="relative"
+        bottom={rBottomBtn}
         type="submit"
-        pos="absolute"
-        top="547px"
-        w="full"
         bg="black"
         isDisabled={isDisabled}
         isLoading={isSubmitting}
+        w={rInput}
       >
         Login
       </Button>
