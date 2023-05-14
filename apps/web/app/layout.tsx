@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { Metadata } from 'next'
 
 import StylesProvider from '../styles/styles-provider'
+import BottomNavigation from '@/components/bottom-navigation'
 
 export const metadata: Metadata = {
   title: 'Next.js',
@@ -13,7 +14,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <StylesProvider> {children} </StylesProvider>
+        <StylesProvider>
+          {children}
+          <BottomNavigation />
+        </StylesProvider>
       </body>
     </html>
   )
