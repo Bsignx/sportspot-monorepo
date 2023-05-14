@@ -1,5 +1,6 @@
 'use client'
 
+import { publicRoutes } from '@/config/public-routes'
 import { colors } from '@sportspot/tokens'
 import { Flex, Icons, NextChakra } from '@sportspot/ui'
 import { useSelectedLayoutSegment } from 'next/navigation'
@@ -33,6 +34,12 @@ const links = [
 
 const BottomNavigation = () => {
   const activeSegment = useSelectedLayoutSegment()
+
+  const isPublicRoute = publicRoutes.includes(activeSegment ?? '')
+
+  if (isPublicRoute) {
+    return null
+  }
 
   return (
     <Flex
