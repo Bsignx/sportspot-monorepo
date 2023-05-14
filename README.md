@@ -1,87 +1,69 @@
-# Turborepo starter
+# Sportspot Web App
 
-This is an official starter Turborepo.
+Sportspot is a web app designed for sports enthusiasts who want to find places to practice their favorite sports. With Sportspot, you can easily search for sports facilities near you, filter by sports, and see the available facilities for practicing sports.
 
-## What's inside?
+## Features
 
-This Turborepo includes the following packages/apps:
+Sportspot offers a range of features to help you find the perfect sports facility for your needs, including:
 
-### Apps and Packages
+- **Search:** Find sports facilities near you by entering your location or browsing the map.
+- **Filter:** Filter your search results by sport, facility type, and availability.
+- **Create:** Create and add your own sports facility to the database for others to discover.
+- **Save:** Save your favorite facilities to your profile for quick access.
+- **Review:** Leave a review and rating for sports facilities to help others make informed decisions.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+## Tech Stack
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+Sportspot is built using the following tech stack:
 
-### Utilities
+- **pnpm:** A fast, disk-space efficient package manager for JavaScript.
+- **TypeScript:** A superset of JavaScript that adds static type-checking and other features to the language.
+- **Next.js:** A React-based framework for building server-rendered web applications.
+- **Chakra UI:** A simple, modular and accessible component library that gives you the building blocks you need to build your React applications.
+- **Turbo:** A collection of tools and libraries for building fast and reliable web applications.
 
-This Turborepo has some additional tools already setup for you:
+## Getting Started
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+To get started with Sportspot, make sure you have pnpm installed on your machine. Then, clone this repo and navigate to the project directory.
 
-## Using this example
+### Install Dependencies
 
-This repository is used with `npx create-turbo@latest` command, but you can also use `degit` to
-download and run this example, like the other examples.
+To install all the required dependencies, run the following command:
 
-Run the following command:
+`pnpm install`
 
-```sh
-npx degit vercel/turbo/examples/basic basic
-cd basic
-pnpm install
-git init . && git add . && git commit -m "Init"
-```
+### Build the Project
 
-### Build
+To build the project, run the following command:
 
-To build all apps and packages, run the following command:
+`pnpm build`
 
-```
-cd my-turborepo
-pnpm build
-```
+This will compile the TypeScript code and create an optimized production build of the app.
 
-### Develop
+### Start the Development Server
 
-To develop all apps and packages, run the following command:
+To start the development server, run the following command:
 
-```
-cd my-turborepo
-pnpm dev
-```
+`pnpm dev`
 
-### Remote Caching
+This will start the server on port 3000. You can then visit `http://localhost:3000` to see the app in action.
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+### Start the Production Server
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+To start the production server, run the following command:
 
-```
-cd my-turborepo
-npx turbo login
-```
+`pnpm start`
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+This will start the server in production mode, serving the optimized build of the app.
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+Sportspot is compatible with all modern web browsers and can be accessed on desktop and mobile devices.
 
-```
-npx turbo link
-```
+## Support
 
-## Useful Links
+If you have any questions or issues with Sportspot, please create an issue in this repo for assistance. Our team is available to help you with any problems you may encounter.
 
-Learn more about the power of Turborepo:
+## Feedback
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+We are always looking for ways to improve Sportspot and make it the best possible experience for our users. If you have any feedback or suggestions, please create an issue in this repo and let us know what you think.
+
+Thank you for choosing Sportspot!
