@@ -16,7 +16,7 @@ const Template = () => {
           height: '65vh',
           objectFit: 'cover',
         }}
-        src="/images/onboarding-1.png"
+        src="/images/onboarding/onboarding-1.png"
         alt="Girl in fitness clothes waving"
       />
       <VStack paddingInline={6} paddingBlockStart={6} spacing="4">

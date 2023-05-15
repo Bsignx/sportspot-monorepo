@@ -56,6 +56,7 @@ const BottomNavigation = () => {
       justifyContent="space-between"
       alignItems="center"
       paddingX="5"
+      zIndex="sticky"
     >
       {links.map(({ path, icon, activeIcon, targetSegment }) => {
         const isActive = activeSegment === targetSegment

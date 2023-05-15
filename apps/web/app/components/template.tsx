@@ -1,11 +1,13 @@
 'use client'
 
-import { Box, Input, InputGroup, InputLeftElement, InputRightElement, Icons } from '@sportspot/ui'
+import { Box } from '@sportspot/ui'
+
+import Map from '@/components/map'
 
 const Template = () => {
   return (
-    <Box px="4" py="12">
-      <h1>hello</h1>
+    <>
+      {/* <h1>hello</h1>
       <InputGroup>
         <InputLeftElement pointerEvents="none" color="gray.300">
           <Icons.chevron.right />
@@ -14,8 +16,25 @@ const Template = () => {
         <InputRightElement pointerEvents="none" color="gray.300">
           <Icons.chevron.right />
         </InputRightElement>
-      </InputGroup>
-    </Box>
+      </InputGroup> */}
+      <Box h="100vh">
+        <Map width="800" height="800" center={[38.907132, -77.036546]} zoom={12}>
+          {({ TileLayer, Marker, Popup }) => (
+            <>
+              <TileLayer
+                url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+                attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+              />
+              <Marker position={[38.907132, -77.036546]}>
+                <Popup>
+                  A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+              </Marker>
+            </>
+          )}
+        </Map>
+      </Box>
+    </>
   )
 }
 
