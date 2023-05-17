@@ -1,6 +1,6 @@
 import { SVGProps } from 'react'
 
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Search } from 'lucide-react'
 
 export const Icons = {
   logo: {
@@ -29,6 +29,7 @@ export const Icons = {
   chevron: {
     right: ChevronRight,
   },
+  searchBase: Search,
   search: ({ color = '#212121', ...props }: SVGProps<SVGSVGElement>) => (
     <svg
       width="24"

@@ -27,7 +27,7 @@ const size = {
     borderRadius: '2xl',
   }),
   md: defineStyle({
-    fontSize: 'md',
+    fontSize: 'sm',
     px: '4',
     h: '12',
     borderRadius: '2xl',

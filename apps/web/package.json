@@ -12,6 +12,7 @@
     "@sportspot/tokens": "workspace:*",
     "@sportspot/ui": "workspace:*",
     "leaflet": "^1.9.3",
+    "leaflet-geosearch": "^3.8.0",
     "next": "^13.3.0",
     "next-auth": "^4.22.1",
     "next-pwa": "^5.6.0",
