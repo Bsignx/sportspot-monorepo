@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { GeoSearchControl, MapBoxProvider } from 'leaflet-geosearch'
 import { useMap } from 'react-leaflet'
 
-export const SearchField = ({ apiKey }) => {
+const SearchField = ({ apiKey }) => {
   const provider = new MapBoxProvider({
     params: {
       access_token: apiKey,
@@ -27,3 +27,5 @@ export const SearchField = ({ apiKey }) => {
 
   return null
 }
+
+export default SearchField

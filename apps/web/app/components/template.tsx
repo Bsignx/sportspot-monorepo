@@ -1,6 +1,12 @@
 'use client'
 
-import Map, { SearchField } from '@/components/map'
+import dynamic from 'next/dynamic'
+
+import Map from '@/components/map'
+
+const SearchField = dynamic(() => import('../../components/map/search-field'), {
+  ssr: false,
+})
 
 const mapApiKey = process.env.NEXT_PUBLIC_MAP_API_KEY
 
