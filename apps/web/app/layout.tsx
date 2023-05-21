@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import { Metadata } from 'next'
 
-import StylesProvider from '../styles/styles-provider'
-import BottomNavigation from '@/components/bottom-navigation'
+import StylesProvider from '~/styles/styles-provider'
+import BottomNavigation from '~/components/bottom-navigation'
 
 export const metadata: Metadata = {
   title: 'Next.js',

@@ -1,9 +1,10 @@
 'use client'
 
-import { publicRoutes } from '@/config/public-routes'
 import { colors } from '@sportspot/tokens'
 import { Flex, Icons, NextChakra } from '@sportspot/ui'
 import { useSelectedLayoutSegment } from 'next/navigation'
+
+import { publicRoutes } from '~/config/public-routes'
 
 const links = [
   {

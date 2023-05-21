@@ -2,13 +2,14 @@
 
 import dynamic from 'next/dynamic'
 
-import Map from '@/components/map'
+import Map from '~/components/map'
+import { env } from '~/env.mjs'
 
 const SearchField = dynamic(() => import('../../components/map/search-field'), {
   ssr: false,
 })
 
-const mapApiKey = process.env.NEXT_PUBLIC_MAP_API_KEY
+const mapApiKey = env.NEXT_PUBLIC_MAP_API_KEY
 
 const Template = () => {
   return (
