@@ -40,11 +40,11 @@ export const authOptions: NextAuthOptions = {
       ...session,
       user: {
         ...session.user,
-        // id: user.id,
+        id: user.id,
       },
     }),
   },
-  // adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma),
   secret: env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
