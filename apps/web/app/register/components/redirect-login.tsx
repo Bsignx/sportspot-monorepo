@@ -1,4 +1,3 @@
-import NextLink from 'next/link'
 import { Text, NextChakra } from '@sportspot/ui'
 
 export const RedirectLogin = () => {
@@ -12,7 +11,7 @@ export const RedirectLogin = () => {
       pb={{ base: 12, sm: 0 }}
     >
       Already have an account? &nbsp;
-      <NextChakra.Link as={NextLink} href="/login" fontWeight="bold">
+      <NextChakra.Link href="/login" fontWeight="bold">
         Login
       </NextChakra.Link>
     </Text>

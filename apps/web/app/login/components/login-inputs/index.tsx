@@ -57,7 +57,6 @@ export const LoginInputs = () => {
         <NextChakra.Link
           pos="absolute"
           bottom="-9"
-          as={NextChakra.Link}
           href="#"
           opacity=".7"
           textAlign="center"
