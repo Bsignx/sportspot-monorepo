@@ -1,4 +1,4 @@
-import Template from '../components/template'
+import Template from './components/template'
 
 export default function Web() {
   return <Template />

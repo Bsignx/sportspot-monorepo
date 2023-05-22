@@ -1,7 +1,9 @@
 import { ReactNode } from 'react'
 import { Metadata } from 'next'
 
-import StylesProvider from '../styles/styles-provider'
+import StylesProvider from '~/styles/styles-provider'
+import BottomNavigation from '~/components/bottom-navigation'
+import TrpcProvider from '~/helpers/trpc/trpc-provider'
 
 export const metadata: Metadata = {
   title: 'Next.js',
@@ -9,12 +11,19 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <StylesProvider> {children} </StylesProvider>
+        <StylesProvider>
+          <TrpcProvider>
+            {children}
+            <BottomNavigation />
+          </TrpcProvider>
+        </StylesProvider>
       </body>
     </html>
   )
 }
+
+export default RootLayout
