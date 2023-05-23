@@ -15,11 +15,7 @@ const DEFAULT_LATITUDE = -20.567620032412087
 const DEFAULT_LONGITUDE = -48.5653164180221
 
 const Template = () => {
-  const { location, error } = useGetUserLocation()
-
-  if (error) {
-    return <p>{error}</p>
-  }
+  const { location } = useGetUserLocation()
 
   const coords = [
     location?.coords.latitude || DEFAULT_LATITUDE,
