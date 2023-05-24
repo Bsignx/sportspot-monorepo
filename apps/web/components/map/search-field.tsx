@@ -14,6 +14,15 @@ const SearchField = ({ apiKey }) => {
     provider,
     autoComplete: true,
     autoCompleteDelay: 250,
+    searchLabel: 'Search for a location',
+    classNames: {
+      container: 'search-container',
+      input: 'search-input',
+      message: 'search-message',
+      button: 'search-button',
+      buttonIcon: 'search-button-icon',
+      resultlist: 'search-result-list',
+    },
   })
 
   const map = useMap()

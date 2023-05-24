@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Style the map */
+
+.leaflet-control-zoom {
+  display: none;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+/* Style the search field */
+
+.search-result-list {
+  display: none;
+}
+
+.search-result-list.active {
+  display: block;
+  margin-top: -0.5rem;
+  padding: 16px;
+  padding-top: 20px;
+  background: #fff;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.search-result-list.active > div {
+  margin-bottom: 0.25rem;
+  color: #212121;
+  font-family: 'Poppins', 'sans-serif';
+  text-decoration: underline;
+}
+
+.reset {
+  position: absolute;
+  right: 36px;
+  top: 1.4rem;
+  width: 3rem;
+  height: 3rem;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #8a8788;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 20px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 14px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', 'sans-serif';
+  fontsize: '0.625rem';
+  color: #212121;
+  padding-right: 3rem;
+  text-overflow: ellipsis;
+}
+
+.search-input:focus {
+  outline: #3dffdc 2px solid;
+}
+
+.search-input::placeholder {
+  color: #bcbcbc;
+}
+
+.search-container {
+  width: 100vw;
+  padding: 22px 36px 0 16px;
+}
