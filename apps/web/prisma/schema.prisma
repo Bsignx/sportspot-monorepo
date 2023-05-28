@@ -15,6 +15,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
@@ -75,7 +76,8 @@ model Spot {
   image       String?
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
-  tags        Tag[]
+  tagName     String
+  tag         Tag        @relation(fields: [tagName], references: [name], onDelete: Cascade)
   ratings     Rating[]
   Favorite    Favorite[]
 }
@@ -84,8 +86,8 @@ model Tag {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  name      String
-  spots     Spot[]
+  name      String   @unique
+  Spots     Spot[]
 }
 
 model Rating {
