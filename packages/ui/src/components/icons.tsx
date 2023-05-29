@@ -4,12 +4,13 @@ import { ChevronRight, Search } from 'lucide-react'
 
 import { motion } from 'framer-motion'
 import { useBoolean } from '../hooks/use-boolean'
-import { Message, Show, Hide, Home, User, Lock } from 'react-iconly'
+import { Message, Show, Hide, Home, User, Lock, Logout } from 'react-iconly'
 
 export const Icons = {
   Home,
   User,
   Lock,
+  Logout,
   Message,
   visible: {
     Show,

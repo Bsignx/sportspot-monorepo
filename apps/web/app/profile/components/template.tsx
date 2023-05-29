@@ -1,8 +1,8 @@
 'use client'
 
-import { Flex, Heading, Chakra, Text, VStack } from '@sportspot/ui'
+import { Flex, Heading, Chakra, Text, VStack, Icons, Button } from '@sportspot/ui'
 
-import { SignOut } from './sign-out'
+import { signOut } from 'next-auth/react'
 import { useGetSession } from '~/helpers/session/client'
 
 export const Template = () => {
@@ -21,7 +21,9 @@ export const Template = () => {
           Hello, <Text as="strong">{user?.name}</Text>
         </Text>
 
-        <SignOut />
+        <Button variant="unstyled" onClick={() => signOut({ callbackUrl: '/' })}>
+          <Icons.Logout />
+        </Button>
       </VStack>
     </Flex>
   )

@@ -3,10 +3,10 @@
 import dynamic from 'next/dynamic'
 import Leaflet from 'leaflet'
 
-import Map from '~/components/map'
 import { env } from '~/env.mjs'
-import { useGetUserLocation } from '~/hooks/useGetUserLocation'
+import Map from '~/components/map'
 import { api } from '~/helpers/trpc/api'
+import { useGetUserLocation } from '~/hooks/useGetUserLocation'
 
 const SearchField = dynamic(() => import('../../components/map/search-field'), {
   ssr: false,
