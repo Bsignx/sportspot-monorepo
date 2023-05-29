@@ -2,7 +2,7 @@
 
 import { colors } from '@sportspot/tokens'
 import { Flex, Icons, NextChakra } from '@sportspot/ui'
-import { useSelectedLayoutSegment } from 'next/navigation'
+import { useSelectedLayoutSegment, usePathname } from 'next/navigation'
 
 import { publicRoutes } from '~/config/public-routes'
 
@@ -36,9 +36,14 @@ const links = [
 const BottomNavigation = () => {
   const activeSegment = useSelectedLayoutSegment()
 
+  const path = usePathname()
+
+  // Temporary solution Hide BottomNav in Authentication
+  const isHiddenBottomNav = path === '/login' || path === '/register'
+
   const isPublicRoute = publicRoutes.includes(activeSegment ?? '')
 
-  if (isPublicRoute) {
+  if (isPublicRoute || isHiddenBottomNav) {
     return null
   }
 

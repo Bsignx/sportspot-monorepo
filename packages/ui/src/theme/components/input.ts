@@ -82,6 +82,7 @@ const variantOutline = definePartsStyle((props) => {
       color: mode('dark', 'whiteAlpha.900')(props),
       border: '1px solid',
       borderColor: 'gray.50',
+      pl: 12,
       bg: 'white',
       _hover: {
         borderColor: mode('gray.300', 'whiteAlpha.400')(props),

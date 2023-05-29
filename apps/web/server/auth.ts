@@ -1,10 +1,15 @@
 import { type GetServerSidePropsContext } from 'next'
-import GoogleProvider from 'next-auth/providers/google'
-import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { getServerSession, type NextAuthOptions, type DefaultSession } from 'next-auth'
 
-import { env } from '~/env.mjs'
+import bcrypt from 'bcrypt'
+
+import GoogleProvider from 'next-auth/providers/google'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import FacebookProvider from 'next-auth/providers/facebook'
+import CredentialsProvider from 'next-auth/providers/credentials'
+
 import { prisma } from '~/server/db'
+import { env } from '~/env.mjs'
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -34,23 +39,55 @@ declare module 'next-auth' {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
-  callbacks: {
-    // eslint-disable-next-line no-unused-vars
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
-  },
   adapter: PrismaAdapter(prisma),
   secret: env.NEXTAUTH_SECRET,
+  session: { strategy: 'jwt' },
+  callbacks: {
+    // eslint-disable-next-line no-unused-vars
+    session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.sub!
+      }
+      return session
+    },
+    async jwt({ token }) {
+      return token
+    },
+  },
+
   providers: [
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
+
+    FacebookProvider({
+      clientId: env.FACEBOOK_CLIENT_ID,
+      clientSecret: env.FACEBOOK_CLIENT_SECRET,
+    }),
+
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'email', placeholder: 'email@email.com' },
+        password: { label: 'Password', type: 'password' },
+      },
+      authorize: async (credentials) => {
+        const user = await prisma.user.findUnique({
+          where: { email: credentials?.email },
+          select: { id: true, name: true, email: true, password: true },
+        })
+
+        if (!user) throw new Error('User not found')
+
+        const checkPassword = await bcrypt.compare(credentials?.password!, user?.password!)
+
+        if (!checkPassword) throw new Error(`User name or Password doesn't match`)
+
+        return { id: user.id, name: user.name, email: user.email }
+      },
+    }),
+
     /**
      * ...add more providers here.
      *
