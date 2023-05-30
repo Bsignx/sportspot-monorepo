@@ -1,9 +1,11 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
+import { useSession, UseSessionOptions } from 'next-auth/react'
 
-export const useGetSession = () => {
-  const session = useSession()
+type UseGetSessionProps = UseSessionOptions<true | false>
+
+export const useGetSession = (props?: UseGetSessionProps) => {
+  const session = useSession(props)
 
   return session
 }
