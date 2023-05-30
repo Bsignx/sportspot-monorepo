@@ -36,7 +36,7 @@
 .reset {
   position: absolute;
   right: 36px;
-  top: 1.3rem;
+  top: 1.5rem;
   width: 3rem;
   height: 3rem;
   color: #ccc;
@@ -76,9 +76,10 @@
   position: absolute;
   right: 0;
   left: 2rem;
-  top: 2.3rem;
+  top: 2.25rem;
   width: 1.25rem;
   height: 1.125rem;
-  background: url('https://res.cloudinary.com/dxm7clrdp/image/upload/v1685312897/search-icon_iiex1x.png')
+  background: url('https://res.cloudinary.com/dxm7clrdp/image/upload/v1685354068/Frame_2_yh3bm4.png')
     no-repeat;
+  background-size: cover;
 }
