@@ -14,11 +14,11 @@
  *
  * These allow you to access things when processing a request, like the database, the session, etc.
  */
-import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 import { type Session } from 'next-auth'
+import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 
-import { getServerAuthSession } from '~/server/auth'
 import { prisma } from '~/server/db'
+import { getServerAuthSession } from '~/server/auth'
 
 /**
  * 2. INITIALIZATION
@@ -27,9 +27,9 @@ import { prisma } from '~/server/db'
  * ZodErrors so that you get typesafety on the frontend if your procedure fails due to validation
  * errors on the backend.
  */
-import { initTRPC, TRPCError } from '@trpc/server'
-import superjson from 'superjson'
 import { ZodError } from 'zod'
+import superjson from 'superjson'
+import { initTRPC, TRPCError } from '@trpc/server'
 
 type CreateContextOptions = {
   session: Session | null

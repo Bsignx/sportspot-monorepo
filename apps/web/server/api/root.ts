@@ -1,6 +1,7 @@
 import { createTRPCRouter } from '~/server/api/trpc'
+import { spotRouter } from '~/server/api/routers/spot'
 import { exampleRouter } from '~/server/api/routers/example'
-import { spotRouter } from './routers/spot'
+import { userAccountRouter } from '~/server/api/routers/auth-router'
 
 /**
  * This is the primary router for your server.
@@ -9,6 +10,7 @@ import { spotRouter } from './routers/spot'
  */
 export const appRouter = createTRPCRouter({
   example: exampleRouter,
+  userAcc: userAccountRouter,
   spot: spotRouter,
 })
 

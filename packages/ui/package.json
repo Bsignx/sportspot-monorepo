@@ -29,6 +29,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "framer-motion": "^10.10.0",
-    "lucide-react": "0.172.0"
+    "lucide-react": "0.172.0",
+    "react-iconly": "^2.2.10"
   }
 }

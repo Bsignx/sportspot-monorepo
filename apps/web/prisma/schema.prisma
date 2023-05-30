@@ -15,7 +15,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
@@ -48,6 +47,7 @@ model User {
   name          String?
   email         String?    @unique
   emailVerified DateTime?
+  password      String?    @db.VarChar(255)
   image         String?
   accounts      Account[]
   sessions      Session[]
