@@ -14,8 +14,8 @@ type InputFirstNameProps = FormRegisterProps
 export const InputFirstName = ({ errors, register }: InputFirstNameProps) => (
   <FormControl isInvalid={!!errors.firstName}>
     <InputGroup>
-      <InputLeftElement>
-        <Icons.User set="light" primaryColor="#8A8788" />
+      <InputLeftElement color="gray.300">
+        <Icons.User set="light" />
       </InputLeftElement>
 
       <Input variant="outline" placeholder="First Name" {...register('firstName')} />

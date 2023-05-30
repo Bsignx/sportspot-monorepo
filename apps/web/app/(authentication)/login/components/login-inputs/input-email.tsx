@@ -14,8 +14,8 @@ type InputEmailProps = FormLoginInputs
 export const InputEmail = ({ errors, register }: InputEmailProps) => (
   <FormControl isInvalid={!!errors.email}>
     <InputGroup>
-      <InputLeftElement>
-        <Icons.Message primaryColor="#8A8788" />
+      <InputLeftElement color="gray.300">
+        <Icons.Message />
       </InputLeftElement>
 
       <Input variant="outline" placeholder="Email" {...register('email')} />

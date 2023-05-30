@@ -8,11 +8,11 @@ export const RedirectRegister = () => {
       w="full"
       fontFamily="altHeading"
       textAlign="center"
-      color="grayscale300"
+      color="gray.300"
       top="753px"
     >
       Don’t have an account yet? &nbsp;
-      <NextChakra.Link as={NextLink} href="/register" fontWeight="bold">
+      <NextChakra.Link as={NextLink} href="/register" fontWeight="bold" color="gray.700">
         Register
       </NextChakra.Link>
     </Text>

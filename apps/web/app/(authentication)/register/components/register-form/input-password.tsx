@@ -19,8 +19,8 @@ export const InputPassword = ({ errors, register }: InputPasswordProps) => {
   return (
     <FormControl isInvalid={!!errors.password}>
       <InputGroup>
-        <InputLeftElement>
-          <Icons.Lock primaryColor="#8A8788" />
+        <InputLeftElement color="gray.300">
+          <Icons.Lock />
         </InputLeftElement>
         <Input
           type={isVisible ? 'text' : 'password'}
@@ -29,7 +29,7 @@ export const InputPassword = ({ errors, register }: InputPasswordProps) => {
           {...register('password')}
         />
 
-        <InputRightElement cursor="pointer" color="#ADA4A5" onClick={setVisible.toggle}>
+        <InputRightElement cursor="pointer" color="gray.400" onClick={setVisible.toggle}>
           {isVisible ? <Icons.visible.Show /> : <Icons.visible.Hide />}
         </InputRightElement>
       </InputGroup>
