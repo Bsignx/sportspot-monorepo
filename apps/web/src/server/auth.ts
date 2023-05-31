@@ -9,7 +9,7 @@ import FacebookProvider from 'next-auth/providers/facebook'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 import { prisma } from '~/server/db'
-import { env } from '~/env.mjs'
+import { env } from '~/env'
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
