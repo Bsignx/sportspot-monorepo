@@ -8,7 +8,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import FacebookProvider from 'next-auth/providers/facebook'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-import { env } from '~/env.mjs'
+import { env } from '~/env'
 import { prisma } from '~/server/db'
 
 /**
@@ -46,16 +46,12 @@ export const authOptions: NextAuthOptions = {
   },
   session: { strategy: 'jwt' },
   callbacks: {
-    async session({ session, token }) {
+    // eslint-disable-next-line no-unused-vars
+    session({ session, token }) {
       if (session.user) {
         session.user.id = token.sub!
       }
       return session
-    },
-
-    async signIn({ user }) {
-      console.log(`Usuário conectado: ${user.name}`)
-      return true
     },
     async jwt({ token }) {
       return token

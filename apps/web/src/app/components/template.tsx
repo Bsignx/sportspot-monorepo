@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import Leaflet from 'leaflet'
 
-import { env } from '~/env.mjs'
+import { env } from '~/env'
 import Map from '~/components/map'
 import { api } from '~/helpers/trpc/api'
 import { useGetUserLocation } from '~/hooks/useGetUserLocation'
