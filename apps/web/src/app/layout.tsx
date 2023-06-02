@@ -1,11 +1,15 @@
-import { Metadata } from 'next'
+
 import { ReactNode } from 'react'
+import { Metadata } from 'next'
+
 
 import StylesProvider from '~/styles/styles-provider'
 import TrpcProvider from '~/helpers/trpc/trpc-provider'
 import BottomNavigation from '~/components/bottom-navigation'
+
 import { ProtectedWrapper } from './components/protected-wrapper'
 import { NextAuthProvider } from '~/app/components/next-auth-provider'
+
 
 import '~/components/map/leaflet.css'
 
@@ -15,7 +19,9 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 }
 
-async function RootLayout({ children }: { children: ReactNode }) {
+
+function RootLayout({ children }: { children: ReactNode }) {
+  
   return (
     <html lang="en">
       <body>
