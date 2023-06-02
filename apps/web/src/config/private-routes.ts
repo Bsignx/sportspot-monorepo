@@ -1,1 +1,1 @@
-export const privateRutes = ['/', '/profile', '/favorites']
+export const privateRoutes = ['/', '/profile', '/favorites']
