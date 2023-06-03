@@ -8,8 +8,8 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import FacebookProvider from 'next-auth/providers/facebook'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-import { prisma } from '~/server/db'
 import { env } from '~/env'
+import { prisma } from '~/server/db'
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -41,6 +41,10 @@ declare module 'next-auth' {
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   secret: env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: '/login',
+  },
+
   session: { strategy: 'jwt' },
   callbacks: {
     // eslint-disable-next-line no-unused-vars

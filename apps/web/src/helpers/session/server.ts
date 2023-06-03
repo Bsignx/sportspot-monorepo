@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '~/server/auth'
 
-async function getSession() {
+export async function getSession() {
   return await getServerSession(authOptions)
 }
 

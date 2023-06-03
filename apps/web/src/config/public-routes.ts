@@ -1,1 +1,1 @@
-export const publicRoutes = ['login', 'register', 'onboarding']
+export const publicRoutes = ['login', 'register', 'onboarding', '(authentication)']

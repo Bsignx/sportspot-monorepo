@@ -4,7 +4,9 @@ import { Metadata } from 'next'
 import StylesProvider from '~/styles/styles-provider'
 import TrpcProvider from '~/helpers/trpc/trpc-provider'
 import BottomNavigation from '~/components/bottom-navigation'
-import { NextAuthProvider } from '~/config/next-auth-provider'
+
+import { ProtectedWrapper } from './components/protected-wrapper'
+import { NextAuthProvider } from '~/app/components/next-auth-provider'
 
 import '~/components/map/leaflet.css'
 
@@ -21,8 +23,10 @@ function RootLayout({ children }: { children: ReactNode }) {
         <StylesProvider>
           <TrpcProvider>
             <NextAuthProvider>
-              {children}
-              <BottomNavigation />
+              <ProtectedWrapper>
+                {children}
+                <BottomNavigation />
+              </ProtectedWrapper>
             </NextAuthProvider>
           </TrpcProvider>
         </StylesProvider>
