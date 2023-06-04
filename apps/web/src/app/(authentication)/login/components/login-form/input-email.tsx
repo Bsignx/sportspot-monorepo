@@ -1,4 +1,4 @@
-import { FormLoginInputs } from '.'
+import { LoginFormInputs } from '.'
 
 import {
   Input,
@@ -9,7 +9,7 @@ import {
   InputLeftElement,
 } from '@sportspot/ui'
 
-type InputEmailProps = FormLoginInputs
+type InputEmailProps = LoginFormInputs
 
 export const InputEmail = ({ errors, register }: InputEmailProps) => (
   <FormControl isInvalid={!!errors.email}>

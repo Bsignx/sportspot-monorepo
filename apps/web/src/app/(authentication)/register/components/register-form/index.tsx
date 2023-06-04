@@ -47,21 +47,20 @@ export const RegisterForm = () => {
   }
 
   return (
-    <VStack as="form" spacing={4} onSubmit={handleSubmit(onSubmit)}>
-      <InputFirstName errors={errors} register={register} />
+    <VStack as="form" h="100%" onSubmit={handleSubmit(onSubmit)}>
+      <VStack w="100%" spacing={4} flex="1">
+        <InputFirstName errors={errors} register={register} />
 
-      <InputLastName errors={errors} register={register} />
+        <InputLastName errors={errors} register={register} />
 
-      <InputEmail errors={errors} register={register} />
+        <InputEmail errors={errors} register={register} />
 
-      <InputPassword errors={errors} register={register} />
+        <InputPassword errors={errors} register={register} />
 
-      <CheckboxTerms errors={errors} register={register} />
-
+        <CheckboxTerms errors={errors} register={register} />
+      </VStack>
       <Button
         type="submit"
-        pos="absolute"
-        top="547px"
         w="full"
         bg="black"
         isDisabled={isDisabled}

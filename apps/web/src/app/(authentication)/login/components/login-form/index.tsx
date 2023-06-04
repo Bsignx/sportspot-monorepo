@@ -10,12 +10,12 @@ import { useForm, UseFormRegister, FieldErrorsImpl } from 'react-hook-form'
 
 import { VStack, Button, useToast } from '@sportspot/ui'
 
-export type FormLoginInputs = {
+export type LoginFormInputs = {
   register: UseFormRegister<Record<string, SignInFormProps>>
   errors: Partial<FieldErrorsImpl<Record<string, SignInFormProps>>>
 }
 
-export const LoginInputs = () => {
+export const LoginForm = () => {
   const {
     register,
     handleSubmit,
@@ -36,20 +36,13 @@ export const LoginInputs = () => {
   }
 
   return (
-    <VStack as="form" spacing={4} onSubmit={handleSubmit(onSubmit)}>
-      <InputEmail errors={errors} register={register} />
+    <VStack as="form" h="100%" onSubmit={handleSubmit(onSubmit)}>
+      <VStack w="100%" spacing={4} flex="1">
+        <InputEmail errors={errors} register={register} />
 
-      <InputPassword errors={errors} register={register} />
-
-      <Button
-        type="submit"
-        pos="absolute"
-        top="547px"
-        w="full"
-        bg="black"
-        isDisabled={isDisabled}
-        isLoading={isSubmitting}
-      >
+        <InputPassword errors={errors} register={register} />
+      </VStack>
+      <Button type="submit" w="full" bg="black" isDisabled={isDisabled} isLoading={isSubmitting}>
         Login
       </Button>
     </VStack>

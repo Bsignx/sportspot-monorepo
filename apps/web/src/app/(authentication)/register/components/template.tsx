@@ -1,29 +1,46 @@
 'use client'
 
-import { OrAuth } from '../../or-auth'
+import { OrAuth } from '../../components/or-auth'
 import { RegisterForm } from './register-form'
 import { RedirectLogin } from './redirect-login'
-import { WrapperAuthProviders } from '../../wrapper-auth-providers'
+import { WrapperAuthProviders } from '../../components/wrapper-auth-providers'
 
-import { Box, Heading, Text, Stack, VStack } from '@sportspot/ui'
+import { Box, Heading, Text, VStack } from '@sportspot/ui'
 
 const Template = () => {
   return (
-    <VStack w="100vw" h="100vh" direction="column" justify="center">
-      <Box pos="relative" w={['338px', '395px']} h="844px">
-        <Stack spacing={9} py={2}>
-          <Heading as="h1" textAlign="center" fontFamily="altHeading" size="lg" lineHeight="28px">
-            <Text as="span" fontSize="xl" fontWeight="normal">
-              Hey there,
-            </Text>
-            <br /> Create an Account
-          </Heading>
-          <RegisterForm />
-          <OrAuth />
+    <VStack
+      w="100%"
+      spacing="0"
+      justifyContent="space-between"
+      pt="9"
+      pb="14"
+      px="6"
+      css={{
+        height: ['100vh', '100dvh'],
+      }}
+    >
+      <Heading
+        as="h1"
+        textAlign="center"
+        fontFamily="altHeading"
+        size="lg"
+        lineHeight="28px"
+        mb="8"
+      >
+        <Text as="span" fontSize="xl" fontWeight="normal">
+          Hey there,
+        </Text>
+        <br /> Create an Account
+      </Heading>
 
-          <WrapperAuthProviders />
-          <RedirectLogin />
-        </Stack>
+      <RegisterForm />
+
+      <Box w="100%">
+        <OrAuth />
+
+        <WrapperAuthProviders />
+        <RedirectLogin />
       </Box>
     </VStack>
   )

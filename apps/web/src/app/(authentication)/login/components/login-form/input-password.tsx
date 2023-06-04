@@ -1,4 +1,4 @@
-import { FormLoginInputs } from '.'
+import { LoginFormInputs } from '.'
 
 import {
   Input,
@@ -11,7 +11,7 @@ import {
   InputRightElement,
 } from '@sportspot/ui'
 
-type InputPasswordProps = FormLoginInputs
+type InputPasswordProps = LoginFormInputs
 
 export const InputPassword = ({ errors, register }: InputPasswordProps) => {
   const [isVisible, setVisible] = useBoolean(false)

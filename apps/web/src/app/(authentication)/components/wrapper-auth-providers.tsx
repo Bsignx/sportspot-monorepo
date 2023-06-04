@@ -4,17 +4,19 @@ import { HStack, Button, Icons } from '@sportspot/ui'
 
 export const WrapperAuthProviders = () => {
   return (
-    <HStack pos="absolute" top="667px" w="full" justify="center" spacing={8}>
+    <HStack w="full" justify="center" spacing={8} mt="2" mb="7">
       <Button
-        variant="unstyled"
         onClick={() => signIn('google', { redirect: true, callbackUrl: '/' })}
+        h="auto"
+        variant="unstyled"
       >
         <Icons.motionIcons.Google />
       </Button>
 
       <Button
-        variant="unstyled"
         onClick={() => signIn('facebook', { redirect: true, callbackUrl: '/' })}
+        h="auto"
+        variant="unstyled"
       >
         <Icons.motionIcons.Facebook />
       </Button>
