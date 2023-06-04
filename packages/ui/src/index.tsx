@@ -29,6 +29,7 @@ export * from './components/form-error-message'
 export * from './components/skeleton'
 export * from './components/skeleton-text'
 export * from './components/skeleton-circle'
+export * from './components/divider'
 
 export * from './hooks/use-toast'
 export * from './hooks/use-boolean'
