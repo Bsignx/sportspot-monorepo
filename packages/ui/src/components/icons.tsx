@@ -1,10 +1,9 @@
 import { SVGProps } from 'react'
-
 import { ChevronRight, Search } from 'lucide-react'
-
 import { motion } from 'framer-motion'
-import { useBoolean } from '../hooks/use-boolean'
 import { Message, Show, Hide, Home, User, Lock, Logout } from 'react-iconly'
+
+import { useBoolean } from '../hooks/use-boolean'
 
 export const Icons = {
   Home,
@@ -142,7 +141,49 @@ export const Icons = {
       />
     </svg>
   ),
-
+  addressMarker: (props: SVGProps<SVGSVGElement>) => (
+    <svg
+      width="13"
+      height="15"
+      viewBox="0 0 13 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M11.6667 6.33333C11.6667 10.3333 6.33333 14.3333 6.33333 14.3333C6.33333 14.3333 1 10.3333 1 6.33333C1 4.91885 1.5619 3.56229 2.5621 2.5621C3.56229 1.5619 4.91885 1 6.33333 1C7.74782 1 9.10438 1.5619 10.1046 2.5621C11.1048 3.56229 11.6667 4.91885 11.6667 6.33333Z"
+        stroke="#8A8788"
+        strokeWidth="0.941176"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6.33325 8.33333C7.43782 8.33333 8.33325 7.4379 8.33325 6.33333C8.33325 5.22876 7.43782 4.33333 6.33325 4.33333C5.22868 4.33333 4.33325 5.22876 4.33325 6.33333C4.33325 7.4379 5.22868 8.33333 6.33325 8.33333Z"
+        stroke="#8A8788"
+        strokeWidth="0.941176"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  distanceMarker: (props: SVGProps<SVGSVGElement>) => (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M1 5.73684L11 1L6.26316 11L5.21053 6.78947L1 5.73684Z"
+        stroke="#8A8788"
+        strokeWidth="0.672515"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
   motionIcons: {
     Facebook: () => {
       const [isAnimate, setAnimate] = useBoolean()

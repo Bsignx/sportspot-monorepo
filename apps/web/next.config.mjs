@@ -16,6 +16,16 @@ const config = {
   },
   distDir: 'build',
   transpilePackages: ['@sportspot/ui'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 const pwaConfig = WithPWA({
