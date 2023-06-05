@@ -3,13 +3,20 @@
  * for Docker builds.
  */
 
-import WithPWA from 'next-pwa'
-import runtimeCaching from 'next-pwa/cache.js'
+import withPWAInit from '@ducanh2912/next-pwa'
 
 await import('./env.mjs')
 
+const withPWA = withPWAInit({
+  dest: 'public',
+  scope: '/app',
+  sw: 'sw.js',
+  fallbacks: { document: '/~offline' },
+  disable: process.env.NODE_ENV === 'development',
+})
+
 /** @type {import("next").NextConfig} */
-const config = {
+export default withPWA({
   reactStrictMode: true,
   experimental: {
     appDir: true,
@@ -26,17 +33,4 @@ const config = {
       },
     ],
   },
-}
-
-const pwaConfig = WithPWA({
-  dest: 'public',
-  runtimeCaching,
-  disable: process.env.NODE_ENV === 'development',
 })
-
-const mergedConfig = {
-  ...config,
-  ...pwaConfig,
-}
-
-export default mergedConfig
