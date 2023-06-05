@@ -3,7 +3,7 @@
   "short_name": "Sspot",
   "theme_color": "#3DFFDC",
   "background_color": "#212121",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",

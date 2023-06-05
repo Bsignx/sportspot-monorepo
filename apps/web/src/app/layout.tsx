@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import StylesProvider from '~/styles/styles-provider'
 import TrpcProvider from '~/helpers/trpc/trpc-provider'
 import BottomNavigation from '~/components/bottom-navigation'
+// import RegisterPWA from './register-pwa'
 
 import { ProtectedWrapper } from './components/protected-wrapper'
 import { NextAuthProvider } from '~/app/components/next-auth-provider'
@@ -19,14 +20,18 @@ export const metadata: Metadata = {
   colorScheme: 'light',
   applicationName: 'Sportspot App',
   appleWebApp: { capable: true, statusBarStyle: 'default', title: 'Sportspot App' },
+  formatDetection: { telephone: false },
+  viewport: { width: 'device-width', initialScale: 1 },
   icons: [
+    { rel: 'shortcut icon', url: '/favicon.ico' },
     {
       rel: 'icon',
       url: 'icons/spot-192x192.png',
     },
     {
       rel: 'apple-touch-icon',
-      url: 'icons/spot-512x512.png',
+      url: 'icons/spot-192x192.png',
+      sizes: '192x192',
     },
   ],
 }
