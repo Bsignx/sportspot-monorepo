@@ -14,7 +14,8 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
   return (
     <HStack
       onClick={() => console.log('clicked')}
-      as="button"
+      tabIndex={0}
+      role="button"
       cursor="pointer"
       zIndex="sticky"
       bgColor="white"
@@ -22,7 +23,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
       w="80%"
       m="0 auto"
       pos="absolute"
-      top="75%"
+      bottom="2.5rem"
       left="50%"
       h="120px"
       transform="translate(-50%, -50%)"
@@ -39,6 +40,26 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         src={selectedSpot.image || '/images/spot/spot-placeholder.jpg'}
         alt={`Imagem from ${selectedSpot.name} spot`}
       />
+
+      <Flex
+        onClick={() => console.log('clicked')}
+        aria-label="Favorite spot toggle"
+        as="button"
+        bgColor="white"
+        position="absolute"
+        boxShadow="base"
+        borderRadius="lg"
+        w="28px"
+        h="28px"
+        justifyContent="center"
+        alignItems="center"
+        top="8px"
+        left="68px"
+      >
+        {/* <Icons.favorite aria-hidden="true" /> */}
+        <Icons.favoriteFilled aria-hidden="true" />
+      </Flex>
+
       <Flex alignItems="flex-start" py="3" flexDir="column" flex="1" h="100%">
         <Heading size="sm">{selectedSpot.name}</Heading>
         <Text fontSize="2xs" color="gray.300" mt="1">
