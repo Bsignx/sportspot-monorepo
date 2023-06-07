@@ -37,7 +37,9 @@ const Template = () => {
         onClickSpotMarker={handleClickSpotMarker}
         userLocation={[coords[0], coords[1]]}
       />
-      <SelectedSpotCard selectedSpot={selectedSpot} userLocation={[coords[0], coords[1]]} />
+      {selectedSpot && (
+        <SelectedSpotCard selectedSpot={selectedSpot} userLocation={[coords[0], coords[1]]} />
+      )}
     </>
   )
 }

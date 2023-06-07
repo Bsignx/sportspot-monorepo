@@ -1,15 +1,26 @@
 import { Spot } from '@prisma/client'
 import { Divider, Flex, HStack, Heading, Icons, NextChakra, Text } from '@sportspot/ui'
+import { api } from '~/helpers/trpc/api'
 import { getHowManyDaysAgo } from '~/utils/date'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
 
 type Props = {
-  selectedSpot: Spot | null
+  selectedSpot: Spot
   userLocation: [latitude: number, longitude: number]
 }
 
 export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
-  if (!selectedSpot) return null
+  const { spot: sportRouter } = api.useContext()
+  const { data: isFavorite } = api.spot.getFavoriteSpot.useQuery({ spotId: selectedSpot.id })
+  const { mutate } = api.spot.favoriteSpot.useMutation({
+    onSuccess: ({ spotId }) => {
+      sportRouter.getFavoriteSpot.invalidate({ spotId })
+    },
+  })
+
+  const handleClickFavoriteSpot = () => {
+    mutate({ spotId: selectedSpot.id })
+  }
 
   return (
     <HStack
@@ -42,7 +53,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
       />
 
       <Flex
-        onClick={() => console.log('clicked')}
+        onClick={handleClickFavoriteSpot}
         aria-label="Favorite spot toggle"
         as="button"
         bgColor="white"
@@ -56,8 +67,11 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         top="8px"
         left="68px"
       >
-        {/* <Icons.favorite aria-hidden="true" /> */}
-        <Icons.favoriteFilled aria-hidden="true" />
+        {isFavorite ? (
+          <Icons.favoriteFilled aria-hidden="true" />
+        ) : (
+          <Icons.favorite aria-hidden="true" />
+        )}
       </Flex>
 
       <Flex alignItems="flex-start" py="3" flexDir="column" flex="1" h="100%">
