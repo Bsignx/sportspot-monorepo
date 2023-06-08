@@ -20,6 +20,10 @@ export default withPWA({
   reactStrictMode: true,
   experimental: {
     appDir: true,
+    legacyBrowsers: false,
+    outputFileTracingExcludes: {
+      '*': ['**swc/core**'],
+    },
   },
   distDir: 'build',
   transpilePackages: ['@sportspot/ui'],
