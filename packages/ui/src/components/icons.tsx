@@ -221,6 +221,23 @@ export const Icons = {
       />
     </svg>
   ),
+  filledStar: (props: SVGProps<SVGSVGElement>) => (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M6.38624 5.3816L7 3.90594L7.61376 5.3816C7.90178 6.07407 8.553 6.54721 9.30058 6.60715L10.8937 6.73487L9.67991 7.7746C9.11033 8.2625 8.86158 9.02805 9.0356 9.75756L9.40643 11.3122L8.04251 10.4791C7.40248 10.0882 6.59753 10.0882 5.95749 10.4791L4.59357 11.3122L4.9644 9.75757C5.13842 9.02805 4.88967 8.2625 4.32009 7.7746L3.10632 6.73487L4.69942 6.60715C5.447 6.54721 6.09822 6.07408 6.38624 5.3816Z"
+        fill="#F1C644"
+        stroke="#F1C644"
+        strokeWidth="3"
+      />
+    </svg>
+  ),
   motionIcons: {
     Facebook: () => {
       const [isAnimate, setAnimate] = useBoolean()

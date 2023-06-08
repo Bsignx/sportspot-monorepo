@@ -1,5 +1,6 @@
 import { Spot } from '@prisma/client'
 import { Divider, Flex, HStack, Heading, Icons, NextChakra, Text } from '@sportspot/ui'
+
 import { api } from '~/helpers/trpc/api'
 import { getHowManyDaysAgo } from '~/utils/date'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
@@ -11,10 +12,12 @@ type Props = {
 
 export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
   const { spot: sportRouter } = api.useContext()
-  const { data: isFavorite } = api.spot.getFavoriteSpot.useQuery({ spotId: selectedSpot.id })
-  const { mutate } = api.spot.favoriteSpot.useMutation({
+  const { data: isFavorite } = api.spot.getFavorite.useQuery({ spotId: selectedSpot.id })
+  const { data: ratingAverage } = api.spot.getRatingAverage.useQuery({ spotId: selectedSpot.id })
+
+  const { mutate } = api.spot.favorite.useMutation({
     onSuccess: ({ spotId }) => {
-      sportRouter.getFavoriteSpot.invalidate({ spotId })
+      sportRouter.getFavorite.invalidate({ spotId })
     },
   })
 
@@ -74,12 +77,12 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         )}
       </Flex>
 
-      <Flex alignItems="flex-start" py="3" flexDir="column" flex="1" h="100%">
+      <Flex alignItems="flex-start" pt="3" pb="1" flexDir="column" flex="1" h="100%">
         <Heading size="sm">{selectedSpot.name}</Heading>
         <Text fontSize="2xs" color="gray.300" mt="1">
           {getHowManyDaysAgo(new Date(selectedSpot.createdAt))} days ago
         </Text>
-        <HStack mt="1" spacing="1">
+        <HStack mt="1" spacing="1" alignItems="flex-start">
           <Icons.addressMarker aria-hidden="true" />
           <Text fontSize="2xs" color="gray.300">
             {selectedSpot.address}
@@ -88,20 +91,31 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
 
         <Divider w="calc(100% + 8px)" ml="-8px" mt="auto" />
 
-        {selectedSpot.latitude && selectedSpot.longitude && (
-          <HStack mt="1" spacing="1">
-            <Icons.distanceMarker aria-hidden="true" />
-            <Text fontSize="2xs" color="gray.300">
-              {getKmDistanceBetweenTwoPoints(
-                userLocation[0],
-                userLocation[1],
-                selectedSpot.latitude,
-                selectedSpot.longitude,
-              )}{' '}
-              km
-            </Text>
-          </HStack>
-        )}
+        <Flex justifyContent="space-between" alignItems="center" w="100%" pr="4">
+          {selectedSpot.latitude && selectedSpot.longitude && (
+            <HStack mt="1" spacing="1">
+              <Icons.distanceMarker aria-hidden="true" />
+              <Text fontSize="2xs" color="gray.300">
+                {getKmDistanceBetweenTwoPoints(
+                  userLocation[0],
+                  userLocation[1],
+                  selectedSpot.latitude,
+                  selectedSpot.longitude,
+                )}{' '}
+                km
+              </Text>
+            </HStack>
+          )}
+
+          {ratingAverage && (
+            <HStack mt="1" spacing="1" alignItems="center" h="100%">
+              <Icons.filledStar aria-hidden="true" />
+              <Text fontSize="xs" color="black" fontWeight="medium" h="4">
+                {ratingAverage}
+              </Text>
+            </HStack>
+          )}
+        </Flex>
       </Flex>
     </HStack>
   )

@@ -15,7 +15,7 @@ const DEFAULT_LONGITUDE = -48.5653164180221
 const Template = () => {
   const [selectedSpot, setSelectedSpot] = useState<Spot | null>(null)
 
-  const { data: spots, isError } = api.spot.getAllSpots.useQuery()
+  const { data: spots, isError } = api.spot.getAll.useQuery()
 
   const { location } = useGetUserLocation()
 
