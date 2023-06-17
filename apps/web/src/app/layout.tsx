@@ -4,7 +4,6 @@ import { Metadata } from 'next'
 import StylesProvider from '~/styles/styles-provider'
 import TrpcProvider from '~/helpers/trpc/trpc-provider'
 import BottomNavigation from '~/components/bottom-navigation'
-// import RegisterPWA from './register-pwa'
 
 import { ProtectedWrapper } from './components/protected-wrapper'
 import { NextAuthProvider } from '~/app/components/next-auth-provider'

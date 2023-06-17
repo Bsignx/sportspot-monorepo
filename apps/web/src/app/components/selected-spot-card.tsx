@@ -1,11 +1,23 @@
 import { Spot } from '@prisma/client'
-import { Divider, Flex, HStack, Heading, Icons, NextChakra, Text } from '@sportspot/ui'
+import {
+  Flex,
+  Text,
+  Icons,
+  HStack,
+  Heading,
+  Divider,
+  NextChakra,
+  useDisclosure,
+} from '@sportspot/ui'
+
+import { MouseEvent } from 'react'
 
 import { api } from '~/helpers/trpc/api'
 import { getHowManyDaysAgo } from '~/utils/date'
+import { ModalSpotCard } from './modal-spot-card'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
 
-type Props = {
+export type Props = {
   selectedSpot: Spot
   userLocation: [latitude: number, longitude: number]
 }
@@ -15,23 +27,39 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
   const { data: isFavorite } = api.spot.getFavorite.useQuery({ spotId: selectedSpot.id })
   const { data: ratingAverage } = api.spot.getRatingAverage.useQuery({ spotId: selectedSpot.id })
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   const { mutate } = api.spot.favorite.useMutation({
     onSuccess: ({ spotId }) => {
       sportRouter.getFavorite.invalidate({ spotId })
     },
   })
 
-  const handleClickFavoriteSpot = () => {
+  const handleClickFavoriteSpot = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation()
     mutate({ spotId: selectedSpot.id })
   }
 
-  return (
+  const handleClickOpenModal = () => {
+    onOpen()
+  }
+
+  return isOpen ? (
+    <ModalSpotCard
+      selectedSpot={selectedSpot}
+      userLocation={userLocation}
+      isFavorite={isFavorite}
+      ratingAverage={ratingAverage}
+      isOpen={isOpen}
+      onClose={onClose}
+      handleClickFavoriteSpot={handleClickFavoriteSpot}
+    />
+  ) : (
     <HStack
-      onClick={() => console.log('clicked')}
       tabIndex={0}
       role="button"
       cursor="pointer"
-      zIndex="sticky"
+      zIndex="popover"
       bgColor="white"
       borderRadius="2xl"
       w="80%"
@@ -43,6 +71,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
       transform="translate(-50%, -50%)"
       boxShadow="base"
       alignItems="flex-start"
+      onClick={handleClickOpenModal}
     >
       <NextChakra.Image
         width={112}
@@ -82,6 +111,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         <Text fontSize="2xs" color="gray.300" mt="1">
           {getHowManyDaysAgo(new Date(selectedSpot.createdAt))} days ago
         </Text>
+
         <HStack mt="1" spacing="1" alignItems="flex-start">
           <Icons.addressMarker aria-hidden="true" />
           <Text fontSize="2xs" color="gray.300">

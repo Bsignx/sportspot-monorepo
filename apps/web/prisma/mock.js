@@ -83,7 +83,8 @@ const mock = {
       createdAt: new Date('2023-06-01T00:00:00Z'),
       updatedAt: new Date('2023-06-01T00:00:00Z'),
       name: 'Spot 1',
-      description: 'Spot 1 description',
+      description:
+        'Spot 1 description: Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute',
       address: 'Address 1',
       latitude: -20.57646864808083,
       longitude: -48.56902588408823,
@@ -97,7 +98,8 @@ const mock = {
       createdAt: new Date('2023-06-01T00:00:00Z'),
       updatedAt: new Date('2023-06-01T00:00:00Z'),
       name: 'Spot 2',
-      description: 'Spot 2 description',
+      description:
+        'Spot 2 description: Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute',
       address: 'Address 2',
       latitude: -20.56762003241209,
       longitude: -48.5653164180221,

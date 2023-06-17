@@ -4,18 +4,10 @@ import * as ReactLeaflet from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css'
 
-import styles from './map.module.css'
-
 const { MapContainer } = ReactLeaflet
 
 // eslint-disable-next-line no-unused-vars
-const Map = ({ children, className, width, height, ...rest }) => {
-  let mapClassName = styles.map
-
-  if (className) {
-    mapClassName = `${mapClassName} ${className}`
-  }
-
+const Map = ({ children, mapWidth = '100%', mapHeight = '100vh', ...rest }) => {
   useEffect(() => {
     ;(async function init() {
       delete (Leaflet.Icon.Default.prototype as any)._getIconUrl
@@ -28,7 +20,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
   }, [])
 
   return (
-    <MapContainer className={mapClassName} {...rest}>
+    <MapContainer style={{ width: mapWidth, height: mapHeight }} {...rest}>
       {children(ReactLeaflet, Leaflet)}
     </MapContainer>
   )

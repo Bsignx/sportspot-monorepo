@@ -30,9 +30,18 @@ export * from './components/skeleton'
 export * from './components/skeleton-text'
 export * from './components/skeleton-circle'
 export * from './components/divider'
+export * from './components/modal'
+export * from './components/modal-overlay'
+export * from './components/modal-content'
+export * from './components/modal-header'
+export * from './components/modal-close-button'
+export * from './components/modal-body'
+export * from './components/modal-footer'
 
 export * from './hooks/use-toast'
 export * from './hooks/use-boolean'
+export * from './hooks/use-disclosure'
+export * from './hooks/use-breakpoint-value'
 
 export * from './theme'
 

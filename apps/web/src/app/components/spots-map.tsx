@@ -14,20 +14,36 @@ const MAP_API_KEY = env.NEXT_PUBLIC_MAP_API_KEY
 type Props = {
   spots?: Spot[]
   userLocation: [latitude: number, longitude: number]
+  activeSearchField?: boolean
+  mapWidth?: string | number
+  mapHeight?: string | number
+
   // eslint-disable-next-line no-unused-vars
-  onClickSpotMarker: (spot: Spot) => void
+  onClickSpotMarker?: (spot: Spot) => void
 }
 
-export const SpotsMap = ({ spots, userLocation, onClickSpotMarker }: Props) => {
-  const handleMarkerClick = (spot: Spot) => {
-    onClickSpotMarker(spot)
-  }
+export const SpotsMap = ({
+  spots,
+  mapWidth,
+  mapHeight,
+  userLocation,
+  onClickSpotMarker,
+  activeSearchField = true,
+}: Props) => {
+  const handleMarkerClick = onClickSpotMarker
+    ? (spot: Spot) => {
+        onClickSpotMarker(spot)
+      }
+    : () => {
+        console.log('not a function configurate')
+      }
 
   return (
-    <Map center={userLocation} zoom={12}>
+    <Map zoom={12} center={userLocation} mapWidth={mapWidth} mapHeight={mapHeight}>
       {({ TileLayer, Marker }) => (
         <>
-          <SearchField apiKey={MAP_API_KEY} />
+          {activeSearchField && <SearchField apiKey={MAP_API_KEY} />}
+
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/bsignx/clhrifzo2017c01qsh2hpcu0y/tiles/256/{z}/{x}/{y}@2x?access_token=${MAP_API_KEY}`}
             attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
