@@ -64,7 +64,7 @@ export const ModalSpotCard = ({
           <ModalDraggable onClose={onClose}>
             <ModalCarrouselSpot selectedSpot={selectedSpot} />
 
-            <ModalHeader py={4} px={{ base: 3, md: 6 }}>
+            <ModalHeader py={4} px={{ base: 3, md: 6 }} pr={5}>
               <HStack w="full" justify="space-between">
                 {selectedSpot.latitude && selectedSpot.longitude && (
                   <HStack mt={1} spacing={1}>

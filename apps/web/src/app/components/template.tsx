@@ -30,7 +30,7 @@ const Template = () => {
     setSelectedSpot(spot)
   }
 
-  if (isError) return toast({ status: 'error', title: 'Error loading Spots' })
+  if (isError) toast({ status: 'error', title: 'Error loading Spots' })
 
   return (
     <>
