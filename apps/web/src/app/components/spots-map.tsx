@@ -1,9 +1,13 @@
-import dynamic from 'next/dynamic'
 import Leaflet from 'leaflet'
+import dynamic from 'next/dynamic'
 
-import { env } from '~/env'
 import Map from '~/components/map'
 import { Spot } from '@prisma/client'
+import * as ReactLeaflet from 'react-leaflet'
+
+import { CSSProperties } from 'react'
+
+import { env } from '~/env'
 
 const SearchField = dynamic(() => import('../../components/map/search-field'), {
   ssr: false,
@@ -11,25 +15,23 @@ const SearchField = dynamic(() => import('../../components/map/search-field'), {
 
 const MAP_API_KEY = env.NEXT_PUBLIC_MAP_API_KEY
 
-type Props = {
+type SpotsMapProps = ReactLeaflet.MapContainerProps & {
   spots?: Spot[]
-  userLocation: [latitude: number, longitude: number]
+  styles?: CSSProperties
   activeSearchField?: boolean
-  mapWidth?: string | number
-  mapHeight?: string | number
-
+  userLocation: [latitude: number, longitude: number]
   // eslint-disable-next-line no-unused-vars
   onClickSpotMarker?: (spot: Spot) => void
 }
 
 export const SpotsMap = ({
   spots,
-  mapWidth,
-  mapHeight,
+  styles,
   userLocation,
   onClickSpotMarker,
   activeSearchField = true,
-}: Props) => {
+  ...props
+}: SpotsMapProps) => {
   const handleMarkerClick = onClickSpotMarker
     ? (spot: Spot) => {
         onClickSpotMarker(spot)
@@ -39,7 +41,7 @@ export const SpotsMap = ({
       }
 
   return (
-    <Map zoom={12} center={userLocation} mapWidth={mapWidth} mapHeight={mapHeight}>
+    <Map zoom={12} center={userLocation} styles={styles} {...props}>
       {({ TileLayer, Marker }) => (
         <>
           {activeSearchField && <SearchField apiKey={MAP_API_KEY} />}

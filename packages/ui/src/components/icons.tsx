@@ -221,7 +221,7 @@ export const Icons = {
       />
     </svg>
   ),
-  star: (props: SVGProps<SVGSVGElement>) => (
+  outlineStar: (props: SVGProps<SVGSVGElement>) => (
     <svg
       width="14"
       height="14"

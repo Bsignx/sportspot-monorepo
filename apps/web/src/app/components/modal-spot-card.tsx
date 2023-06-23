@@ -21,10 +21,10 @@ import {
 import { MouseEvent } from 'react'
 
 import { SpotsMap } from './spots-map'
+import { BottomSheet } from './bottom-sheet'
 import { Props } from './selected-spot-card'
-import { ModalDraggable } from './modal-draggable'
-import { isRatingStars } from '~/utils/rating-stars'
-import { ModalCarrouselSpot } from './modal-carrousel-spot'
+import { CarrouselSpot } from './carrousel-spot'
+import { getRatingStars } from '~/utils/get-rating-stars'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
 
 type ModalSpotCardProps = Props & {
@@ -45,10 +45,11 @@ export const ModalSpotCard = ({
   ratingAverage,
   handleClickFavoriteSpot,
 }: ModalSpotCardProps) => {
-  const starSize = useBreakpointValue({ base: 18, md: 22 }, { ssr: false })
-  const mapHeighSize = useBreakpointValue({ base: '100px', md: '240px' }, { ssr: false })
+  const starSize = 18
+  const favSize = 30
+  const mapHeighSize = useBreakpointValue({ base: '132px', md: '240px' }, { ssr: false })
 
-  const ratingStars = isRatingStars(ratingAverage!)
+  const ratingStars = getRatingStars(ratingAverage!)
 
   return (
     <>
@@ -60,16 +61,16 @@ export const ModalSpotCard = ({
         motionPreset="slideInBottom"
       >
         <ModalOverlay />
-        <ModalContent pos="absolute" bottom={0} minH="90dvh" bg="transparent">
-          <ModalDraggable onClose={onClose}>
-            <ModalCarrouselSpot selectedSpot={selectedSpot} />
+        <ModalContent pos="absolute" bottom={0} bg="transparent" css={{ minHeight: '90dvh' }}>
+          <BottomSheet onClose={onClose}>
+            <CarrouselSpot selectedSpot={selectedSpot} />
 
-            <ModalHeader py={4} px={{ base: 3, md: 6 }} pr={5}>
+            <ModalHeader p="16px 20px 16px 14px">
               <HStack w="full" justify="space-between">
                 {selectedSpot.latitude && selectedSpot.longitude && (
-                  <HStack mt={1} spacing={1}>
-                    <Icons.distanceMarker aria-hidden="true" />
-                    <Text fontSize={{ base: '2xs', md: 'xs' }} color="gray.300">
+                  <HStack spacing={1} align="end">
+                    <Icons.distanceMarker aria-hidden="true" width={14} height={14} />
+                    <Text fontSize="11px" lineHeight="shorter" color="gray.300" fontWeight="thin">
                       {getKmDistanceBetweenTwoPoints(
                         userLocation[0],
                         userLocation[1],
@@ -91,45 +92,49 @@ export const ModalSpotCard = ({
                 >
                   <Center>
                     {isFavorite ? (
-                      <Icons.favoriteFilled aria-hidden="true" width={30} height={29} />
+                      <Icons.favoriteFilled
+                        aria-hidden="true"
+                        style={{ width: favSize, height: favSize }}
+                      />
                     ) : (
-                      <Icons.favorite aria-hidden="true" width={30} height={29} />
+                      <Icons.favorite
+                        aria-hidden="true"
+                        style={{ width: favSize, height: favSize }}
+                      />
                     )}
                   </Center>
                 </Box>
               </HStack>
 
               <VStack align="start">
-                <Heading fontSize={{ base: '24px', md: '28px' }} fontWeight="extrabold">
+                <Heading fontSize="24px" fontWeight="extrabold">
                   {selectedSpot.name}
                 </Heading>
 
                 {ratingAverage && (
-                  <HStack spacing={2}>
+                  <HStack spacing={1} align="start">
                     {ratingStars.map((isStar, key) =>
                       isStar ? (
                         <Icons.filledStar
                           key={key}
-                          width={starSize}
-                          height={starSize}
                           aria-hidden="true"
+                          style={{ width: starSize, height: starSize }}
                         />
                       ) : (
-                        <Icons.star
+                        <Icons.outlineStar
                           key={key}
-                          width={starSize}
-                          height={starSize}
                           aria-hidden="true"
+                          style={{ width: starSize, height: starSize }}
                         />
                       ),
                     )}
 
                     <Text
-                      pl={1}
-                      h={4}
-                      color="black"
+                      pl="4px"
+                      color="dark"
+                      fontSize="15px"
+                      lineHeight={6}
                       fontWeight="semibold"
-                      fontSize={{ base: 'sm', md: 'md' }}
                     >
                       {ratingAverage}
                     </Text>
@@ -138,34 +143,33 @@ export const ModalSpotCard = ({
               </VStack>
             </ModalHeader>
 
-            <ModalBody py={0} px={{ base: 3, md: 6 }}>
+            <ModalBody p="0px 14px">
               <SpotsMap
-                mapWidth="100%"
-                mapHeight={mapHeighSize}
+                zoom={14}
                 spots={[selectedSpot]}
                 activeSearchField={false}
+                styles={{
+                  width: '100%',
+                  height: mapHeighSize,
+                  borderRadius: '14px',
+                  boxShadow: '0px 0px 1px rgba(0, 0, 0, 0.25)',
+                }}
                 userLocation={[selectedSpot.latitude!, selectedSpot.longitude!]}
               />
             </ModalBody>
-            <ModalFooter
-              flexDir="column"
-              alignItems="start"
-              gap={2}
-              pb={{ base: 6, md: 14 }}
-              px={{ base: 3, md: 6 }}
-            >
+            <ModalFooter gap={3} flexDir="column" alignItems="start" p="24px 14px">
               <HStack mt={1} spacing={1} alignItems="flex-start">
-                <Icons.addressMarker aria-hidden="true" />
-                <Text fontSize="2xs" color="gray.300">
+                <Icons.addressMarker width="14px" height="16px" aria-hidden="true" />
+                <Text fontSize="12.8px" fontWeight="light" color="gray.300" lineHeight={4}>
                   {selectedSpot.address}
                 </Text>
               </HStack>
 
-              <Text fontSize={{ base: 12, md: 14 }} color="gray.300" noOfLines={4}>
+              <Text fontSize="12.2px" color="gray.300" lineHeight={5} noOfLines={4}>
                 {selectedSpot.description}
               </Text>
             </ModalFooter>
-          </ModalDraggable>
+          </BottomSheet>
         </ModalContent>
       </Modal>
     </>

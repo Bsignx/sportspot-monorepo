@@ -73,7 +73,7 @@ model Spot {
   address     String?
   latitude    Float?
   longitude   Float?
-  image       String?
+  images      String[]   @default([])
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
   tagName     String

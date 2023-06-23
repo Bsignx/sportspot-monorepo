@@ -80,7 +80,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         css={{
           objectFit: 'cover',
         }}
-        src={selectedSpot.image || '/images/spot/spot-placeholder.jpg'}
+        src={selectedSpot.images[0] || '/images/spot/spot-placeholder.jpg'}
         alt={`Imagem from ${selectedSpot.name} spot`}
       />
 

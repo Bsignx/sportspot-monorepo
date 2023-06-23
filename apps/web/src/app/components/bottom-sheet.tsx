@@ -3,16 +3,16 @@
 import { PropsWithChildren, PointerEvent } from 'react'
 import { FramerMotion, Box } from '@sportspot/ui'
 
-type ModalDraggableProps = {
+type BottomSheetProps = {
   onClose(): void
 }
 
-export const ModalDraggable = ({ onClose, children }: PropsWithChildren<ModalDraggableProps>) => {
+export const BottomSheet = ({ onClose, children }: PropsWithChildren<BottomSheetProps>) => {
   const y = FramerMotion.useMotionValue(0)
   const controls = FramerMotion.useDragControls()
 
   function handleDrag<T>(_: T, { offset }: FramerMotion.PanInfo) {
-    if (offset.y < 0) y.set(0)
+    if (offset.y < 12) y.set(0)
   }
 
   function handleDragEnd<T>(_: T, { offset }: FramerMotion.PanInfo) {
@@ -56,9 +56,10 @@ export const ModalDraggable = ({ onClose, children }: PropsWithChildren<ModalDra
         _after={{
           content: "''",
           w: '61px',
-          h: { base: '4px', md: '6px' },
+          h: '2.4px',
+          opacity: 0.6,
           bg: 'gray.100',
-          shadow: 'sm',
+          shadow: 'md',
           border: 'solid 1px',
           rounded: 'xl',
           borderColor: 'white',
