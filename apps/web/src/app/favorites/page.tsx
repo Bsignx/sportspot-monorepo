@@ -1,5 +1,7 @@
+import Template from './components/template'
+
 const FavoritesPage = () => {
-  return <div>Favorites Page</div>
+  return <Template />
 }
 
 export default FavoritesPage
