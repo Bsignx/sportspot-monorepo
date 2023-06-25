@@ -1,8 +1,8 @@
+'use client'
+
 import dynamic from 'next/dynamic'
 
-const Template = dynamic(() => import('./components/template'), {
-  ssr: false,
-})
+const Template = dynamic(() => import('./components/template'), { ssr: false })
 
 export default function Web() {
   return <Template />
