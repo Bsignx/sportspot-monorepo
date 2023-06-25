@@ -1,9 +1,13 @@
-import dynamic from 'next/dynamic'
 import Leaflet from 'leaflet'
+import dynamic from 'next/dynamic'
 
-import { env } from '~/env'
 import Map from '~/components/map'
 import { Spot } from '@prisma/client'
+import * as ReactLeaflet from 'react-leaflet'
+
+import { CSSProperties } from 'react'
+
+import { env } from '~/env'
 
 const SearchField = dynamic(() => import('../../components/map/search-field'), {
   ssr: false,
@@ -11,23 +15,37 @@ const SearchField = dynamic(() => import('../../components/map/search-field'), {
 
 const MAP_API_KEY = env.NEXT_PUBLIC_MAP_API_KEY
 
-type Props = {
+type SpotsMapProps = ReactLeaflet.MapContainerProps & {
   spots?: Spot[]
+  styles?: CSSProperties
+  activeSearchField?: boolean
   userLocation: [latitude: number, longitude: number]
   // eslint-disable-next-line no-unused-vars
-  onClickSpotMarker: (spot: Spot) => void
+  onClickSpotMarker?: (spot: Spot) => void
 }
 
-export const SpotsMap = ({ spots, userLocation, onClickSpotMarker }: Props) => {
-  const handleMarkerClick = (spot: Spot) => {
-    onClickSpotMarker(spot)
-  }
+export const SpotsMap = ({
+  spots,
+  styles,
+  userLocation,
+  onClickSpotMarker,
+  activeSearchField = true,
+  ...props
+}: SpotsMapProps) => {
+  const handleMarkerClick = onClickSpotMarker
+    ? (spot: Spot) => {
+        onClickSpotMarker(spot)
+      }
+    : () => {
+        console.log('not a function configurate')
+      }
 
   return (
-    <Map center={userLocation} zoom={12}>
+    <Map zoom={12} center={userLocation} styles={styles} {...props}>
       {({ TileLayer, Marker }) => (
         <>
-          <SearchField apiKey={MAP_API_KEY} />
+          {activeSearchField && <SearchField apiKey={MAP_API_KEY} />}
+
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/bsignx/clhrifzo2017c01qsh2hpcu0y/tiles/256/{z}/{x}/{y}@2x?access_token=${MAP_API_KEY}`}
             attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'

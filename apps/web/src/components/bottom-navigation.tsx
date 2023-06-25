@@ -44,6 +44,7 @@ const BottomNavigation = () => {
 
   return (
     <Flex
+      zIndex="sticky"
       w="min(90%, 360px)"
       h="54px"
       background="gradient.200"
@@ -54,10 +55,9 @@ const BottomNavigation = () => {
       right="0"
       mx="auto"
       borderRadius="2xl"
-      justifyContent="space-between"
       alignItems="center"
       paddingX="5"
-      zIndex="sticky"
+      justifyContent="space-between"
     >
       {links.map(({ path, icon, activeIcon, targetSegment }) => {
         const isActive = activeSegment === targetSegment

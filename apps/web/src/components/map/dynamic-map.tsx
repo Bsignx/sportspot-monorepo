@@ -1,21 +1,17 @@
-import { useEffect } from 'react'
+/* eslint-disable no-unused-vars */
 import Leaflet from 'leaflet'
 import * as ReactLeaflet from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css'
 
-import styles from './map.module.css'
+import { useEffect } from 'react'
 
 const { MapContainer } = ReactLeaflet
 
+// mapWidth = '100%', mapHeight = '100vh'
+
 // eslint-disable-next-line no-unused-vars
-const Map = ({ children, className, width, height, ...rest }) => {
-  let mapClassName = styles.map
-
-  if (className) {
-    mapClassName = `${mapClassName} ${className}`
-  }
-
+const Map = ({ styles, children, ...rest }) => {
   useEffect(() => {
     ;(async function init() {
       delete (Leaflet.Icon.Default.prototype as any)._getIconUrl
@@ -28,7 +24,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
   }, [])
 
   return (
-    <MapContainer className={mapClassName} {...rest}>
+    <MapContainer style={{ width: '100%', height: '100vh', ...styles }} {...rest}>
       {children(ReactLeaflet, Leaflet)}
     </MapContainer>
   )
