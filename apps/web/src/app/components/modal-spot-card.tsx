@@ -27,6 +27,9 @@ import { CarrouselSpot } from './carrousel-spot'
 import { getRatingStars } from '~/utils/get-rating-stars'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
 
+const starSize = 18
+const favSize = 30
+
 type ModalSpotCardProps = Props & {
   isFavorite?: Favorite | null
   ratingAverage?: string | null
@@ -45,8 +48,6 @@ export const ModalSpotCard = ({
   ratingAverage,
   handleClickFavoriteSpot,
 }: ModalSpotCardProps) => {
-  const starSize = 18
-  const favSize = 30
   const mapHeighSize = useBreakpointValue({ base: '132px', md: '240px' }, { ssr: false })
 
   const ratingStars = getRatingStars(ratingAverage!)

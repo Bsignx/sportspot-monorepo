@@ -29,7 +29,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { mutate } = api.spot.favorite.useMutation({
+  const { mutate: mutateFavoriteSpot } = api.spot.favorite.useMutation({
     onSuccess: ({ spotId }) => {
       sportRouter.getFavorite.invalidate({ spotId })
     },
@@ -37,7 +37,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
 
   const handleClickFavoriteSpot = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
-    mutate({ spotId: selectedSpot.id })
+    mutateFavoriteSpot({ spotId: selectedSpot.id })
   }
 
   const handleClickOpenModal = () => {

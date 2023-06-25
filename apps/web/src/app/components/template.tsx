@@ -9,9 +9,7 @@ import { api } from '~/helpers/trpc/api'
 import { SpotsMap } from './spots-map'
 import { SelectedSpotCard } from './selected-spot-card'
 import { useGetUserLocation } from '~/hooks/useGetUserLocation'
-
-const DEFAULT_LATITUDE = -20.567620032412087
-const DEFAULT_LONGITUDE = -48.5653164180221
+import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '~/config/location'
 
 const Template = () => {
   const [selectedSpot, setSelectedSpot] = useState<Spot | null>(null)

@@ -47,6 +47,25 @@ export const spotRouter = createTRPCRouter({
 
       return favoriteSpot
     }),
+  getFavoriteSpots: protectedProcedure.query(async ({ ctx }) => {
+    const userId = ctx.session.user.id
+
+    const favorites = await ctx.prisma.favorite.findMany({
+      where: {
+        userId,
+      },
+    })
+
+    const favoriteSpots = await ctx.prisma.spot.findMany({
+      where: {
+        id: {
+          in: favorites.map((favorite) => favorite.spotId),
+        },
+      },
+    })
+
+    return favoriteSpots
+  }),
   getRating: protectedProcedure
     .input(z.object({ spotId: z.string() }))
     .query(async ({ input, ctx }) => {
