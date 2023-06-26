@@ -59,7 +59,8 @@
 }
 
 .search-input:focus {
-  outline: #3dffdc 2px solid;
+  outline: #3182ce 2px solid;
+  box-shadow: 0 0 0 1px #3182ce;
 }
 
 .search-input::placeholder {

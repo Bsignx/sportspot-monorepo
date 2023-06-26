@@ -88,18 +88,14 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
           top="8px"
           left="68px"
         >
-          {isFavorite ? (
-            <Icons.favoriteFilled aria-hidden="true" />
-          ) : (
-            <Icons.favorite aria-hidden="true" />
-          )}
+          {isFavorite ? <Icons.favoriteFilled aria-hidden /> : <Icons.favorite aria-hidden />}
         </Flex>
 
         <Flex alignItems="flex-start" pt="3" pb="1" flexDir="column" flex="1" h="100%">
           <Heading size="sm">{spot.name}</Heading>
 
           <HStack mt="1" spacing="1" alignItems="flex-start">
-            <Icons.addressMarker aria-hidden="true" />
+            <Icons.addressMarker aria-hidden />
             <Text fontSize="2xs" color="gray.300">
               {spot.address}
             </Text>
@@ -110,7 +106,7 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
           <Flex justifyContent="space-between" alignItems="center" w="100%" pr="4">
             {spot.latitude && spot.longitude && (
               <HStack mt="1" spacing="1">
-                <Icons.distanceMarker aria-hidden="true" />
+                <Icons.distanceMarker aria-hidden />
                 <Text fontSize="2xs" color="gray.300">
                   {getKmDistanceBetweenTwoPoints(
                     userLocation[0],
@@ -125,7 +121,7 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
 
             {ratingAverage && (
               <HStack mt="1" spacing="1" alignItems="center" h="100%">
-                <Icons.filledStar aria-hidden="true" />
+                <Icons.filledStar aria-hidden />
                 <Text fontSize="xs" color="black" fontWeight="medium" h="4">
                   {ratingAverage}
                 </Text>

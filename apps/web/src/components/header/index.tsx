@@ -17,7 +17,7 @@ export const Header = ({ title }: Props) => {
   return (
     <HStack w="100%">
       <Button onClick={handleClickBack} variant="unstyled" aria-label="Go back">
-        <Icons.leftArrow aria-hidden="true" />
+        <Icons.leftArrow aria-hidden />
       </Button>
 
       <Text fontSize="medium" fontWeight="600" lineHeight="1.1875rem">

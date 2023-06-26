@@ -50,7 +50,7 @@ export const CarrouselSpot = ({ selectedSpot }: CarrouselSpotProps) => {
           initial="enter"
           animate="visible"
           exit="end"
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.1 }}
           dragElastic={0}
           dragMomentum={false}
           onDragEnd={handleDragEnd}
@@ -82,7 +82,7 @@ export const CarrouselSpot = ({ selectedSpot }: CarrouselSpotProps) => {
                 boxSize="6px"
                 rounded="full"
                 sx={{
-                  opacity: index === currentIndex ? 1 : 0.6,
+                  opacity: index === currentIndex ? 1 : 0.8,
                   bg: index === currentIndex ? 'white' : 'gray.200',
                 }}
               />

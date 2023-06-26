@@ -1,32 +1,21 @@
 'use client'
 
-import { Text, VStack } from '@sportspot/ui'
+import { Icons, Input, InputGroup, InputLeftElement, VStack } from '@sportspot/ui'
 
 import { Header } from '~/components/header'
-import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '~/config/location'
 import { api } from '~/helpers/trpc/api'
-import { useGetUserLocation } from '~/hooks/useGetUserLocation'
-import { SpotCard } from './spot-card'
+import { ChangeEvent, useState } from 'react'
+import { SpotList } from './spot-list'
+
+const MINIMUM_LENGTH_TO_SEARCH = 8
 
 const Template = () => {
-  const { spot: sportRouter } = api.useContext()
   const { data: favoriteSpots, isLoading } = api.spot.getFavoriteSpots.useQuery()
-  const { mutate: mutateFavoriteSpot } = api.spot.favorite.useMutation({
-    onSuccess: ({ spotId }) => {
-      sportRouter.getFavorite.invalidate({ spotId })
-      sportRouter.getFavoriteSpots.invalidate()
-    },
-  })
 
-  const { location } = useGetUserLocation()
+  const [search, setSearch] = useState('')
 
-  const userLocation = [
-    location?.coords.latitude || DEFAULT_LATITUDE,
-    location?.coords.longitude || DEFAULT_LONGITUDE,
-  ]
-
-  const handleClickFavoriteSpot = (spotId) => {
-    mutateFavoriteSpot({ spotId })
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
   }
 
   if (isLoading || !favoriteSpots) {
@@ -37,20 +26,23 @@ const Template = () => {
   return (
     <VStack p="6" pt="4" spacing="8">
       <Header title="favorites" />
-      {favoriteSpots.length === 0 && <Text>no favorite spots</Text>}
 
-      {favoriteSpots.length > 0 && (
-        <VStack w="100%" spacing="4">
-          {favoriteSpots.map((spot) => (
-            <SpotCard
-              key={spot.id}
-              spot={spot}
-              userLocation={[userLocation[0], userLocation[1]]}
-              onClickFavorite={handleClickFavoriteSpot}
-            />
-          ))}
-        </VStack>
+      {favoriteSpots.length > MINIMUM_LENGTH_TO_SEARCH && (
+        <InputGroup>
+          <InputLeftElement color="gray.300">
+            <Icons.searchBase size={19} aria-hidden />
+          </InputLeftElement>
+
+          <Input
+            value={search}
+            onChange={handleSearch}
+            boxShadow="base"
+            placeholder="search for a spot"
+          />
+        </InputGroup>
       )}
+
+      <SpotList favoriteSpots={favoriteSpots} search={search} />
     </VStack>
   )
 }

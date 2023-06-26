@@ -62,7 +62,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
       zIndex="popover"
       bgColor="white"
       borderRadius="2xl"
-      w="80%"
+      w="min(90%, 360px)"
       m="0 auto"
       pos="absolute"
       bottom="2.5rem"
@@ -99,11 +99,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         top="8px"
         left="68px"
       >
-        {isFavorite ? (
-          <Icons.favoriteFilled aria-hidden="true" />
-        ) : (
-          <Icons.favorite aria-hidden="true" />
-        )}
+        {isFavorite ? <Icons.favoriteFilled aria-hidden /> : <Icons.favorite aria-hidden />}
       </Flex>
 
       <Flex alignItems="flex-start" pt="3" pb="1" flexDir="column" flex="1" h="100%">
@@ -113,7 +109,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         </Text>
 
         <HStack mt="1" spacing="1" alignItems="flex-start">
-          <Icons.addressMarker aria-hidden="true" />
+          <Icons.addressMarker aria-hidden />
           <Text fontSize="2xs" color="gray.300">
             {selectedSpot.address}
           </Text>
@@ -124,7 +120,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         <Flex justifyContent="space-between" alignItems="center" w="100%" pr="4">
           {selectedSpot.latitude && selectedSpot.longitude && (
             <HStack mt="1" spacing="1">
-              <Icons.distanceMarker aria-hidden="true" />
+              <Icons.distanceMarker aria-hidden />
               <Text fontSize="2xs" color="gray.300">
                 {getKmDistanceBetweenTwoPoints(
                   userLocation[0],
@@ -139,7 +135,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
 
           {ratingAverage && (
             <HStack mt="1" spacing="1" alignItems="center" h="100%">
-              <Icons.filledStar aria-hidden="true" />
+              <Icons.filledStar aria-hidden />
               <Text fontSize="xs" color="black" fontWeight="medium" h="4">
                 {ratingAverage}
               </Text>

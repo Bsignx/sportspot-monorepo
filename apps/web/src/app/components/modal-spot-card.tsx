@@ -71,7 +71,12 @@ export const ModalSpotCard = ({
                 {selectedSpot.latitude && selectedSpot.longitude && (
                   <HStack spacing={1} align="end">
                     <Icons.distanceMarker aria-hidden="true" width={14} height={14} />
-                    <Text fontSize="11px" lineHeight="shorter" color="gray.300" fontWeight="thin">
+                    <Text
+                      fontSize="0.6875rem"
+                      lineHeight="shorter"
+                      color="gray.300"
+                      fontWeight="thin"
+                    >
                       {getKmDistanceBetweenTwoPoints(
                         userLocation[0],
                         userLocation[1],
@@ -94,14 +99,11 @@ export const ModalSpotCard = ({
                   <Center>
                     {isFavorite ? (
                       <Icons.favoriteFilled
-                        aria-hidden="true"
+                        aria-hidden
                         style={{ width: favSize, height: favSize }}
                       />
                     ) : (
-                      <Icons.favorite
-                        aria-hidden="true"
-                        style={{ width: favSize, height: favSize }}
-                      />
+                      <Icons.favorite aria-hidden style={{ width: favSize, height: favSize }} />
                     )}
                   </Center>
                 </Box>
@@ -118,13 +120,13 @@ export const ModalSpotCard = ({
                       isStar ? (
                         <Icons.filledStar
                           key={key}
-                          aria-hidden="true"
+                          aria-hidden
                           style={{ width: starSize, height: starSize }}
                         />
                       ) : (
                         <Icons.outlineStar
                           key={key}
-                          aria-hidden="true"
+                          aria-hidden
                           style={{ width: starSize, height: starSize }}
                         />
                       ),
@@ -161,12 +163,12 @@ export const ModalSpotCard = ({
             <ModalFooter gap={3} flexDir="column" alignItems="start" p="24px 14px">
               <HStack mt={1} spacing={1} alignItems="flex-start">
                 <Icons.addressMarker width="14px" height="16px" aria-hidden="true" />
-                <Text fontSize="12.8px" fontWeight="light" color="gray.300" lineHeight={4}>
+                <Text fontSize="0.8rem" fontWeight="light" color="gray.300" lineHeight={4}>
                   {selectedSpot.address}
                 </Text>
               </HStack>
 
-              <Text fontSize="12.2px" color="gray.300" lineHeight={5} noOfLines={4}>
+              <Text fontSize="0.7625rem" color="gray.300" lineHeight={5} noOfLines={4}>
                 {selectedSpot.description}
               </Text>
             </ModalFooter>
