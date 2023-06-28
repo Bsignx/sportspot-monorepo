@@ -60,7 +60,7 @@ export const SpotsMap = ({
               }}
               icon={
                 new Leaflet.Icon({
-                  iconUrl: `/images/leaflet/tags/${spot.tagName}.png`,
+                  iconUrl: `/images/leaflet/tags/${spot.tagName}.svg`,
                   shadowUrl: `/images/leaflet/marker-shadow.png`,
                   iconSize: [32, 38],
                   iconAnchor: [12, 41],

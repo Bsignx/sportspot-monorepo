@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { Spot } from '@prisma/client'
 
-import { useToast } from '@sportspot/ui'
+import { Box, useToast } from '@sportspot/ui'
 import { api } from '~/helpers/trpc/api'
 import { SpotsMap } from './spots-map'
 import { SelectedSpotCard } from './selected-spot-card'
@@ -31,7 +31,11 @@ const Template = () => {
   if (isError) toast({ status: 'error', title: 'Error loading Spots' })
 
   return (
-    <>
+    <Box
+      css={{
+        height: ['100vh', '100dvh'],
+      }}
+    >
       <SpotsMap
         spots={spots}
         onClickSpotMarker={handleClickSpotMarker}
@@ -40,7 +44,7 @@ const Template = () => {
       {selectedSpot && (
         <SelectedSpotCard selectedSpot={selectedSpot} userLocation={[coords[0], coords[1]]} />
       )}
-    </>
+    </Box>
   )
 }
 
