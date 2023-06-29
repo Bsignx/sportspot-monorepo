@@ -43,7 +43,7 @@ export const BottomSheet = ({ onClose, children }: PropsWithChildren<BottomSheet
     >
       <Box
         top={0}
-        zIndex="overlay"
+        zIndex="popover"
         position="absolute"
         w="full"
         h="50px"
