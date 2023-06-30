@@ -1,5 +1,5 @@
-import { SkeletonPage } from '~/app/components/loaders/skeleton-page'
+import { LoadingPage } from '~/components/loading-page'
 
 export default async function Loading() {
-  return <SkeletonPage />
+  return <LoadingPage />
 }
