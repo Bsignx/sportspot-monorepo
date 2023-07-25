@@ -50,6 +50,7 @@ export const authOptions: NextAuthOptions = {
     // eslint-disable-next-line no-unused-vars
     session({ session, token }) {
       if (session.user) {
+        // @ts-ignore
         session.user.id = token.sub!
       }
       return session
