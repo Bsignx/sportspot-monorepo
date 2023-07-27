@@ -6,6 +6,12 @@ export const spotRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.spot.findMany()
   }),
+  getUserSpots: protectedProcedure.query(async ({ ctx }) => {
+    const userId = ctx.session.user.id
+    const allSpots = await ctx.prisma.spot.findMany({ where: { userId } })
+
+    return allSpots
+  }),
   favorite: protectedProcedure
     .input(z.object({ spotId: z.string() }))
     .mutation(async ({ input, ctx }) => {

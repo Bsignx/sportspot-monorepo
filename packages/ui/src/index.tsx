@@ -1,4 +1,5 @@
 export * from './components/button'
+export * from './components/icon-button'
 export * from './components/box'
 export * from './components/aspect-ratio'
 export * from './components/center'

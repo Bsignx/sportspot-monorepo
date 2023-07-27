@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Box, Button, Flex, Icons } from '@sportspot/ui'
 
-const Template = () => {
+export const Main = () => {
   return (
     <Flex
       w="100%"
@@ -25,5 +25,3 @@ const Template = () => {
     </Flex>
   )
 }
-
-export default Template

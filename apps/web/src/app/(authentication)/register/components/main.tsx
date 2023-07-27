@@ -1,21 +1,21 @@
 'use client'
 
 import { OrAuth } from '../../components/or-auth'
-import { LoginForm } from './login-form'
-import { RedirectRegister } from './redirect-register'
+import { RegisterForm } from './register-form'
+import { RedirectLogin } from './redirect-login'
 import { WrapperAuthProviders } from '../../components/wrapper-auth-providers'
 
-import { Heading, Text, Stack, Box } from '@sportspot/ui'
+import { Box, Heading, Text, VStack } from '@sportspot/ui'
 
-const Template = () => {
+export const Main = () => {
   return (
-    <Stack
+    <VStack
+      w="100%"
       spacing="0"
+      justifyContent="space-between"
       pt="9"
       pb="14"
       px="6"
-      w="100%"
-      justifyContent="space-between"
       css={{
         height: ['100vh', '100dvh'],
       }}
@@ -31,19 +31,17 @@ const Template = () => {
         <Text as="span" fontSize="xl" fontWeight="normal">
           Hey there,
         </Text>
-        <br /> Welcome back
+        <br /> Create an Account
       </Heading>
 
-      <LoginForm />
+      <RegisterForm />
 
-      <Box>
+      <Box w="100%">
         <OrAuth />
 
         <WrapperAuthProviders />
-        <RedirectRegister />
+        <RedirectLogin />
       </Box>
-    </Stack>
+    </VStack>
   )
 }
-
-export default Template

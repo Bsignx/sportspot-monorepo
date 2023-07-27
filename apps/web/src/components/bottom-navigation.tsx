@@ -36,7 +36,7 @@ const links = [
 const BottomNavigation = () => {
   const activeSegment = useSelectedLayoutSegment()
 
-  const isPublicRoute = publicRoutes.includes(activeSegment ?? '')
+  const isPublicRoute = publicRoutes.includes(`/${activeSegment}` ?? '')
 
   if (isPublicRoute) {
     return null
