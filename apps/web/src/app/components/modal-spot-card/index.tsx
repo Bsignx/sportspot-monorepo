@@ -20,10 +20,10 @@ import {
 
 import { MouseEvent } from 'react'
 
-import { SpotsMap } from './spots-map'
-import { BottomSheet } from './bottom-sheet'
-import { Props } from './selected-spot-card'
-import { CarrouselSpot } from './carrousel-spot'
+import { SpotsMap } from '../spots-map'
+import { BottomSheet } from '../bottom-sheet'
+import { Props } from '../selected-spot-card'
+import { CarrouselSpot } from '../carrousel-spot'
 import { getRatingStars } from '~/utils/get-rating-stars'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
 
@@ -36,7 +36,7 @@ type ModalSpotCardProps = Props & {
   isOpen: boolean
   onClose(): void
   // eslint-disable-next-line no-unused-vars
-  handleClickFavoriteSpot(e: MouseEvent<HTMLDivElement>): void
+  handleClickFavoriteSpot?: (e: MouseEvent<HTMLDivElement>) => void
 }
 
 export const ModalSpotCard = ({
@@ -87,26 +87,28 @@ export const ModalSpotCard = ({
                     </Text>
                   </HStack>
                 )}
-                <Box
-                  as="button"
-                  bgColor="white"
-                  boxShadow="base"
-                  borderRadius="lg"
-                  boxSize={{ base: '40px', md: '46px' }}
-                  aria-label="Favorite spot toggle"
-                  onClick={handleClickFavoriteSpot}
-                >
-                  <Center>
-                    {isFavorite ? (
-                      <Icons.favoriteFilled
-                        aria-hidden
-                        style={{ width: favSize, height: favSize }}
-                      />
-                    ) : (
-                      <Icons.favorite aria-hidden style={{ width: favSize, height: favSize }} />
-                    )}
-                  </Center>
-                </Box>
+                {handleClickFavoriteSpot && (
+                  <Box
+                    as="button"
+                    bgColor="white"
+                    boxShadow="base"
+                    borderRadius="lg"
+                    boxSize={{ base: '40px', md: '46px' }}
+                    aria-label="Favorite spot toggle"
+                    onClick={handleClickFavoriteSpot}
+                  >
+                    <Center>
+                      {isFavorite ? (
+                        <Icons.favoriteFilled
+                          aria-hidden
+                          style={{ width: favSize, height: favSize }}
+                        />
+                      ) : (
+                        <Icons.favorite aria-hidden style={{ width: favSize, height: favSize }} />
+                      )}
+                    </Center>
+                  </Box>
+                )}
               </HStack>
 
               <VStack align="start">

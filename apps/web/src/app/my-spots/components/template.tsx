@@ -1,0 +1,45 @@
+'use client'
+
+import { colors } from '@sportspot/tokens'
+import { FloatingButton, Icons, VStack } from '@sportspot/ui'
+import Link from 'next/link'
+
+import { Header } from '~/components/header'
+import { SpotCard } from './spot-card'
+import { api } from '~/helpers/trpc/api'
+import { useGetUserLocation } from '~/hooks/useGetUserLocation'
+import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '~/config/location'
+import { LoadingPage } from '~/components/loading-page'
+
+const Template = () => {
+  const { data: userSpots, isLoading } = api.spot.getUserSpots.useQuery()
+
+  const { location } = useGetUserLocation()
+
+  const userLocation = [
+    location?.coords.latitude || DEFAULT_LATITUDE,
+    location?.coords.longitude || DEFAULT_LONGITUDE,
+  ]
+
+  if (isLoading || !userSpots) {
+    return <LoadingPage />
+  }
+
+  return (
+    <VStack p="6" pt="4" spacing="8">
+      <Header title="my spots" />
+      <VStack w="100%" spacing="4">
+        {' '}
+        {userSpots?.map((spot) => (
+          <SpotCard key={spot.id} spot={spot} userLocation={[userLocation[0], userLocation[1]]} />
+        ))}
+      </VStack>
+
+      <FloatingButton as={Link} href="/create-spot" bottom="20">
+        <Icons.plus size={24} color={colors.light} />
+      </FloatingButton>
+    </VStack>
+  )
+}
+
+export default Template

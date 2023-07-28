@@ -14,10 +14,10 @@ const links = [
     targetSegment: null,
   },
   {
-    path: '/manage-spots',
+    path: '/my-spots',
     icon: <Icons.pinGlobal />,
     activeIcon: <Icons.pinGlobal color={colors.light} aria-label="manage spots" />,
-    targetSegment: 'manage-spots',
+    targetSegment: 'my-spots',
   },
   {
     path: '/favorites',

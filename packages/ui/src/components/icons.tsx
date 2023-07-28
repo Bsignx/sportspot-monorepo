@@ -1,5 +1,5 @@
 import { SVGProps } from 'react'
-import { ChevronRight, Search } from 'lucide-react'
+import { ChevronRight, Search, Plus } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Message, Show, Hide, Home, User, Lock, Logout } from 'react-iconly'
 
@@ -11,6 +11,80 @@ export const Icons = {
   Lock,
   Logout,
   Message,
+  plus: Plus,
+  mySpots: {
+    edit: ({ color = '#212121', ...props }: SVGProps<SVGSVGElement>) => (
+      <svg
+        width="21"
+        height="21"
+        viewBox="0 0 21 21"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <path
+          d="M9.42864 3.42859H3.42864C2.97398 3.42859 2.53795 3.6092 2.21646 3.93069C1.89497 4.25218 1.71436 4.68822 1.71436 5.14287V17.1429C1.71436 17.5975 1.89497 18.0336 2.21646 18.3551C2.53795 18.6765 2.97398 18.8572 3.42864 18.8572H15.4286C15.8833 18.8572 16.3193 18.6765 16.6408 18.3551C16.9623 18.0336 17.1429 17.5975 17.1429 17.1429V11.1429"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15.8569 2.14285C16.1979 1.80186 16.6604 1.61029 17.1426 1.61029C17.6249 1.61029 18.0874 1.80186 18.4284 2.14285C18.7694 2.48384 18.9609 2.94633 18.9609 3.42856C18.9609 3.9108 18.7694 4.37329 18.4284 4.71428L10.2855 12.8571L6.85693 13.7143L7.71408 10.2857L15.8569 2.14285Z"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    delete: ({ color = '#212121', ...props }: SVGProps<SVGSVGElement>) => (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <path
+          d="M2.5 5H17.5"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15.8332 5V16.6667C15.8332 17.5 14.9998 18.3333 14.1665 18.3333H5.83317C4.99984 18.3333 4.1665 17.5 4.1665 16.6667V5"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6.6665 5.00002V3.33335C6.6665 2.50002 7.49984 1.66669 8.33317 1.66669H11.6665C12.4998 1.66669 13.3332 2.50002 13.3332 3.33335V5.00002"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M8.3335 9.16669V14.1667"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M11.6665 9.16669V14.1667"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
   visible: {
     Show,
     Hide,

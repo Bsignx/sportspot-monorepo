@@ -101,4 +101,15 @@ export const spotRouter = createTRPCRouter({
 
       return reviewCount > 0 ? average : null
     }),
+  getUserSpots: protectedProcedure.query(async ({ ctx }) => {
+    const userId = ctx.session.user.id
+
+    const spots = await ctx.prisma.spot.findMany({
+      where: {
+        userId,
+      },
+    })
+
+    return spots
+  }),
 })
