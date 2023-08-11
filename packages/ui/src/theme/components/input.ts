@@ -1,6 +1,7 @@
 import { inputAnatomy as parts } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/styled-system'
 import { getColor, mode } from '@chakra-ui/theme-tools'
+import colors from '../foundations/colors'
 
 const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpers(parts.keys)
 
@@ -79,10 +80,9 @@ const variantOutline = definePartsStyle((props) => {
 
   return {
     field: {
-      color: mode('dark', 'whiteAlpha.900')(props),
+      color: mode(colors.black, 'whiteAlpha.900')(props),
       border: '1px solid',
       borderColor: 'gray.50',
-      pl: 12,
       bg: 'white',
       _hover: {
         borderColor: mode('gray.300', 'whiteAlpha.400')(props),

@@ -17,7 +17,7 @@ export const InputLastName = ({ errors, register }: InputLastNameProps) => (
       <InputLeftElement color="gray.300">
         <Icons.User set="light" />
       </InputLeftElement>
-      <Input variant="outline" placeholder="Last name" {...register('lastName')} />
+      <Input variant="outline" placeholder="Last name" hasIcon {...register('lastName')} />
     </InputGroup>
 
     <FormErrorMessage>{errors.lastName && errors.lastName.message}</FormErrorMessage>

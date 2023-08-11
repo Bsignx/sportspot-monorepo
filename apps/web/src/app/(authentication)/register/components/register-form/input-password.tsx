@@ -26,6 +26,7 @@ export const InputPassword = ({ errors, register }: InputPasswordProps) => {
           type={isVisible ? 'text' : 'password'}
           variant="outline"
           placeholder="Password"
+          hasIcon
           {...register('password')}
         />
 

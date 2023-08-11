@@ -3,7 +3,7 @@
 import { signIn } from 'next-auth/react'
 import { InputEmail } from './input-email'
 import { InputPassword } from './input-password'
-import { signInForm, type SignInFormProps } from '~/utils/login-schema'
+import { signInForm, type SignInFormProps } from '~/utils/schemas/login-schema'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, UseFormRegister, FieldErrorsImpl } from 'react-hook-form'

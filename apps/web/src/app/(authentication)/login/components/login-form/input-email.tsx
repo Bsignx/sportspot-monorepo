@@ -18,7 +18,7 @@ export const InputEmail = ({ errors, register }: InputEmailProps) => (
         <Icons.Message />
       </InputLeftElement>
 
-      <Input variant="outline" placeholder="Email" {...register('email')} />
+      <Input variant="outline" placeholder="Email" hasIcon {...register('email')} />
     </InputGroup>
 
     <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>

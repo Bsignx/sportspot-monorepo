@@ -11,7 +11,7 @@ import { InputPassword } from './input-password'
 import { CheckboxTerms } from './checkbox-terms'
 import { InputLastName } from './input-last-name'
 import { InputFirstName } from './input-first-name'
-import { registerForm, RegisterFormProps } from '~/utils/login-schema'
+import { registerForm, RegisterFormProps } from '~/utils/schemas/login-schema'
 
 import { VStack, Button, useToast } from '@sportspot/ui'
 
