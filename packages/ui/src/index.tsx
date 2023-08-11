@@ -37,6 +37,8 @@ export * from './components/modal-header'
 export * from './components/modal-close-button'
 export * from './components/modal-body'
 export * from './components/modal-footer'
+export * from './components/select'
+export * from './components/textarea'
 
 export * from './hooks/use-toast'
 export * from './hooks/use-boolean'
