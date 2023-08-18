@@ -1,16 +1,8 @@
 import { Spot } from '@prisma/client'
-import {
-  Flex,
-  Text,
-  Icons,
-  HStack,
-  Heading,
-  Divider,
-  NextChakra,
-  useDisclosure,
-} from '@sportspot/ui'
+import { Flex, Text, Icons, HStack, Heading, Divider, useDisclosure } from '@sportspot/ui'
 
 import { MouseEvent } from 'react'
+import Image from 'next/image'
 
 import { api } from '~/helpers/trpc/api'
 import { getHowManyDaysAgo } from '~/utils/date'
@@ -73,12 +65,15 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
       alignItems="flex-start"
       onClick={handleClickOpenModal}
     >
-      <NextChakra.Image
+      <Image
         width={112}
         height={120}
-        borderRadius="14px 0px 0px 14px"
-        css={{
+        sizes="100vw"
+        style={{
           objectFit: 'cover',
+          borderRadius: '14px 0px 0px 14px',
+          maxWidth: '100%',
+          height: '100%',
         }}
         src={selectedSpot.images[0] || '/images/spot/spot-placeholder.jpg'}
         alt={`Imagem from ${selectedSpot.name} spot`}

@@ -6,7 +6,7 @@ import { Spot } from '@prisma/client'
 
 import { Box, useToast } from '@sportspot/ui'
 import { api } from '~/helpers/trpc/api'
-import { SpotsMap } from './spots-map'
+import SpotsMap from './spots-map'
 import { SelectedSpotCard } from './selected-spot-card'
 import { useGetUserLocation } from '~/hooks/useGetUserLocation'
 import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '~/config/location'

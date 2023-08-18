@@ -20,7 +20,7 @@ import {
 
 import { MouseEvent } from 'react'
 
-import { SpotsMap } from '../spots-map'
+import SpotsMap from '../spots-map'
 import { BottomSheet } from '../bottom-sheet'
 import { Props } from '../selected-spot-card'
 import { CarrouselSpot } from '../carrousel-spot'

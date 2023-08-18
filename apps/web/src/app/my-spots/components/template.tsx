@@ -35,7 +35,7 @@ const Template = () => {
         ))}
       </VStack>
 
-      <FloatingButton as={Link} href="/create-spot" bottom="20">
+      <FloatingButton as={Link} href="my-spots/create" bottom="20">
         <Icons.plus size={24} color={colors.light} />
       </FloatingButton>
     </VStack>

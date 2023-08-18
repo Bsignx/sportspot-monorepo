@@ -8,6 +8,14 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { getBaseUrl, api } from './api'
 
+let addressAuthToken: string | null = null
+
+export const setAddressAuthToken = (token: string | null) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+  addressAuthToken = token
+}
+
 const TrpcProvider = ({ children }: { children: ReactNode }) => {
   const [queryClient] = useState(
     () =>
@@ -26,6 +34,11 @@ const TrpcProvider = ({ children }: { children: ReactNode }) => {
         }),
         httpBatchLink({
           url: `${getBaseUrl()}/api/trpc`,
+          headers() {
+            return {
+              'x-address-auth-token': addressAuthToken || '',
+            }
+          },
         }),
       ],
       transformer: superjson,

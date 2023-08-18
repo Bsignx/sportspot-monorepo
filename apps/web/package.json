@@ -26,6 +26,8 @@
     "@trpc/next": "^10.27.1",
     "@trpc/react-query": "^10.27.1",
     "@trpc/server": "^10.27.1",
+    "aws-sdk": "^2.1438.0",
+    "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "leaflet": "^1.9.3",
     "leaflet-geosearch": "^3.8.0",

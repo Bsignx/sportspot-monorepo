@@ -6,6 +6,7 @@ import { Header } from '~/components/header'
 import { api } from '~/helpers/trpc/api'
 import { ChangeEvent, useState } from 'react'
 import { SpotList } from './spot-list'
+import { LoadingPage } from '~/components/loading-page'
 
 const MINIMUM_LENGTH_TO_SEARCH = 8
 
@@ -19,8 +20,7 @@ const Template = () => {
   }
 
   if (isLoading || !favoriteSpots) {
-    // TODO: create loading component
-    return <div>loading...</div>
+    return <LoadingPage />
   }
 
   return (
@@ -38,6 +38,7 @@ const Template = () => {
             onChange={handleSearch}
             boxShadow="base"
             placeholder="search for a spot"
+            hasIcon
           />
         </InputGroup>
       )}

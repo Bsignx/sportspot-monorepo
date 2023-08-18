@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 
 import { TRPCError } from '@trpc/server'
 
-import { registerForm } from '~/utils/login-schema'
+import { registerForm } from '~/utils/schemas/login-schema'
 import { createTRPCRouter, publicProcedure, protectedProcedure } from '~/server/api/trpc'
 
 export const userAccountRouter = createTRPCRouter({

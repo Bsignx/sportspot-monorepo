@@ -1,15 +1,7 @@
 import { MouseEvent } from 'react'
 import { Spot } from '@prisma/client'
-import {
-  Divider,
-  Flex,
-  HStack,
-  Heading,
-  Icons,
-  NextChakra,
-  Text,
-  useDisclosure,
-} from '@sportspot/ui'
+import Image from 'next/image'
+import { Divider, Flex, HStack, Heading, Icons, Text, useDisclosure } from '@sportspot/ui'
 
 import { ModalSpotCard } from '~/app/components/modal-spot-card'
 import { api } from '~/helpers/trpc/api'
@@ -62,12 +54,15 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
         alignItems="flex-start"
         onClick={handleClickOpenModal}
       >
-        <NextChakra.Image
+        <Image
           width={112}
           height={100}
-          borderRadius="14px 0px 0px 14px"
-          css={{
+          sizes="100vw"
+          style={{
             objectFit: 'cover',
+            maxWidth: '100%',
+            height: '100%',
+            borderRadius: '14px 0px 0px 14px',
           }}
           src={spot.images[0] || '/images/spot/spot-placeholder.jpg'}
           alt={`Imagem from ${spot.name} spot`}

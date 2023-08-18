@@ -1,17 +1,18 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
-import { Heading, VStack, Text, FloatingButton, Icons, NextChakra } from '@sportspot/ui'
+import { Heading, VStack, Text, FloatingButton, Icons } from '@sportspot/ui'
 import { colors } from '@sportspot/tokens'
 
 const Template = () => {
   return (
     <>
-      <NextChakra.Image
+      <Image
         width={700}
         height={475}
         sizes="100vw"
-        css={{
+        style={{
           maxWidth: '100%',
           height: '65vh',
           objectFit: 'cover',

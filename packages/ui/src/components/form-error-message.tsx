@@ -6,7 +6,9 @@ import {
 export type FormErrorMessageProps = RootFormErrorMessageProps
 
 export const FormErrorMessage = ({ children, ...props }: FormErrorMessageProps) => (
-  <RootFormErrorMessage {...props}>{children}</RootFormErrorMessage>
+  <RootFormErrorMessage fontSize="xs" {...props}>
+    {children}
+  </RootFormErrorMessage>
 )
 
 FormErrorMessage.display = 'FormErrorMessage'

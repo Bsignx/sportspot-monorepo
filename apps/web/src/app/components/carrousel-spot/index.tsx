@@ -1,7 +1,8 @@
 import { Props } from '../selected-spot-card'
 
 import { useState } from 'react'
-import { FramerMotion, NextChakra, Box, HStack } from '@sportspot/ui'
+import Image from 'next/image'
+import { FramerMotion, Box, HStack } from '@sportspot/ui'
 import { ImageOverlay } from './image-overlay'
 
 type CarrouselSpotProps = Pick<Props, 'selectedSpot'>
@@ -70,7 +71,7 @@ export const CarrouselSpot = ({ selectedSpot }: CarrouselSpotProps) => {
           }}
         >
           <ImageOverlay />
-          <NextChakra.Image
+          <Image
             fill
             role="img"
             src={currentSpot || '/images/spot/spot-placeholder.jpg'}

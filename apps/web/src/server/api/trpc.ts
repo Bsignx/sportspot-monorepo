@@ -31,8 +31,12 @@ import { ZodError } from 'zod'
 import superjson from 'superjson'
 import { initTRPC, TRPCError } from '@trpc/server'
 
+import { NextApiRequest, NextApiResponse } from 'next'
+
 type CreateContextOptions = {
   session: Session | null
+  res: NextApiResponse
+  req: NextApiRequest
 }
 
 /**
@@ -49,6 +53,8 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
     prisma,
+    res: opts.res,
+    req: opts.req,
   }
 }
 
@@ -66,6 +72,8 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
 
   return createInnerTRPCContext({
     session,
+    res,
+    req,
   })
 }
 
