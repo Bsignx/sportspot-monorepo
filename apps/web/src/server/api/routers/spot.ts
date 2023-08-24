@@ -132,11 +132,30 @@ export const spotRouter = createTRPCRouter({
           .min(1, 'Minimum 1 image required'),
       }),
     )
-    .mutation(async ({ input }) => {
-      console.log({ input })
+    .mutation(async ({ input, ctx }) => {
+      const userId = ctx.session.user.id
 
-      // const userId = ctx.session.user.id
+      const spot = await ctx.prisma.spot.create({
+        data: {
+          name: input.name,
+          description: input.description,
+          address: input.address,
+          state: input.state,
+          city: input.city,
+          country: input.country,
+          tagName: input.category,
+          images: input.images,
+          userId,
+          latitude: input.latLng[0],
+          longitude: input.latLng[1],
+        },
+      })
 
-      return 'ok'
+      return spot
     }),
+  getTags: publicProcedure.query(async ({ ctx }) => {
+    const tags = await ctx.prisma.tag.findMany()
+
+    return tags
+  }),
 })

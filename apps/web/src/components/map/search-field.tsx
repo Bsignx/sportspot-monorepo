@@ -2,7 +2,17 @@ import { useEffect } from 'react'
 import { GeoSearchControl, MapBoxProvider } from 'leaflet-geosearch'
 import { useMap } from 'react-leaflet'
 
-const SearchField = ({ apiKey }) => {
+export type ClassNames = {
+  container?: string
+  input?: string
+}
+
+type Props = {
+  apiKey: string
+  classNames?: ClassNames
+}
+
+const SearchField = ({ apiKey, classNames }: Props) => {
   const provider = new MapBoxProvider({
     params: {
       access_token: apiKey,
@@ -22,12 +32,14 @@ const SearchField = ({ apiKey }) => {
       button: 'search-button',
       buttonIcon: 'search-button-icon',
       resultlist: 'search-result-list',
+      ...classNames,
     },
   })
 
   const map = useMap()
   useEffect(() => {
     map.addControl(searchControl)
+
     return () => {
       map.removeControl(searchControl)
     }

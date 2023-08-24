@@ -41,6 +41,12 @@ export default withPWA({
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'sportspot-images.s3.sa-east-1.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 })

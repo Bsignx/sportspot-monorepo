@@ -15,6 +15,7 @@ import {
   useToast,
 } from '@sportspot/ui'
 
+import { useRouter } from 'next/navigation'
 import { Header } from '~/components/header'
 import { api } from '~/helpers/trpc/api'
 import { useGetUserLocation } from '~/hooks/useGetUserLocation'
@@ -27,9 +28,10 @@ import { z } from 'zod'
 import SpotsMap from '~/app/components/spots-map'
 import ImageUploader, { DroppedFile } from './image-uploader'
 import { setAddressAuthToken } from '~/helpers/trpc/trpc-provider'
-import { SPORTS } from '../sports'
 import { uploadFile } from '~/helpers/uploadFile '
 import { env } from '~/env'
+
+import '../styles/leaflet.css'
 
 type Images = z.infer<typeof ImagesSchema>
 
@@ -51,8 +53,10 @@ const Template = () => {
   const isDisabled = (isSubmitted && !isValid) || isErrorExists
 
   const toast = useToast()
+  const router = useRouter()
 
   const { data: userSpots, isLoading: isLoadingUserSpots } = api.spot.getUserSpots.useQuery()
+  const { data: tags, isLoading: isLoadingTags } = api.spot.getTags.useQuery()
   const { mutateAsync } = api.spot.createSpot.useMutation()
 
   const { data: addressAuthToken } = api.address.getAddressAuthToken.useQuery(undefined, {
@@ -141,7 +145,8 @@ const Template = () => {
       )
 
       const imagesUrlList = createdImages.map(
-        ({ key }) => `https://${env.AWS_BUCKET_NAME}.s3.${env.AWS_REGION}.amazonaws.com/${key}`,
+        ({ key }) =>
+          `https://${env.NEXT_PUBLIC_AWS_BUCKET_NAME}.s3.${env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${key}`,
       )
 
       const dataBeforeMutation: Omit<CreateSpotForm, 'images'> & {
@@ -152,6 +157,14 @@ const Template = () => {
       }
 
       await mutateAsync(dataBeforeMutation)
+
+      toast({
+        status: 'success',
+        title: 'Success',
+        description: 'Spot created successfully',
+      })
+
+      router.replace('/my-spots')
     } catch (error) {
       toast({
         status: 'error',
@@ -180,10 +193,15 @@ const Template = () => {
         </FormControl>
 
         <FormControl isInvalid={!!errors.category}>
-          <Select variant="outline" placeholder="sport category" {...register('category')}>
-            {SPORTS.map(({ value, label }) => (
-              <option key={value} value={value}>
-                {label}
+          <Select
+            variant="outline"
+            placeholder="sport category"
+            {...register('category')}
+            isDisabled={isLoadingTags}
+          >
+            {tags?.map(({ name }) => (
+              <option key={name} value={name}>
+                {name}
               </option>
             ))}
           </Select>
@@ -261,11 +279,15 @@ const Template = () => {
           </Text>
           <FormControl isInvalid={!!errors.latLng}>
             <SpotsMap
-              zoom={8}
-              activeSearchField={false}
+              zoom={14}
+              activeSearchField
+              searchFieldClassNames={{
+                container: 'search-container-create-spot',
+                input: 'search-input-create-spot',
+              }}
               styles={{
                 width: '100%',
-                height: '200px',
+                height: '300px',
                 borderRadius: '14px',
                 boxShadow: '0px 0px 1px rgba(0, 0, 0, 0.25)',
               }}

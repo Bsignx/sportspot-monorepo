@@ -7,6 +7,7 @@ import Map from '~/components/map'
 import { env } from '~/env'
 import { useCaptureLocation } from './useCaptureLocation'
 import { Location } from '~/types/location'
+import { ClassNames } from '../../../components/map/search-field'
 
 const LocationFinder = dynamic(() => import('./location-finder'), {
   ssr: false,
@@ -31,6 +32,7 @@ type SpotsMapProps = ReactLeaflet.MapContainerProps & {
   onClickSpotMarker?: (spot: Spot) => void
   // eslint-disable-next-line no-unused-vars
   onCaptureLocation?: (location: Location) => void
+  searchFieldClassNames?: ClassNames
 }
 
 const SpotsMap = ({
@@ -40,6 +42,7 @@ const SpotsMap = ({
   onClickSpotMarker,
   activeSearchField = true,
   onCaptureLocation,
+  searchFieldClassNames,
   ...props
 }: SpotsMapProps) => {
   const { handleLocationFinder, selectedLocation } = useCaptureLocation({
@@ -55,7 +58,9 @@ const SpotsMap = ({
     <Map zoom={12} center={userLocation} styles={styles} {...props}>
       {({ TileLayer }) => (
         <>
-          {activeSearchField && <SearchField apiKey={MAP_API_KEY} />}
+          {activeSearchField && (
+            <SearchField apiKey={MAP_API_KEY} classNames={searchFieldClassNames} />
+          )}
 
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/bsignx/clhrifzo2017c01qsh2hpcu0y/tiles/256/{z}/{x}/{y}@2x?access_token=${MAP_API_KEY}`}
@@ -75,6 +80,15 @@ const SpotsMap = ({
                 key={spot.id}
                 position={[spot.latitude, spot.longitude]}
                 onClick={() => handleMarkerClick(spot)}
+                iconConfig={{
+                  iconUrl: `/images/leaflet/tags/${spot.tagName || 'default'}.svg`,
+                  shadowUrl: `/images/leaflet/marker-shadow.png`,
+                  iconSize: [32, 38],
+                  iconAnchor: [12, 41],
+                  popupAnchor: [1, -34],
+                  tooltipAnchor: [16, -28],
+                  shadowSize: [41, 41],
+                }}
               />
             ) : null
           })}

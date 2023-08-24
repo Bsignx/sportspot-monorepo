@@ -71,6 +71,9 @@ model Spot {
   name        String
   description String?
   address     String?
+  state       String?
+  city        String?
+  country     String?
   latitude    Float?
   longitude   Float?
   images      String[]   @default([])

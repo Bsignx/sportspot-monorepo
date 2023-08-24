@@ -3,12 +3,12 @@ import AWS from 'aws-sdk'
 import { env } from '~/env'
 
 export const uploadFile = async (file: File, key: string) => {
-  const S3_BUCKET = env.AWS_BUCKET_NAME
-  const REGION = env.AWS_REGION
+  const S3_BUCKET = env.NEXT_PUBLIC_AWS_BUCKET_NAME
+  const REGION = env.NEXT_PUBLIC_AWS_REGION
 
   AWS.config.update({
-    accessKeyId: env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
+    secretAccessKey: env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
   })
 
   const s3 = new AWS.S3({

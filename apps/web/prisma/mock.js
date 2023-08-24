@@ -1,3 +1,5 @@
+const { TAGS } = require('./tags')
+
 const mock = {
   accounts: [
     {
@@ -86,6 +88,9 @@ const mock = {
       description:
         'Spot 1 description: Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute',
       address: 'Address 1',
+      city: 'City 1',
+      state: 'State 1',
+      country: 'Country 1',
       latitude: -20.57646864808083,
       longitude: -48.56902588408823,
       images: [
@@ -105,6 +110,31 @@ const mock = {
       description:
         'Spot 2 description: Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute',
       address: 'Address 2',
+      city: 'City 2',
+      state: 'State 2',
+      country: 'Country 2',
+      latitude: -20.56762003241209,
+      longitude: -48.5653164180221,
+      images: [
+        'https://plus.unsplash.com/premium_photo-1681558921634-f73645bde42f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1285&q=80',
+        'https://images.unsplash.com/photo-1622057667220-7e0c8976ca6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
+        'https://images.unsplash.com/photo-1594017689643-bbf527bf4fbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=737&q=80',
+        'https://images.unsplash.com/photo-1607349731959-2115dbb2f557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80',
+      ],
+      userId: 'user2',
+      tagName: 'bike',
+    },
+    {
+      id: 'spot3',
+      createdAt: new Date('2023-06-01T00:00:00Z'),
+      updatedAt: new Date('2023-06-01T00:00:00Z'),
+      name: 'Spot 3',
+      description:
+        'Spot 3 description: Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute',
+      address: 'Address 3',
+      city: 'City 3',
+      state: 'State 3',
+      country: 'Country 3',
       latitude: -20.56762003241209,
       longitude: -48.5653164180221,
       images: [
@@ -118,21 +148,12 @@ const mock = {
     },
     // Add more spot mock data here...
   ],
-  tags: [
-    {
-      id: 'tag1',
-      createdAt: new Date('2023-06-01T00:00:00Z'),
-      updatedAt: new Date('2023-06-01T00:00:00Z'),
-      name: 'soccer',
-    },
-    {
-      id: 'tag2',
-      createdAt: new Date('2023-06-01T00:00:00Z'),
-      updatedAt: new Date('2023-06-01T00:00:00Z'),
-      name: 'bike',
-    },
-    // Add more tag mock data here...
-  ],
+  tags: TAGS.map((tag) => ({
+    id: `tag-${tag.value}`,
+    createdAt: new Date('2023-06-01T00:00:00Z'),
+    updatedAt: new Date('2023-06-01T00:00:00Z'),
+    name: tag.label,
+  })),
   ratings: [
     {
       id: 'rating1',
