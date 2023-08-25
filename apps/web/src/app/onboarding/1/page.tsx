@@ -1,7 +1,7 @@
-import Template from './components/template'
+import Main from './components/main'
 
 const Onboarding1Page = () => {
-  return <Template />
+  return <Main />
 }
 
 export default Onboarding1Page

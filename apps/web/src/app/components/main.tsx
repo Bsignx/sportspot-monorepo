@@ -11,7 +11,7 @@ import { SelectedSpotCard } from './selected-spot-card'
 import { useGetUserLocation } from '~/hooks/useGetUserLocation'
 import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '~/config/location'
 
-const Template = () => {
+const Main = () => {
   const [selectedSpot, setSelectedSpot] = useState<Spot | null>(null)
 
   const { data: spots, isError } = api.spot.getAll.useQuery()
@@ -48,4 +48,4 @@ const Template = () => {
   )
 }
 
-export default Template
+export default Main

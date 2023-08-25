@@ -12,6 +12,7 @@ const gray = {
   200: colorsTokens.grayscale200,
   300: colorsTokens.grayscale300,
   400: colorsTokens.grayscale400,
+  500: colorsTokens.grayscale500,
 }
 
 const black = colorsTokens.dark

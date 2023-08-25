@@ -11,7 +11,7 @@ import { useGetUserLocation } from '~/hooks/useGetUserLocation'
 import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '~/config/location'
 import { LoadingPage } from '~/components/loading-page'
 
-const Template = () => {
+const Main = () => {
   const { data: userSpots, isLoading } = api.spot.getUserSpots.useQuery()
 
   const { location } = useGetUserLocation()
@@ -42,4 +42,4 @@ const Template = () => {
   )
 }
 
-export default Template
+export default Main

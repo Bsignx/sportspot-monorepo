@@ -1,5 +1,5 @@
-import { Template } from './components/template'
+import { Main } from './components/main'
 
-const Profile = () => <Template />
+const Profile = () => <Main />
 
 export default Profile

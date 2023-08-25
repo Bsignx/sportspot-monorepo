@@ -1,7 +1,7 @@
-import Template from './components/template'
+import Main from './components/main'
 
 const FavoritesPage = () => {
-  return <Template />
+  return <Main />
 }
 
 export default FavoritesPage

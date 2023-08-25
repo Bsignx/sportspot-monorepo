@@ -10,7 +10,7 @@ import { LoadingPage } from '~/components/loading-page'
 
 const MINIMUM_LENGTH_TO_SEARCH = 8
 
-const Template = () => {
+const Main = () => {
   const { data: favoriteSpots, isLoading } = api.spot.getFavoriteSpots.useQuery()
 
   const [search, setSearch] = useState('')
@@ -48,4 +48,4 @@ const Template = () => {
   )
 }
 
-export default Template
+export default Main

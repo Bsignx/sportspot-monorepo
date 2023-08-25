@@ -37,7 +37,7 @@ type Images = z.infer<typeof ImagesSchema>
 
 type CreateSpotForm = z.infer<typeof createSpotSchema>
 
-const Template = () => {
+const Main = () => {
   const {
     register,
     handleSubmit,
@@ -312,4 +312,4 @@ const Template = () => {
   )
 }
 
-export default Template
+export default Main

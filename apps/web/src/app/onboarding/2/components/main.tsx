@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Heading, VStack, Text, FloatingButton, Icons } from '@sportspot/ui'
 import { colors } from '@sportspot/tokens'
 
-const Template = () => {
+const Main = () => {
   return (
     <>
       <Image
@@ -36,4 +36,4 @@ const Template = () => {
   )
 }
 
-export default Template
+export default Main

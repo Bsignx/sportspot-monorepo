@@ -1,7 +1,7 @@
-import Template from './components/template'
+import Main from './components/main'
 
 const MySpotsPage = () => {
-  return <Template />
+  return <Main />
 }
 
 export default MySpotsPage

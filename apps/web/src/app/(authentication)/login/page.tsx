@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, Fragment } from 'react'
 
-import Template from './components/template'
+import Main from './components/main'
 import { useGetSession } from '~/helpers/session/client'
 
 const LoginPage = () => {
@@ -15,7 +15,7 @@ const LoginPage = () => {
     if (status === 'authenticated') router.push('/')
   }, [router, status])
 
-  return status === 'unauthenticated' ? <Template /> : <Fragment />
+  return status === 'unauthenticated' ? <Main /> : <Fragment />
 }
 
 export default LoginPage

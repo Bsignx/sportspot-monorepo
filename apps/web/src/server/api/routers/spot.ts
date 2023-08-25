@@ -1,3 +1,4 @@
+import { Spot } from '@prisma/client'
 import { z } from 'zod'
 
 import { createTRPCRouter, publicProcedure, protectedProcedure } from '~/server/api/trpc'
@@ -104,7 +105,7 @@ export const spotRouter = createTRPCRouter({
   getUserSpots: protectedProcedure.query(async ({ ctx }) => {
     const userId = ctx.session.user.id
 
-    const spots = await ctx.prisma.spot.findMany({
+    const spots: Spot[] | [] = await ctx.prisma.spot.findMany({
       where: {
         userId,
       },
