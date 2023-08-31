@@ -1,7 +1,7 @@
 import Main from './components/main'
 
-const MySpotsPage = () => {
+const CreateSpotPage = () => {
   return <Main />
 }
 
-export default MySpotsPage
+export default CreateSpotPage

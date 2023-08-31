@@ -4,11 +4,9 @@ import { FileRejection, useDropzone } from 'react-dropzone'
 import { Box, Button, Grid, useToast } from '@sportspot/ui'
 
 import { colors, radii } from '@sportspot/tokens'
-import Image from 'next/image'
 
-export type DroppedFile = {
-  preview: string
-} & File
+import { Image as ImageType } from './spot-form'
+import Image from 'next/image'
 
 const baseStyle = {
   flex: 1,
@@ -132,8 +130,8 @@ const Thumb = ({
   file,
   handleRemoveUpload,
 }: {
-  file: DroppedFile
-  handleRemoveUpload: (file: DroppedFile) => void
+  file: ImageType
+  handleRemoveUpload: (file: ImageType) => void
 }) => (
   <Box as="li" key={file.preview} h="100%" w="100%" position="relative">
     <Button
@@ -169,9 +167,9 @@ const Thumb = ({
 )
 
 type Props = {
-  onDrop: (acceptedFiles: File[], fileRejections?: FileRejection[]) => void
-  onRemoveUpload: (filteredFiles: File[]) => void
-  files: DroppedFile[]
+  onDrop: (acceptedFiles: ImageType[], fileRejections?: FileRejection[]) => void
+  onRemoveUpload: (filteredFiles: ImageType[]) => void
+  files: ImageType[]
 }
 
 const ImageUploader = ({ onDrop, files, onRemoveUpload }: Props) => {
@@ -190,7 +188,7 @@ const ImageUploader = ({ onDrop, files, onRemoveUpload }: Props) => {
       const hasError = fileRejections.length > 0
 
       if (!hasError) {
-        onDrop(acceptedFiles, fileRejections)
+        onDrop(acceptedFiles as unknown as ImageType[], fileRejections)
       }
 
       const isFileTooLarge = fileRejections.some((file) =>
@@ -207,7 +205,7 @@ const ImageUploader = ({ onDrop, files, onRemoveUpload }: Props) => {
     },
   })
 
-  const handleRemoveUpload = (file: DroppedFile) => {
+  const handleRemoveUpload = (file: ImageType) => {
     const filteredFiles = files.filter((f) => f.preview !== file.preview)
 
     onRemoveUpload(filteredFiles)

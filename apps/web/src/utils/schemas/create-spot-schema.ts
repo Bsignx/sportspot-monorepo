@@ -1,18 +1,22 @@
 import { z } from 'zod'
 
+export const ImageSchema = z.object({
+  path: z.string().optional(),
+  preview: z.string(),
+  lastModified: z.number(),
+  lastModifiedDate: z.date(),
+  name: z.string(),
+  size: z.number(),
+  type: z.string(),
+  webkitRelativePath: z.string(),
+  arrayBuffer: z.function().optional(),
+  slice: z.function().optional(),
+  stream: z.function().optional(),
+  text: z.function().optional(),
+})
+
 export const ImagesSchema = z
-  .array(
-    z.object({
-      path: z.string(),
-      preview: z.string(),
-      lastModified: z.number(),
-      lastModifiedDate: z.date(),
-      name: z.string(),
-      size: z.number(),
-      type: z.string(),
-      webkitRelativePath: z.string(),
-    }),
-  )
+  .array(ImageSchema)
   .max(3, 'Maximum 3 images allowed')
   .min(1, 'Minimum 1 image required')
 

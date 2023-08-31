@@ -1,5 +1,5 @@
 import { Main } from './components/main'
 
-const Profile = () => <Main />
+const ProfilePage = () => <Main />
 
-export default Profile
+export default ProfilePage
