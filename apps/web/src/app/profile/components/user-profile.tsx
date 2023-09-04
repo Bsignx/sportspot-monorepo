@@ -10,7 +10,7 @@ type UserProfileProps = {
 
 export const UserProfile = ({ avatar, email, name }: UserProfileProps) => {
   return (
-    <VStack spacing="6">
+    <VStack spacing="6" textAlign="center">
       <Chakra.Avatar
         name={name}
         src={avatar}

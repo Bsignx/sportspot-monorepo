@@ -86,8 +86,26 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
           {isFavorite ? <Icons.favoriteFilled aria-hidden /> : <Icons.favorite aria-hidden />}
         </Flex>
 
-        <Flex alignItems="flex-start" pt="3" pb="1" flexDir="column" flex="1" h="100%">
-          <Heading size="sm">{spot.name}</Heading>
+        <Flex
+          overflow="hidden"
+          w="full"
+          alignItems="flex-start"
+          pt="3"
+          pb="1"
+          flexDir="column"
+          flex="1"
+          h="100%"
+        >
+          <Heading
+            size="sm"
+            w="full"
+            textOverflow="ellipsis"
+            overflow="hidden"
+            whiteSpace="nowrap"
+            pr="3"
+          >
+            {spot.name}
+          </Heading>
 
           <HStack mt="1" spacing="1" alignItems="flex-start">
             <Icons.addressMarker aria-hidden />

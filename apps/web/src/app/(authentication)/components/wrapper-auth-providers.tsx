@@ -12,14 +12,6 @@ export const WrapperAuthProviders = () => {
       >
         <Icons.motionIcons.Google />
       </Button>
-
-      <Button
-        onClick={() => signIn('facebook', { redirect: true, callbackUrl: '/' })}
-        h="auto"
-        variant="unstyled"
-      >
-        <Icons.motionIcons.Facebook />
-      </Button>
     </HStack>
   )
 }

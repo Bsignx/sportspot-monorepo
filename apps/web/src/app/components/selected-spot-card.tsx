@@ -97,8 +97,27 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         {isFavorite ? <Icons.favoriteFilled aria-hidden /> : <Icons.favorite aria-hidden />}
       </Flex>
 
-      <Flex alignItems="flex-start" pt="3" pb="1" flexDir="column" flex="1" h="100%">
-        <Heading size="sm">{selectedSpot.name}</Heading>
+      <Flex
+        alignItems="flex-start"
+        overflow="hidden"
+        w="full"
+        pt="3"
+        pb="1"
+        flexDir="column"
+        flex="1"
+        h="100%"
+      >
+        <Heading
+          size="sm"
+          overflow="hidden"
+          w="full"
+          textOverflow="ellipsis"
+          whiteSpace="nowrap"
+          pr="2"
+        >
+          {selectedSpot.name}
+        </Heading>
+
         <Text fontSize="2xs" color="gray.300" mt="1">
           {getHowManyDaysAgo(new Date(selectedSpot.createdAt))} days ago
         </Text>

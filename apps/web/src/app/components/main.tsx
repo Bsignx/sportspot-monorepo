@@ -16,13 +16,19 @@ const Main = () => {
 
   const { data: spots, isError } = api.spot.getAll.useQuery()
 
-  const { location } = useGetUserLocation()
+  const { location } = useGetUserLocation({
+    defaultLocation: {
+      coords: { latitude: DEFAULT_LATITUDE, longitude: DEFAULT_LONGITUDE },
+    },
+  })
   const toast = useToast()
 
   const coords = [
     location?.coords.latitude || DEFAULT_LATITUDE,
     location?.coords.longitude || DEFAULT_LONGITUDE,
   ]
+
+  const hasUserLocation = location?.coords.latitude && location?.coords.longitude
 
   const handleClickSpotMarker = (spot: Spot) => {
     setSelectedSpot(spot)
@@ -36,11 +42,14 @@ const Main = () => {
         height: ['100vh', '100dvh'],
       }}
     >
-      <SpotsMap
-        spots={spots}
-        onClickSpotMarker={handleClickSpotMarker}
-        userLocation={[coords[0], coords[1]]}
-      />
+      {hasUserLocation && (
+        <SpotsMap
+          spots={spots}
+          onClickSpotMarker={handleClickSpotMarker}
+          userLocation={[coords[0], coords[1]]}
+        />
+      )}
+
       {selectedSpot && (
         <SelectedSpotCard selectedSpot={selectedSpot} userLocation={[coords[0], coords[1]]} />
       )}
