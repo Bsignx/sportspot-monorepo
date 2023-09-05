@@ -14,7 +14,7 @@
     "pm:watch": "prisma generate --watch"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^8.5.1",
+    "@ducanh2912/next-pwa": "8.5.1",
     "@hookform/resolvers": "^3.1.0",
     "@next-auth/prisma-adapter": "^1.0.6",
     "@prisma/client": "^4.16.1",
@@ -32,7 +32,7 @@
     "leaflet": "^1.9.3",
     "leaflet-geosearch": "^3.8.0",
     "lottie-react": "^2.4.0",
-    "next": "13.4.13",
+    "next": "13.4.19",
     "next-auth": "4.21.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -53,6 +53,7 @@
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "prisma": "^4.16.1",
-    "typescript": "^4.5.3"
+    "typescript": "^4.5.3",
+    "webpack": "5.88.2"
   }
 }
