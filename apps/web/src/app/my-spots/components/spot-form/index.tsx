@@ -77,7 +77,16 @@ export const SpotForm = ({ initialSpotData }: Props) => {
 
   const { data: userSpots, isLoading: isLoadingUserSpots } = api.spot.getUserSpots.useQuery()
   const { data: tags, isLoading: isLoadingTags } = api.spot.getTags.useQuery(undefined, {
-    placeholderData: initialSpotData?.category ? [{ name: initialSpotData.category }] : undefined,
+    placeholderData: initialSpotData?.category
+      ? [
+          {
+            name: initialSpotData.category,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            id: 'placeholder',
+          },
+        ]
+      : undefined,
   })
 
   const { data: addressAuthToken } = api.address.getAddressAuthToken.useQuery(undefined, {
