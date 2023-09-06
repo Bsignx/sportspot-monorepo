@@ -107,7 +107,6 @@ export const SpotForm = ({ initialSpotData }: Props) => {
       ? [
           {
             country_name: initialSpotData.country,
-            country_code: 'placeholder',
             country_phone_code: 'placeholder',
             country_short_name: 'placeholder',
           },
