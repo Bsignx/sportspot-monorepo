@@ -104,7 +104,14 @@ export const SpotForm = ({ initialSpotData }: Props) => {
   const { data: countries } = api.address.getCountries.useQuery(undefined, {
     enabled: Boolean(addressAuthToken),
     placeholderData: initialSpotData?.country
-      ? [{ country_name: initialSpotData.country }]
+      ? [
+          {
+            country_name: initialSpotData.country,
+            country_code: 'placeholder',
+            country_phone_code: 'placeholder',
+            country_short_name: 'placeholder',
+          },
+        ]
       : undefined,
   })
   const { data: states } = api.address.getStates.useQuery(
