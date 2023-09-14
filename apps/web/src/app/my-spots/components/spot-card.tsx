@@ -7,6 +7,7 @@ import { api } from '~/helpers/trpc/api'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { SpotDeleteModal } from './spot-delete-modal'
 
 type Props = {
   spot: Spot
@@ -14,13 +15,30 @@ type Props = {
 }
 
 export const SpotCard = ({ spot, userLocation }: Props) => {
+  const { spot: sportRouter } = api.useContext()
   const { data: ratingAverage } = api.spot.getRatingAverage.useQuery({ spotId: spot.id })
+  const { mutate: deleteSpot } = api.spot.deleteSpot.useMutation({
+    onSuccess() {
+      sportRouter.getUserSpots.invalidate()
+    },
+  })
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const {
+    isOpen: isOpenSpotModal,
+    onOpen: onOpenSpotModal,
+    onClose: onCloseSpotModal,
+  } = useDisclosure()
+
+  const {
+    isOpen: isOpenDeleteModal,
+    onOpen: onOpenDeleteModal,
+    onClose: onCloseDeleteModal,
+  } = useDisclosure()
+
   const router = useRouter()
 
   const handleClickOpenModal = () => {
-    onOpen()
+    onOpenSpotModal()
   }
 
   const handleEditSpot = (
@@ -32,13 +50,15 @@ export const SpotCard = ({ spot, userLocation }: Props) => {
     router.push(`/my-spots/edit/${spotId}`)
   }
 
-  const handleDeleteSpot = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-    spotId: string,
-  ) => {
+  const handleOpenDeleteModal = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
     e.stopPropagation()
 
-    console.log('delete spot', spotId)
+    onOpenDeleteModal()
+  }
+
+  const handleDeleteSpot = () => {
+    deleteSpot({ spotId: spot.id })
+    onCloseDeleteModal()
   }
 
   return (
@@ -47,8 +67,8 @@ export const SpotCard = ({ spot, userLocation }: Props) => {
         selectedSpot={spot}
         userLocation={userLocation}
         ratingAverage={ratingAverage}
-        isOpen={isOpen}
-        onClose={onClose}
+        isOpen={isOpenSpotModal}
+        onClose={onCloseSpotModal}
       />
 
       <HStack
@@ -129,7 +149,7 @@ export const SpotCard = ({ spot, userLocation }: Props) => {
               <Icons.mySpots.edit aria-hidden />
             </Button>
             <Button
-              onClick={(e) => handleDeleteSpot(e, spot.id)}
+              onClick={handleOpenDeleteModal}
               aria-label="delete spot"
               variant="unstyled"
               display="flex"
@@ -141,6 +161,12 @@ export const SpotCard = ({ spot, userLocation }: Props) => {
             >
               <Icons.mySpots.delete aria-hidden />
             </Button>
+
+            <SpotDeleteModal
+              onCloseDeleteModal={onCloseDeleteModal}
+              isOpenDeleteModal={isOpenDeleteModal}
+              handleDeleteSpot={handleDeleteSpot}
+            />
           </Flex>
         </Flex>
       </HStack>

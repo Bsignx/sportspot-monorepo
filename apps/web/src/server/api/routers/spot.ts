@@ -1,4 +1,5 @@
 import { Spot } from '@prisma/client'
+import { TRPCError } from '@trpc/server'
 import { z } from 'zod'
 
 import { createTRPCRouter, publicProcedure, protectedProcedure } from '~/server/api/trpc'
@@ -168,6 +169,19 @@ export const spotRouter = createTRPCRouter({
     .mutation(async ({ input, ctx }) => {
       const userId = ctx.session.user.id
 
+      const spotToUpdate = await ctx.prisma.spot.findFirst({
+        where: {
+          id: input.id,
+        },
+      })
+
+      if (spotToUpdate?.userId !== userId) {
+        throw new TRPCError({
+          code: 'UNAUTHORIZED',
+          message: 'Unauthorized',
+        })
+      }
+
       const spot = await ctx.prisma.spot.update({
         where: {
           id: input.id,
@@ -194,4 +208,30 @@ export const spotRouter = createTRPCRouter({
 
     return tags
   }),
+  deleteSpot: protectedProcedure
+    .input(z.object({ spotId: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      const userId = ctx.session.user.id
+
+      const spotToDelete = await ctx.prisma.spot.findFirst({
+        where: {
+          id: input.spotId,
+        },
+      })
+
+      if (spotToDelete?.userId !== userId) {
+        throw new TRPCError({
+          code: 'UNAUTHORIZED',
+          message: 'Unauthorized',
+        })
+      }
+
+      await ctx.prisma.spot.delete({
+        where: {
+          id: input.spotId,
+        },
+      })
+
+      return { success: true }
+    }),
 })

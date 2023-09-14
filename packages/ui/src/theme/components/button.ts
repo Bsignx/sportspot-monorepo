@@ -4,7 +4,7 @@ import { defineStyle } from '@chakra-ui/styled-system'
 
 const baseStyle = defineStyle({
   lineHeight: '1.2',
-  borderRadius: 'md',
+  borderRadius: '2xl',
   fontWeight: 'semibold',
   transitionProperty: 'common',
   transitionDuration: 'normal',
@@ -90,7 +90,7 @@ const variantPrimary = defineStyle(() => {
   return {
     bg: 'black',
     color: 'white',
-    borderRadius: '100px',
+    borderRadius: '2xl',
     padding: '24px',
     cursor: 'pointer',
     _hover: {

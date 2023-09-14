@@ -67,7 +67,12 @@ export const SpotForm = ({ initialSpotData }: Props) => {
 
   const { spot: sportRouter } = api.useContext()
 
-  const { mutateAsync: createSpot } = api.spot.createSpot.useMutation()
+  const { mutateAsync: createSpot } = api.spot.createSpot.useMutation({
+    onSuccess: () => {
+      sportRouter.getUserSpots.invalidate()
+    },
+  })
+
   const { mutateAsync: editSpot } = api.spot.editSpot.useMutation({
     onSuccess: () => {
       sportRouter.getUserSpots.invalidate()
