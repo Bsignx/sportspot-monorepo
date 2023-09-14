@@ -35,7 +35,6 @@ module.exports = {
     { value: 'hiking', label: 'hiking' },
     { value: 'running', label: 'running' },
     { value: 'cycling', label: 'cycling' },
-    { value: 'skating', label: 'skating' },
     { value: 'skiing', label: 'skiing' },
     { value: 'snowboarding', label: 'snowboarding' },
     { value: 'chess', label: 'chess' },
