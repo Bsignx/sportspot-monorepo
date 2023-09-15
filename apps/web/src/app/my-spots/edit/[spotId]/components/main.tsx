@@ -5,6 +5,7 @@ import { CreateSpotForm, Images, SpotForm } from '~/app/my-spots/components/spot
 import { api } from '~/helpers/trpc/api'
 import { toDataURL } from '../utils/toDataURL'
 import { dataURLtoFile } from '../utils/dataURLtoFile'
+import { LoadingPage } from '~/components/loading-page'
 
 type Props = {
   spotId: string
@@ -47,7 +48,7 @@ const Main = ({ spotId }: Props) => {
   }, [getParsedImages])
 
   if (isLoading || !data || !parsedSpotImages.length) {
-    return <div>Loading...</div>
+    return <LoadingPage />
   }
 
   const initialSpotData = {

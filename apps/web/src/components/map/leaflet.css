@@ -2,6 +2,10 @@
 
 /* Style the map */
 
+.leaflet-top.leaflet-left {
+  width: 100%;
+}
+
 .leaflet-control-zoom {
   display: none;
 }
