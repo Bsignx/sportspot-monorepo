@@ -15,15 +15,16 @@ export const UserProfile = ({ avatar, email, name }: UserProfileProps) => {
         name={name}
         src={avatar}
         boxSize="104px"
-        shadow="md"
-        border="1px solid"
-        borderColor="gray.100"
+        sx={{
+          border: '2px solid',
+          borderColor: 'quaternary',
+        }}
       />
 
       <Box>
         <Text
           fontSize="xl"
-          color="black"
+          color="tertiary"
           fontWeight="700"
           lineHeight="24px"
           fontFamily="altHeading"
@@ -33,7 +34,7 @@ export const UserProfile = ({ avatar, email, name }: UserProfileProps) => {
         </Text>
         <Text
           fontSize="xs"
-          color="gray.500"
+          color="quaternary"
           fontFamily="body"
           fontWeight="600"
           lineHeight="21px"

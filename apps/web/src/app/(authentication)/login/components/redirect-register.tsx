@@ -3,9 +3,15 @@ import { Text, NextChakra } from '@sportspot/ui'
 
 export const RedirectRegister = () => {
   return (
-    <Text w="full" fontFamily="altHeading" textAlign="center" color="gray.300">
+    <Text w="full" fontFamily="altHeading" textAlign="center" fontSize="sm">
       Don’t have an account yet? &nbsp;
-      <NextChakra.Link as={NextLink} href="/register" fontWeight="bold" color="gray.700">
+      <NextChakra.Link
+        as={NextLink}
+        href="/register"
+        fontWeight="medium"
+        color="primary"
+        textDecoration="underline"
+      >
         Register
       </NextChakra.Link>
     </Text>

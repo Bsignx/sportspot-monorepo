@@ -10,10 +10,10 @@ type UserStatsProps = {
 export const UserStats = ({ addedSpots, favorites }: UserStatsProps) => {
   return (
     <HStack w="full">
-      <Center p="4" flex="1" gap="3" flexDir="column" bg="white" rounded="lg">
+      <Center p="4" flex="1" gap="3" flexDir="column" bg="senary" rounded="lg">
         <Text
           fontSize="sm"
-          color="gray.300"
+          color="quaternary"
           fontWeight="500"
           lineHeight="16px"
           fontFamily="body"
@@ -23,7 +23,7 @@ export const UserStats = ({ addedSpots, favorites }: UserStatsProps) => {
         </Text>
 
         <Text
-          color="black"
+          color="primary"
           fontWeight="700"
           fontSize="md"
           lineHeight="24px"
@@ -33,9 +33,9 @@ export const UserStats = ({ addedSpots, favorites }: UserStatsProps) => {
         </Text>
       </Center>
 
-      <Center p="4" flex="1" gap="3" flexDir="column" bg="white" rounded="lg">
+      <Center p="4" flex="1" gap="3" flexDir="column" bg="senary" rounded="lg">
         <Text
-          color="gray.300"
+          color="quaternary"
           fontSize="sm"
           fontWeight="500"
           lineHeight="16px"
@@ -46,7 +46,7 @@ export const UserStats = ({ addedSpots, favorites }: UserStatsProps) => {
         </Text>
 
         <Text
-          color="black"
+          color="primary"
           fontWeight="700"
           fontFamily="altHeading"
           fontSize="md"

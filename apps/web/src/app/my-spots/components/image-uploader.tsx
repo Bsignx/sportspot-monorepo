@@ -16,10 +16,10 @@ const baseStyle = {
   padding: '20px',
   borderWidth: 1,
   borderRadius: '14px',
-  borderColor: colors.grayscale300,
+  borderColor: colors.primary,
   borderStyle: 'dotted',
-  backgroundColor: colors.light,
-  color: colors.grayscale300,
+  backgroundColor: colors.senary,
+  color: colors.quaternary,
   outline: 'none',
   transition: 'border .24s ease-in-out',
   fontSize: '0.75rem',
@@ -50,21 +50,21 @@ const UploaderIcon = () => (
   >
     <path
       d="M42 30V38C42 39.0609 41.5786 40.0783 40.8284 40.8284C40.0783 41.5786 39.0609 42 38 42H10C8.93913 42 7.92172 41.5786 7.17157 40.8284C6.42143 40.0783 6 39.0609 6 38V30"
-      stroke="#4D4343"
+      stroke={colors.primary}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M34 16L24 6L14 16"
-      stroke="#4D4343"
+      stroke={colors.primary}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M24 6V30"
-      stroke="#4D4343"
+      stroke={colors.primary}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -81,18 +81,18 @@ const CloseIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden
   >
-    <g filter="url(#filter0_d_665_528)">
-      <circle opacity="0.6" cx="12" cy="8" r="8" fill="white" />
+    <g>
+      <circle opacity="0.7" cx="12" cy="8" r="8" fill={colors.senary} />
       <path
         d="M15 5L9 11"
-        stroke="#212121"
+        stroke={colors.primary}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M9 5L15 11"
-        stroke="#212121"
+        stroke={colors.primary}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

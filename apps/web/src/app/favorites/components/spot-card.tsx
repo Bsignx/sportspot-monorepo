@@ -46,13 +46,13 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
         position="relative"
         role="button"
         cursor="pointer"
-        bgColor="white"
+        bgColor="senary"
         borderRadius="2xl"
         w="100%"
         h="100px"
-        boxShadow="base"
         alignItems="flex-start"
         onClick={handleClickOpenModal}
+        spacing={0}
       >
         <Image
           width={112}
@@ -72,7 +72,7 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
           onClick={handleClickFavoriteSpot}
           aria-label="Favorite spot toggle"
           as="button"
-          bgColor="white"
+          bgColor="quinary"
           position="absolute"
           boxShadow="base"
           borderRadius="lg"
@@ -81,7 +81,7 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
           justifyContent="center"
           alignItems="center"
           top="8px"
-          left="68px"
+          left="76px"
         >
           {isFavorite ? <Icons.favoriteFilled aria-hidden /> : <Icons.favorite aria-hidden />}
         </Flex>
@@ -103,24 +103,25 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
             overflow="hidden"
             whiteSpace="nowrap"
             pr="3"
+            ml="2"
           >
             {spot.name}
           </Heading>
 
-          <HStack mt="1" spacing="1" alignItems="flex-start">
+          <HStack mt="1" spacing="1" alignItems="flex-start" ml="2">
             <Icons.addressMarker aria-hidden />
-            <Text fontSize="2xs" color="gray.300">
+            <Text fontSize="2xs" color="quaternary">
               {spot.address}
             </Text>
           </HStack>
 
-          <Divider w="calc(100% + 8px)" ml="-8px" mt="auto" />
+          <Divider w="100%" mt="auto" borderColor="septenary" />
 
-          <Flex justifyContent="space-between" alignItems="center" w="100%" pr="4">
+          <Flex ml="2" justifyContent="space-between" alignItems="center" w="100%" pr="4">
             {spot.latitude && spot.longitude && (
               <HStack mt="1" spacing="1">
                 <Icons.distanceMarker aria-hidden />
-                <Text fontSize="2xs" color="gray.300">
+                <Text fontSize="2xs" color="quaternary">
                   {getKmDistanceBetweenTwoPoints(
                     userLocation[0],
                     userLocation[1],
@@ -135,7 +136,7 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
             {ratingAverage && (
               <HStack mt="1" spacing="1" alignItems="center" h="100%">
                 <Icons.filledStar aria-hidden />
-                <Text fontSize="xs" color="black" fontWeight="medium" h="4">
+                <Text fontSize="xs" color="tertiary" fontWeight="normal" h="4">
                   {ratingAverage}
                 </Text>
               </HStack>

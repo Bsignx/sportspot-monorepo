@@ -59,13 +59,7 @@ export const RegisterForm = () => {
 
         <CheckboxTerms errors={errors} register={register} />
       </VStack>
-      <Button
-        type="submit"
-        w="full"
-        bg="black"
-        isDisabled={isDisabled}
-        isLoading={isSubmitting || isLoading}
-      >
+      <Button type="submit" w="full" isDisabled={isDisabled} isLoading={isSubmitting || isLoading}>
         Register
       </Button>
     </VStack>

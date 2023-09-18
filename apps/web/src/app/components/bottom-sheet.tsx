@@ -2,6 +2,7 @@
 
 import { PropsWithChildren, PointerEvent } from 'react'
 import { FramerMotion, Box } from '@sportspot/ui'
+import { colors } from '@sportspot/tokens'
 
 type BottomSheetProps = {
   onClose(): void
@@ -37,7 +38,7 @@ export const BottomSheet = ({ onClose, children }: PropsWithChildren<BottomSheet
         y,
         minHeight: '90dvh',
         position: 'relative',
-        backgroundColor: 'white',
+        backgroundColor: colors.senary,
         borderRadius: '30px 30px 0 0',
       }}
     >
@@ -58,11 +59,11 @@ export const BottomSheet = ({ onClose, children }: PropsWithChildren<BottomSheet
           w: '61px',
           h: '2.4px',
           opacity: 0.6,
-          bg: 'gray.100',
+          bg: 'quaternary',
           shadow: 'md',
           border: 'solid 1px',
           rounded: 'xl',
-          borderColor: 'white',
+          borderColor: 'quaternary',
         }}
       />
       {children}

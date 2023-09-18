@@ -76,11 +76,10 @@ export const SpotCard = ({ spot, userLocation }: Props) => {
         position="relative"
         role="button"
         cursor="pointer"
-        bgColor="white"
+        bgColor="senary"
         borderRadius="2xl"
         w="full"
         h="100px"
-        boxShadow="base"
         alignItems="flex-start"
         onClick={handleClickOpenModal}
       >
@@ -113,7 +112,7 @@ export const SpotCard = ({ spot, userLocation }: Props) => {
 
             <HStack mt="1" spacing="1" alignItems="flex-start">
               <Icons.addressMarker aria-hidden />
-              <Text fontSize="2xs" color="gray.300">
+              <Text fontSize="2xs" color="quaternary">
                 {spot.address}
               </Text>
             </HStack>
@@ -122,7 +121,7 @@ export const SpotCard = ({ spot, userLocation }: Props) => {
               {spot.latitude && spot.longitude && (
                 <HStack mt="1" spacing="1">
                   <Icons.distanceMarker aria-hidden />
-                  <Text fontSize="2xs" color="gray.300">
+                  <Text fontSize="2xs" color="quaternary">
                     {getKmDistanceBetweenTwoPoints(
                       userLocation[0],
                       userLocation[1],

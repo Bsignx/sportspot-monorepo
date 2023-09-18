@@ -22,7 +22,15 @@ export const theme = {
     global: {
       ...rootTheme.styles.global,
       'html, body': {
-        bg: 'gradient.200',
+        bg: 'secondary',
+      },
+
+      'h1, h2, h3, h4, h5, h6': {
+        color: 'tertiary',
+      },
+
+      'p, span, a, button': {
+        color: 'quaternary',
       },
     },
   },

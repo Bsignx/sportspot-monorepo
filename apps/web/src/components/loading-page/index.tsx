@@ -12,11 +12,11 @@ export const LoadingPage = () => (
     }}
   >
     <VStack>
-      <Box h="50vh">
+      <Box h="30vh">
         <Lottie aria-hidden animationData={sportspot} />
       </Box>
 
-      <Text fontSize="xl" fontWeight="medium">
+      <Text fontSize="xl" fontWeight="medium" color="tertiary">
         Loading...
       </Text>
     </VStack>

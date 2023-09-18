@@ -28,11 +28,18 @@ import { z } from 'zod'
 import SpotsMap from '~/app/components/spots-map'
 import ImageUploader from '../../components/image-uploader'
 import { setAddressAuthToken } from '~/helpers/trpc/trpc-provider'
+import { colors } from '@sportspot/tokens'
 import { uploadFile } from '~/helpers/uploadFile '
 import { env } from '~/env'
 
 import './styles/leaflet.css'
 import { Location } from '~/types/location'
+
+const selectStyle = {
+  '> option': {
+    color: colors.secondary,
+  },
+}
 
 export type Image = z.infer<typeof ImageSchema>
 export type Images = z.infer<typeof ImagesSchema>
@@ -258,6 +265,8 @@ export const SpotForm = ({ initialSpotData }: Props) => {
           <Select
             variant="outline"
             placeholder="sport category"
+            iconColor="primary"
+            sx={selectStyle}
             {...register('category')}
             isDisabled={isLoadingTags}
           >
@@ -271,7 +280,13 @@ export const SpotForm = ({ initialSpotData }: Props) => {
         </FormControl>
 
         <FormControl isInvalid={!!errors.country}>
-          <Select variant="outline" placeholder="country" {...register('country')}>
+          <Select
+            variant="outline"
+            placeholder="country"
+            iconColor="primary"
+            sx={selectStyle}
+            {...register('country')}
+          >
             {countries?.map(({ country_name }) => (
               <option key={country_name} value={country_name}>
                 {country_name}
@@ -286,6 +301,8 @@ export const SpotForm = ({ initialSpotData }: Props) => {
             <Select
               variant="outline"
               placeholder="state"
+              iconColor="primary"
+              sx={selectStyle}
               {...register('state')}
               isDisabled={!watchCountry}
             >
@@ -302,6 +319,8 @@ export const SpotForm = ({ initialSpotData }: Props) => {
             <Select
               variant="outline"
               placeholder="city"
+              iconColor="primary"
+              sx={selectStyle}
               {...register('city')}
               isDisabled={!watchState}
             >
@@ -321,7 +340,7 @@ export const SpotForm = ({ initialSpotData }: Props) => {
         </FormControl>
 
         <Box>
-          <Text color="gray.300" fontSize="2xs" mb="1" fontWeight="500">
+          <Text color="quaternary" fontSize="2xs" mb="1" fontWeight="500">
             Upload up to 3 Spot images:
           </Text>
 
@@ -336,12 +355,12 @@ export const SpotForm = ({ initialSpotData }: Props) => {
         </Box>
 
         <Box w="full">
-          <Text color="gray.300" fontSize="2xs" mb="1" fontWeight="500">
+          <Text color="quaternary" fontSize="2xs" mb="1" fontWeight="500">
             Select Spot location:
           </Text>
           <FormControl isInvalid={!!errors.latLng}>
             <SpotsMap
-              zoom={14}
+              zoom={16}
               activeSearchField
               searchFieldClassNames={{
                 container: 'search-container-create-spot',
@@ -351,7 +370,6 @@ export const SpotForm = ({ initialSpotData }: Props) => {
                 width: '100%',
                 height: '300px',
                 borderRadius: '14px',
-                boxShadow: '0px 0px 1px rgba(0, 0, 0, 0.25)',
               }}
               userLocation={userLocation}
               onCaptureLocation={handleCaptureLocation}

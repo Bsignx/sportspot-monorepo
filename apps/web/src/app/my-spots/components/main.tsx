@@ -43,7 +43,7 @@ const Main = () => {
       </VStack>
 
       <FloatingButton as={Link} href="my-spots/create" bottom="20">
-        <Icons.plus size={24} color={colors.light} />
+        <Icons.plus size={20} color={colors.secondary} />
       </FloatingButton>
     </VStack>
   )

@@ -52,7 +52,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
       role="button"
       cursor="pointer"
       zIndex="popover"
-      bgColor="white"
+      bgColor="quinary"
       borderRadius="2xl"
       w="min(90%, 360px)"
       m="0 auto"
@@ -64,6 +64,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
       boxShadow="base"
       alignItems="flex-start"
       onClick={handleClickOpenModal}
+      spacing={0}
     >
       <Image
         width={112}
@@ -83,7 +84,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         onClick={handleClickFavoriteSpot}
         aria-label="Favorite spot toggle"
         as="button"
-        bgColor="white"
+        bgColor="quinary"
         position="absolute"
         boxShadow="base"
         borderRadius="lg"
@@ -92,7 +93,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
         justifyContent="center"
         alignItems="center"
         top="8px"
-        left="68px"
+        left="76px"
       >
         {isFavorite ? <Icons.favoriteFilled aria-hidden /> : <Icons.favorite aria-hidden />}
       </Flex>
@@ -114,28 +115,29 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
           textOverflow="ellipsis"
           whiteSpace="nowrap"
           pr="2"
+          ml="2"
         >
           {selectedSpot.name}
         </Heading>
 
-        <Text fontSize="2xs" color="gray.300" mt="1">
+        <Text ml="2" fontSize="2xs" color="quaternary" mt="1">
           {getHowManyDaysAgo(new Date(selectedSpot.createdAt))} days ago
         </Text>
 
-        <HStack mt="1" spacing="1" alignItems="flex-start">
+        <HStack ml="2" mt="1" spacing="1" alignItems="flex-start">
           <Icons.addressMarker aria-hidden />
-          <Text fontSize="2xs" color="gray.300">
+          <Text fontSize="2xs" color="tertiary">
             {selectedSpot.address}
           </Text>
         </HStack>
 
-        <Divider w="calc(100% + 8px)" ml="-8px" mt="auto" />
+        <Divider w="100%" mt="auto" borderColor="septenary" />
 
-        <Flex justifyContent="space-between" alignItems="center" w="100%" pr="4">
+        <Flex ml="2" justifyContent="space-between" alignItems="center" w="100%" pr="4">
           {selectedSpot.latitude && selectedSpot.longitude && (
             <HStack mt="1" spacing="1">
               <Icons.distanceMarker aria-hidden />
-              <Text fontSize="2xs" color="gray.300">
+              <Text fontSize="2xs" color="quaternary">
                 {getKmDistanceBetweenTwoPoints(
                   userLocation[0],
                   userLocation[1],
@@ -150,7 +152,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
           {ratingAverage && (
             <HStack mt="1" spacing="1" alignItems="center" h="100%">
               <Icons.filledStar aria-hidden />
-              <Text fontSize="xs" color="black" fontWeight="medium" h="4">
+              <Text fontSize="2xs" color="tertiary" fontWeight="normal" h="4">
                 {ratingAverage}
               </Text>
             </HStack>

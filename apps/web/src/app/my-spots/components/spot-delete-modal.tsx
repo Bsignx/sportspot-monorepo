@@ -1,3 +1,4 @@
+import { colors } from '@sportspot/tokens'
 import {
   Button,
   Modal,
@@ -21,14 +22,14 @@ const CloseIcon = () => (
   >
     <path
       d="M15 5L5 15"
-      stroke="#212121"
+      stroke={colors.primary}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M5 5L15 15"
-      stroke="#212121"
+      stroke={colors.primary}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -50,19 +51,21 @@ export const SpotDeleteModal = ({
   <Modal isOpen={isOpenDeleteModal} onClose={onCloseDeleteModal} isCentered>
     <ModalOverlay />
 
-    <ModalContent maxW="90vw" bgColor="gray.100" borderRadius="2xl">
-      <ModalHeader fontWeight="bold">Delete spot</ModalHeader>
+    <ModalContent maxW="90vw" bgColor="senary" borderRadius="2xl">
+      <ModalHeader fontWeight="bold" color="tertiary">
+        Delete spot
+      </ModalHeader>
       <ModalCloseButton>
         <CloseIcon />
       </ModalCloseButton>
       <ModalBody>
-        <Text fontSize="xs" color="gray.300">
+        <Text fontSize="xs" color="quaternary">
           Are you sure? You can’t undo this action afterwards.
         </Text>
       </ModalBody>
 
       <ModalFooter>
-        <Button onClick={onCloseDeleteModal} variant="ghost" mr="2">
+        <Button onClick={onCloseDeleteModal} variant="outline" mr="2" color="tertiary">
           Cancel
         </Button>
         <Button onClick={handleDeleteSpot}>Delete</Button>

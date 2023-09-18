@@ -20,7 +20,7 @@ export const Header = ({ title }: Props) => {
         <Icons.leftArrow aria-hidden />
       </Button>
 
-      <Text fontSize="medium" fontWeight="600" lineHeight="1.1875rem">
+      <Text fontSize="medium" fontWeight="600" lineHeight="1.1875rem" color="tertiary">
         {title}
       </Text>
     </HStack>

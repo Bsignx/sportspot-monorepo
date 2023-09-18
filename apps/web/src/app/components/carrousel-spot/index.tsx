@@ -42,8 +42,8 @@ export const CarrouselSpot = ({ selectedSpot }: CarrouselSpotProps) => {
       w="full"
       h={{ base: '240px', md: '400px' }}
       overflow="hidden"
-      bg="gray.100"
-      borderRadius="30px 30px"
+      bg="senary"
+      borderRadius="28px 28px"
     >
       <FramerMotion.AnimatePresence initial={false}>
         <FramerMotion.motion.div
@@ -86,7 +86,7 @@ export const CarrouselSpot = ({ selectedSpot }: CarrouselSpotProps) => {
                 rounded="full"
                 sx={{
                   opacity: index === currentIndex ? 1 : 0.8,
-                  bg: index === currentIndex ? 'white' : 'gray.200',
+                  bg: index === currentIndex ? 'tertiary' : 'quaternary',
                 }}
               />
             ))}

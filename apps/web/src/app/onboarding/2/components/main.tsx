@@ -21,16 +21,16 @@ const Main = () => {
         alt="Girl in fitness clothes waving"
       />
       <VStack paddingInline={6} paddingBlockStart={6} spacing="4">
-        <Heading as="h1" fontSize="2xl" fontWeight="extrabold" color="black">
+        <Heading as="h1" fontSize="2xl" fontWeight="extrabold">
           Find the right sport spot for you
         </Heading>
-        <Text fontSize="xs" color="gray.300">
+        <Text fontSize="xs">
           You can enjoy and benefit from physical activity while feeling comfortable and motivated
           in your chosen environment.
         </Text>
       </VStack>
       <FloatingButton as={Link} href="/login">
-        <Icons.chevron.right size={24} color={colors.light} />
+        <Icons.chevron.right size={24} color={colors.secondary} />
       </FloatingButton>
     </>
   )

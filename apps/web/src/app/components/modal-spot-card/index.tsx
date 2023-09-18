@@ -66,7 +66,7 @@ export const ModalSpotCard = ({
           <BottomSheet onClose={onClose}>
             <CarrouselSpot selectedSpot={selectedSpot} />
 
-            <ModalHeader p="16px 20px 16px 14px">
+            <ModalHeader p="1rem 1.25rem 1rem 0.875rem">
               <HStack w="full" justify="space-between">
                 {selectedSpot.latitude && selectedSpot.longitude && (
                   <HStack spacing={1} align="end">
@@ -74,7 +74,7 @@ export const ModalSpotCard = ({
                     <Text
                       fontSize="0.6875rem"
                       lineHeight="shorter"
-                      color="gray.300"
+                      color="quaternary"
                       fontWeight="thin"
                     >
                       {getKmDistanceBetweenTwoPoints(
@@ -87,10 +87,11 @@ export const ModalSpotCard = ({
                     </Text>
                   </HStack>
                 )}
+
                 {handleClickFavoriteSpot && (
                   <Box
                     as="button"
-                    bgColor="white"
+                    bgColor="quinary"
                     boxShadow="base"
                     borderRadius="lg"
                     boxSize={{ base: '40px', md: '46px' }}
@@ -112,7 +113,7 @@ export const ModalSpotCard = ({
               </HStack>
 
               <VStack align="start">
-                <Heading fontSize="24px" fontWeight="extrabold">
+                <Heading fontSize="1.5rem" fontWeight="bold">
                   {selectedSpot.name}
                 </Heading>
 
@@ -136,10 +137,10 @@ export const ModalSpotCard = ({
 
                     <Text
                       pl="4px"
-                      color="dark"
-                      fontSize="15px"
+                      color="quaternary"
+                      fontSize="14px"
                       lineHeight={6}
-                      fontWeight="semibold"
+                      fontWeight="medium"
                     >
                       {ratingAverage}
                     </Text>
@@ -150,27 +151,27 @@ export const ModalSpotCard = ({
 
             <ModalBody p="0px 14px">
               <SpotsMap
-                zoom={14}
+                zoom={16}
                 spots={[selectedSpot]}
                 activeSearchField={false}
                 styles={{
                   width: '100%',
                   height: mapHeighSize,
                   borderRadius: '14px',
-                  boxShadow: '0px 0px 1px rgba(0, 0, 0, 0.25)',
                 }}
                 userLocation={[selectedSpot.latitude!, selectedSpot.longitude!]}
               />
             </ModalBody>
+
             <ModalFooter gap={3} flexDir="column" alignItems="start" p="24px 14px">
               <HStack mt={1} spacing={1} alignItems="flex-start">
                 <Icons.addressMarker width="14px" height="16px" aria-hidden="true" />
-                <Text fontSize="0.8rem" fontWeight="light" color="gray.300" lineHeight={4}>
+                <Text fontSize="0.75rem" fontWeight="medium" color="quaternary" lineHeight={4}>
                   {selectedSpot.address}
                 </Text>
               </HStack>
 
-              <Text fontSize="0.7625rem" color="gray.300" lineHeight={5} noOfLines={4}>
+              <Text fontSize="0.75rem" color="quaternary" lineHeight={5} noOfLines={4}>
                 {selectedSpot.description}
               </Text>
             </ModalFooter>

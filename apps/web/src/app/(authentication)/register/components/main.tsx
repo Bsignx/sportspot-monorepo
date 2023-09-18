@@ -28,7 +28,7 @@ const Main = () => {
         lineHeight="28px"
         mb="8"
       >
-        <Text as="span" fontSize="xl" fontWeight="normal">
+        <Text as="span" fontSize="xl" fontWeight="normal" color="tertiary">
           Hey there,
         </Text>
         <br /> Create an Account

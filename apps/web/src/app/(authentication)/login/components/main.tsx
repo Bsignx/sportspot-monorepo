@@ -27,8 +27,9 @@ const Main = () => {
         size="lg"
         lineHeight="28px"
         mb="8"
+        color="tertiary"
       >
-        <Text as="span" fontSize="xl" fontWeight="normal">
+        <Text as="span" fontSize="xl" fontWeight="normal" color="inherit">
           Hey there,
         </Text>
         <br /> Welcome back

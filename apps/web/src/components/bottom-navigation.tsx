@@ -10,25 +10,25 @@ const links = [
   {
     path: '/',
     icon: <Icons.search />,
-    activeIcon: <Icons.search color={colors.light} aria-label="search for spots" />,
+    activeIcon: <Icons.search color={colors.secondary} aria-label="search for spots" />,
     targetSegment: null,
   },
   {
     path: '/my-spots',
     icon: <Icons.pinGlobal />,
-    activeIcon: <Icons.pinGlobal color={colors.light} aria-label="manage spots" />,
+    activeIcon: <Icons.pinGlobal color={colors.secondary} aria-label="manage spots" />,
     targetSegment: 'my-spots',
   },
   {
     path: '/favorites',
     icon: <Icons.heart />,
-    activeIcon: <Icons.heart color={colors.light} aria-label="favorites spots" />,
+    activeIcon: <Icons.heart color={colors.secondary} aria-label="favorites spots" />,
     targetSegment: 'favorites',
   },
   {
     path: '/profile',
     icon: <Icons.user />,
-    activeIcon: <Icons.user color={colors.light} aria-label="see profile" />,
+    activeIcon: <Icons.user color={colors.secondary} aria-label="see profile" />,
     targetSegment: 'profile',
   },
 ]
@@ -47,7 +47,7 @@ const BottomNavigation = () => {
       zIndex="sticky"
       w="min(90%, 360px)"
       h="54px"
-      background="gradient.200"
+      background="senary"
       boxShadow="base"
       position="fixed"
       bottom="12px"
@@ -73,7 +73,7 @@ const BottomNavigation = () => {
                 position: 'absolute',
                 bottom: '0',
                 top: '0',
-                background: 'black',
+                background: 'primary',
                 transform: 'translateY(20%) translateX(-18%);',
                 borderRadius: '2xl',
                 zIndex: '-1',

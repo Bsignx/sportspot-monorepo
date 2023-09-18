@@ -29,7 +29,7 @@ const Main = () => {
 
       {favoriteSpots.length > MINIMUM_LENGTH_TO_SEARCH && (
         <InputGroup>
-          <InputLeftElement color="gray.300">
+          <InputLeftElement color="quaternary">
             <Icons.searchBase size={19} aria-hidden />
           </InputLeftElement>
 

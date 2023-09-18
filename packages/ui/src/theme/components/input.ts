@@ -80,13 +80,9 @@ const variantOutline = definePartsStyle((props) => {
 
   return {
     field: {
-      color: mode(colors.black, 'whiteAlpha.900')(props),
-      border: '1px solid',
-      borderColor: 'gray.50',
-      bg: 'white',
-      _hover: {
-        borderColor: mode('gray.300', 'whiteAlpha.400')(props),
-      },
+      color: mode(colors.tertiary, 'whiteAlpha.900')(props),
+      border: 'none',
+      bg: 'senary',
       _readOnly: {
         boxShadow: 'none !important',
         userSelect: 'all',
@@ -101,7 +97,7 @@ const variantOutline = definePartsStyle((props) => {
         boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
       },
       _placeholder: {
-        color: mode('gray.200', 'whiteAlpha.400')(props),
+        color: mode('quaternary', 'whiteAlpha.400')(props),
       },
     },
     addon: {

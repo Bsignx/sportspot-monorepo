@@ -43,10 +43,9 @@
   top: 1.5rem;
   width: 3rem;
   height: 3rem;
-  color: #ccc;
+  color: #b0eb5f;
   cursor: pointer;
   font-size: 1.5rem;
-  color: #8a8788;
 }
 .search-input {
   width: 100%;
@@ -57,9 +56,10 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   font-family: 'Poppins', 'sans-serif';
   font-size: 0.75rem;
-  color: #212121;
+  color: #eaecf3;
   padding-right: 3rem;
   text-overflow: ellipsis;
+  background: #3d4143;
 }
 
 .search-input:focus {
@@ -68,7 +68,7 @@
 }
 
 .search-input::placeholder {
-  color: #bcbcbc;
+  color: #a0aaae;
 }
 
 .search-container {
@@ -87,4 +87,5 @@
   background: url('https://res.cloudinary.com/dxm7clrdp/image/upload/v1685354068/Frame_2_yh3bm4.png')
     no-repeat;
   background-size: cover;
+  filter: opacity(0.6) drop-shadow(0 0 0 #a0aaae);
 }

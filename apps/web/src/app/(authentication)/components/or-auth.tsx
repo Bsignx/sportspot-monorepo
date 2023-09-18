@@ -7,19 +7,21 @@ export const OrAuth = () => {
       display="flex"
       alignItems="center"
       my="8"
+      fontSize="sm"
       gap={3}
       lineHeight="20px"
+      color="quaternary"
       _before={{
         content: '""',
         flex: 1,
         borderBottom: '1px solid',
-        borderColor: 'lineBorder',
+        borderColor: 'quinary',
       }}
       _after={{
         content: '""',
         flex: 1,
         borderBottom: '1px solid',
-        borderColor: 'lineBorder',
+        borderColor: 'quinary',
       }}
     >
       Or

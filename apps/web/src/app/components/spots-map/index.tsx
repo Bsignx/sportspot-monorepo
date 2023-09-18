@@ -55,7 +55,15 @@ const SpotsMap = ({
   }
 
   return (
-    <Map zoom={12} center={userLocation} styles={styles} {...props}>
+    <Map
+      zoom={14}
+      center={userLocation}
+      styles={{
+        backgroundColor: '#2a2a2a',
+        ...styles,
+      }}
+      {...props}
+    >
       {({ TileLayer }) => (
         <>
           {activeSearchField && (
@@ -63,7 +71,7 @@ const SpotsMap = ({
           )}
 
           <TileLayer
-            url={`https://api.mapbox.com/styles/v1/bsignx/clhrifzo2017c01qsh2hpcu0y/tiles/256/{z}/{x}/{y}@2x?access_token=${MAP_API_KEY}`}
+            url={`https://api.mapbox.com/styles/v1/bsignx/clmnzk7fs04l201p9e2o23qdu/tiles/256/{z}/{x}/{y}@2x?access_token=${MAP_API_KEY}`}
             attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
           />
 

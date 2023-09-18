@@ -88,8 +88,8 @@ const variantSolid = defineStyle((props) => {
 
 const variantPrimary = defineStyle(() => {
   return {
-    bg: 'black',
-    color: 'white',
+    bg: 'primary',
+    color: 'secondary',
     borderRadius: '2xl',
     padding: '24px',
     cursor: 'pointer',
@@ -102,9 +102,31 @@ const variantPrimary = defineStyle(() => {
   }
 })
 
+const variantOutline = defineStyle(() => {
+  return {
+    bg: 'transparent',
+    color: 'tertiary',
+    border: '1px solid',
+    borderColor: 'primary',
+    borderRadius: '2xl',
+    paddingY: '22px',
+    paddingX: '24px',
+    cursor: 'pointer',
+    _hover: {
+      bg: 'primary',
+      color: 'secondary',
+    },
+    _active: {
+      bg: 'primary',
+      color: 'secondary',
+    },
+  }
+})
+
 const variants = {
   solid: variantSolid,
   primary: variantPrimary,
+  outline: variantOutline,
 }
 
 const sizes = {
