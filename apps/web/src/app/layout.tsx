@@ -25,11 +25,11 @@ export const metadata: Metadata = {
     { rel: 'shortcut icon', url: '/favicon.ico' },
     {
       rel: 'icon',
-      url: 'icons/spot-192x192.png',
+      url: 'icons/android-chrome-192x192.png',
     },
     {
       rel: 'apple-touch-icon',
-      url: 'icons/spot-192x192.png',
+      url: 'icons/apple-touch-icon.png',
       sizes: '192x192',
     },
   ],
