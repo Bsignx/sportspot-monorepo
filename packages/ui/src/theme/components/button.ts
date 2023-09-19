@@ -50,23 +50,23 @@ const variantSolid = defineStyle((props) => {
   const { colorScheme: c } = props
 
   if (c === 'gray') {
-    const bg = mode(`gray.100`, `whiteAlpha.200`)(props)
+    const bg = mode(`gray.100`, `gray.100`)(props)
 
     return {
       bg,
       _hover: {
-        bg: mode(`gray.200`, `whiteAlpha.300`)(props),
+        bg: mode(`gray.200`, `gray.200`)(props),
         _disabled: {
           bg,
         },
       },
-      _active: { bg: mode(`gray.300`, `whiteAlpha.400`)(props) },
+      _active: { bg: mode(`gray.300`, `gray.300`)(props) },
     }
   }
 
   const {
     bg = `${c}.500`,
-    color = 'white',
+    color = 'black',
     hoverBg = `${c}.600`,
     activeBg = `${c}.700`,
   } = accessibleColorMap[c] ?? {}
