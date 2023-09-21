@@ -3,13 +3,16 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "dev:web": "turbo run dev --filter=web...",
+    "dev:mobile": "turbo dev --filter=\"{./apps/mobile}...\"",
+    "dev:web": "turbo dev --filter=\"{./apps/web}...\"",
     "dev:docs": "turbo run dev --filter=docs...",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- --fix",
     "prepare": "husky install",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
-    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
+    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
+    "build:mobile": "turbo build --filter=\"...{./apps/mobile}\"",
+    "build:web": "turbo build --filter=\"...{./apps/web}\""
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
@@ -18,6 +21,15 @@
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.0",
     "turbo": "latest"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@babel/*",
+        "expo-modules-*",
+        "typescript"
+      ]
+    }
   },
   "packageManager": "pnpm@7.15.0"
 }

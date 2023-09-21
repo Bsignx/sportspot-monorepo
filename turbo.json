@@ -3,7 +3,13 @@
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "build": {
-      "outputs": [".next/**", "!.next/cache/**", "dist/**", "storybook-static/**"],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**",
+        "storybook-static/**",
+        "node_modules/.cache/metro/**"
+      ],
       "dependsOn": ["^build"]
     },
     "lint": {},

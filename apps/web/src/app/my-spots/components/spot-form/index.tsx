@@ -249,7 +249,7 @@ export const SpotForm = ({ initialSpotData }: Props) => {
 
   return (
     <VStack p="6" pt="4" pb="24" spacing="8">
-      <Header title="create spot" />
+      <Header title={isEditing ? 'Edit spot' : 'Create spot'} />
       <VStack onSubmit={handleSubmit(onSubmit)} as="form" h="100%" w="full" spacing={4}>
         <FormControl isInvalid={!!errors.name}>
           <Input variant="outline" placeholder="name" {...register('name')} />
