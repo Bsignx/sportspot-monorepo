@@ -10,18 +10,26 @@ import SpotsMap from './spots-map'
 import { SelectedSpotCard } from './selected-spot-card'
 import { useGetUserLocation } from '~/hooks/useGetUserLocation'
 import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '~/config/location'
+import { hasDaysPassed } from '~/utils/hasDaysPassed'
+
+const hasThreeDaysPassed = hasDaysPassed(3)
 
 const Main = () => {
   const [selectedSpot, setSelectedSpot] = useState<Spot | null>(null)
 
   const { data: spots, isError } = api.spot.getAll.useQuery()
 
+  const toast = useToast()
+
   const { location } = useGetUserLocation({
     defaultLocation: {
       coords: { latitude: DEFAULT_LATITUDE, longitude: DEFAULT_LONGITUDE },
     },
+    onError: () => {
+      hasThreeDaysPassed &&
+        toast({ status: 'warning', title: 'To use this app fully, please enable location' })
+    },
   })
-  const toast = useToast()
 
   const coords = [
     location?.coords.latitude || DEFAULT_LATITUDE,

@@ -365,10 +365,12 @@ export const SpotForm = ({ initialSpotData }: Props) => {
               searchFieldClassNames={{
                 container: 'search-container-create-spot',
                 input: 'search-input-create-spot',
+                resetButton: 'reset-create-spot',
+                resultlist: 'search-result-list-create-spot',
               }}
               styles={{
                 width: '100%',
-                height: '300px',
+                height: '350px',
                 borderRadius: '14px',
               }}
               userLocation={userLocation}

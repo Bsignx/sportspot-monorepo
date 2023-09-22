@@ -15,9 +15,10 @@ type GeolocationPosition = {
 
 type Props = {
   defaultLocation?: GeolocationPosition
+  onError?: (error: string) => void
 }
 
-export const useGetUserLocation = ({ defaultLocation }: Props = {}) => {
+export const useGetUserLocation = ({ defaultLocation, onError }: Props = {}) => {
   const [location, setLocation] = useState<GeolocationPosition>()
   const [error, setError] = useState<string | null>(null)
 
@@ -27,10 +28,13 @@ export const useGetUserLocation = ({ defaultLocation }: Props = {}) => {
         setLocation(position || defaultLocation)
       },
       (error) => {
+        setLocation(defaultLocation)
         setError(error.message)
+        onError?.(error.message)
       },
     )
-  }, [defaultLocation])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return { location, error }
 }

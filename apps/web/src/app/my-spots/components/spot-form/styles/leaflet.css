@@ -44,3 +44,35 @@
 .geosearch.search-container-create-spot.leaflet-control {
   margin-left: 0.75rem;
 }
+
+.reset-create-spot {
+  position: absolute;
+  right: 36px;
+  top: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  color: #b0eb5f;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.search-result-list-create-spot {
+  display: none;
+}
+
+.search-result-list-create-spot.active {
+  display: block;
+  margin-top: -0.5rem;
+  padding: 16px;
+  padding-top: 20px;
+  background: #212121;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.search-result-list-create-spot.active > div {
+  margin-bottom: 0.5rem;
+  color: #eaecf3;
+  font-family: 'Poppins', 'sans-serif';
+  text-decoration: underline;
+}

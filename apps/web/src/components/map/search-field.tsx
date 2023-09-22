@@ -5,6 +5,8 @@ import { useMap } from 'react-leaflet'
 export type ClassNames = {
   container?: string
   input?: string
+  resetButton?: string
+  resultlist?: string
 }
 
 type Props = {
@@ -32,6 +34,7 @@ const SearchField = ({ apiKey, classNames }: Props) => {
       button: 'search-button',
       buttonIcon: 'search-button-icon',
       resultlist: 'search-result-list',
+      resetButton: 'reset',
       ...classNames,
     },
   })

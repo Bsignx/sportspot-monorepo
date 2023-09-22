@@ -25,14 +25,15 @@
   margin-top: -0.5rem;
   padding: 16px;
   padding-top: 20px;
-  background: #fff;
+  background: #212121;
   border-radius: 0 0 14px 14px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .search-result-list.active > div {
-  margin-bottom: 0.25rem;
-  color: #212121;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #eaecf3;
   font-family: 'Poppins', 'sans-serif';
   text-decoration: underline;
 }
@@ -40,7 +41,7 @@
 .reset {
   position: absolute;
   right: 36px;
-  top: 1.5rem;
+  top: 2.4rem;
   width: 3rem;
   height: 3rem;
   color: #b0eb5f;
@@ -48,6 +49,7 @@
   font-size: 1.5rem;
 }
 .search-input {
+  margin-top: 1rem;
   width: 100%;
   padding: 0.9375rem 20px 0.9375rem 2.8rem;
   display: inline-block;
@@ -81,7 +83,7 @@
   position: absolute;
   right: 0;
   left: 2rem;
-  top: 2.25rem;
+  top: 3.25rem;
   width: 1.25rem;
   height: 1.125rem;
   background: url('https://res.cloudinary.com/dxm7clrdp/image/upload/v1685354068/Frame_2_yh3bm4.png')

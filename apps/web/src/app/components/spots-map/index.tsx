@@ -56,7 +56,7 @@ const SpotsMap = ({
 
   return (
     <Map
-      zoom={14}
+      zoom={16}
       center={userLocation}
       styles={{
         backgroundColor: '#2a2a2a',
