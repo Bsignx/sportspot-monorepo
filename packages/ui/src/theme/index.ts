@@ -4,7 +4,7 @@ import { components } from './components'
 import { foundations } from './foundations'
 
 const config: ThemeConfig = {
-  initialColorMode: 'light',
+  initialColorMode: 'dark',
   useSystemColorMode: false,
 }
 

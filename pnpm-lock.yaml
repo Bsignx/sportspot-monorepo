@@ -29,15 +29,15 @@ importers:
 
   apps/mobile:
     dependencies:
+      '@sportspot/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       expo:
         specifier: ^49.0.10
         version: 49.0.11(@babel/core@7.21.4)
       expo-dev-client:
         specifier: ~2.4.8
         version: 2.4.8(expo@49.0.11)
-      expo-navigation-bar:
-        specifier: ^2.5.0
-        version: 2.5.0(expo@49.0.11)
       expo-status-bar:
         specifier: ~1.6.0
         version: 1.6.0
@@ -10133,18 +10133,6 @@ packages:
     dependencies:
       compare-versions: 3.6.0
       invariant: 2.2.4
-    dev: false
-
-  /expo-navigation-bar@2.5.0(expo@49.0.11):
-    resolution: {integrity: sha512-cKwBNh692qBuly7fKeM+XBQSvsOf53CGmmyUNRTuQN7YWOEv9HSFzacPncr/Ne1jR2odML3jGgMO5fA+LnRGGw==}
-    peerDependencies:
-      expo: '*'
-    dependencies:
-      '@react-native/normalize-color': 2.1.0
-      debug: 4.3.4
-      expo: 49.0.11(@babel/core@7.21.4)
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /expo-status-bar@1.6.0:
