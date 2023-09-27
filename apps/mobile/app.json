@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "sportspot",
+    "name": "Sportspot",
     "slug": "sportspot",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,6 +28,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "555ee3fa-8aa4-42b0-9376-087c9e7af0c4"
+      }
     }
   }
 }

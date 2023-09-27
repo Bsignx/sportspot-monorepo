@@ -16,6 +16,7 @@ import {
   ModalContent,
   ModalOverlay,
   useBreakpointValue,
+  Button,
 } from '@sportspot/ui'
 
 import { MouseEvent } from 'react'
@@ -26,6 +27,7 @@ import { Props } from '../selected-spot-card'
 import { CarrouselSpot } from '../carrousel-spot'
 import { getRatingStars } from '~/utils/get-rating-stars'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
+import Link from 'next/link'
 
 const starSize = 18
 const favSize = 30
@@ -65,7 +67,7 @@ export const ModalSpotCard = ({
         <ModalContent pos="absolute" bottom={0} bg="transparent" css={{ minHeight: '90dvh' }}>
           <BottomSheet onClose={onClose}>
             <CarrouselSpot selectedSpot={selectedSpot} />
-
+            {/* http://maps.google.com/maps?daddr=-23.55641256037349,-46.69160193257653 */}
             <ModalHeader p="1rem 1.25rem 1rem 0.875rem">
               <HStack w="full" justify="space-between">
                 {selectedSpot.latitude && selectedSpot.longitude && (
@@ -148,7 +150,6 @@ export const ModalSpotCard = ({
                 )}
               </VStack>
             </ModalHeader>
-
             <ModalBody p="0px 14px">
               <SpotsMap
                 zoom={16}
@@ -161,8 +162,21 @@ export const ModalSpotCard = ({
                 }}
                 userLocation={[selectedSpot.latitude!, selectedSpot.longitude!]}
               />
-            </ModalBody>
 
+              <Button
+                as={Link}
+                variant="primary"
+                w="full"
+                fontWeight="bold"
+                color="secondary"
+                mt="3"
+                href={`http://maps.google.com/maps?daddr=${selectedSpot.latitude},${selectedSpot.longitude}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Directions
+              </Button>
+            </ModalBody>
             <ModalFooter gap={3} flexDir="column" alignItems="start" p="24px 14px">
               <HStack mt={1} spacing={1} alignItems="flex-start">
                 <Icons.addressMarker width="14px" height="16px" aria-hidden="true" />
