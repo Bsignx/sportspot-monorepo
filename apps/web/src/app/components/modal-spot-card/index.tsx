@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Favorite } from '@prisma/client'
 import {
   Box,
@@ -17,6 +18,7 @@ import {
   ModalOverlay,
   useBreakpointValue,
   Button,
+  useDisclosure,
 } from '@sportspot/ui'
 
 import { MouseEvent } from 'react'
@@ -27,7 +29,7 @@ import { Props } from '../selected-spot-card'
 import { CarrouselSpot } from '../carrousel-spot'
 import { getRatingStars } from '~/utils/get-rating-stars'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
-import Link from 'next/link'
+import { RatingModal } from '../rating-modal'
 
 const starSize = 18
 const favSize = 30
@@ -50,9 +52,18 @@ export const ModalSpotCard = ({
   ratingAverage,
   handleClickFavoriteSpot,
 }: ModalSpotCardProps) => {
+  const {
+    isOpen: isOpenRatingModal,
+    onOpen: onOpenRatingModal,
+    onClose: onCloseRatingModal,
+  } = useDisclosure()
+
   const mapHeighSize = useBreakpointValue({ base: '132px', md: '240px' }, { ssr: false })
 
   const ratingStars = getRatingStars(ratingAverage!)
+  const hasRating = ratingStars.some((isStar) => isStar)
+
+  const handleRatingSubmit = () => {}
 
   return (
     <>
@@ -71,7 +82,7 @@ export const ModalSpotCard = ({
             <ModalHeader p="1rem 1.25rem 1rem 0.875rem">
               <HStack w="full" justify="space-between">
                 {selectedSpot.latitude && selectedSpot.longitude && (
-                  <HStack spacing={1} align="end">
+                  <HStack spacing={1} align="end" mb="1">
                     <Icons.distanceMarker aria-hidden="true" width={14} height={14} />
                     <Text
                       fontSize="0.6875rem"
@@ -114,12 +125,12 @@ export const ModalSpotCard = ({
                 )}
               </HStack>
 
-              <VStack align="start">
+              <VStack align="start" spacing="1">
                 <Heading fontSize="1.5rem" fontWeight="bold">
                   {selectedSpot.name}
                 </Heading>
 
-                {ratingAverage && (
+                {hasRating ? (
                   <HStack spacing={1} align="start">
                     {ratingStars.map((isStar, key) =>
                       isStar ? (
@@ -146,10 +157,54 @@ export const ModalSpotCard = ({
                     >
                       {ratingAverage}
                     </Text>
+                    <Button
+                      onClick={onOpenRatingModal}
+                      variant="ghost"
+                      color="primary"
+                      fontWeight="semibold"
+                      h="auto"
+                      fontSize="small"
+                      letterSpacing="0.3px"
+                      textDecoration="underline"
+                      padding={0}
+                      _hover={{ bgColor: 'transparent' }}
+                      _active={{ bgColor: 'transparent' }}
+                      lineHeight={1.1}
+                      alignSelf="flex-end"
+                    >
+                      Rate Now
+                    </Button>
+                  </HStack>
+                ) : (
+                  <HStack spacing={1}>
+                    <Text
+                      color="tertiary"
+                      fontSize="small"
+                      fontWeight="normal"
+                      letterSpacing="0.3px"
+                    >
+                      No reviews yet. Be the first!
+                    </Text>
+                    <Button
+                      onClick={onOpenRatingModal}
+                      variant="ghost"
+                      color="primary"
+                      fontWeight="semibold"
+                      h="auto"
+                      fontSize="small"
+                      letterSpacing="0.3px"
+                      textDecoration="underline"
+                      padding={0}
+                      _hover={{ bgColor: 'transparent' }}
+                      _active={{ bgColor: 'transparent' }}
+                    >
+                      Rate Now
+                    </Button>
                   </HStack>
                 )}
               </VStack>
             </ModalHeader>
+
             <ModalBody p="0px 14px">
               <SpotsMap
                 zoom={16}
@@ -165,10 +220,10 @@ export const ModalSpotCard = ({
 
               <Button
                 as={Link}
-                variant="primary"
+                variant="outline"
+                color="tertiary"
                 w="full"
-                fontWeight="bold"
-                color="secondary"
+                fontWeight="semibold"
                 mt="3"
                 href={`http://maps.google.com/maps?daddr=${selectedSpot.latitude},${selectedSpot.longitude}`}
                 target="_blank"
@@ -177,6 +232,7 @@ export const ModalSpotCard = ({
                 Get Directions
               </Button>
             </ModalBody>
+
             <ModalFooter gap={3} flexDir="column" alignItems="start" p="24px 14px">
               <HStack mt={1} spacing={1} alignItems="flex-start">
                 <Icons.addressMarker width="14px" height="16px" aria-hidden="true" />
@@ -192,6 +248,12 @@ export const ModalSpotCard = ({
           </BottomSheet>
         </ModalContent>
       </Modal>
+
+      <RatingModal
+        isOpen={isOpenRatingModal}
+        onClose={onCloseRatingModal}
+        handleSubmit={handleRatingSubmit}
+      />
     </>
   )
 }

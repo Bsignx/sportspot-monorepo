@@ -38,38 +38,38 @@ const CloseIcon = () => (
 )
 
 type Props = {
-  isOpenDeleteModal: boolean
-  onCloseDeleteModal: () => void
-  handleDeleteSpot: () => void
+  isOpen: boolean
+  onClose: () => void
+  handleSubmit: () => void
 }
 
-export const SpotDeleteModal = ({
-  handleDeleteSpot,
-  isOpenDeleteModal,
-  onCloseDeleteModal,
-}: Props) => (
-  <Modal isOpen={isOpenDeleteModal} onClose={onCloseDeleteModal} isCentered>
+export const RatingModal = ({ handleSubmit, isOpen, onClose }: Props) => (
+  <Modal isOpen={isOpen} onClose={onClose} isCentered>
     <ModalOverlay />
 
     <ModalContent maxW="90vw" bgColor="senary" borderRadius="2xl">
       <ModalHeader fontWeight="bold" color="tertiary">
-        Delete spot
+        Rate your experience
       </ModalHeader>
       <ModalCloseButton>
         <CloseIcon />
       </ModalCloseButton>
       <ModalBody>
+        {/* <Text fontSize="xs" color="quaternary">
+          Select rating from 1 to 5 stars:
+        </Text> */}
+
         <Text fontSize="xs" color="quaternary">
-          Are you sure? You can’t undo this action afterwards.
+          Soon you will be able to rate your experience.
         </Text>
       </ModalBody>
 
       <ModalFooter>
-        <Button onClick={onCloseDeleteModal} variant="outline" mr="2" color="tertiary" w="full">
+        <Button onClick={onClose} variant="outline" mr="2" color="tertiary" w="full">
           Cancel
         </Button>
-        <Button onClick={handleDeleteSpot} w="full">
-          Delete
+        <Button onClick={handleSubmit} w="full">
+          Submit
         </Button>
       </ModalFooter>
     </ModalContent>

@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#151718"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -20,10 +20,11 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.bycedric.expomonorepo",
+      "package": "com.bsignx.sportspot",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#151718"
       }
     },
     "web": {
