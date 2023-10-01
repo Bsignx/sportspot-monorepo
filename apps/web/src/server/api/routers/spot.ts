@@ -111,6 +111,37 @@ export const spotRouter = createTRPCRouter({
 
       return review
     }),
+  addRating: protectedProcedure
+    .input(z.object({ spotId: z.string(), rating: z.number() }))
+    .mutation(async ({ input, ctx }) => {
+      const userId = ctx.session.user.id
+
+      const review = await ctx.prisma.rating.findFirst({
+        where: {
+          userId,
+          spotId: input.spotId,
+        },
+      })
+
+      if (review) {
+        return ctx.prisma.rating.update({
+          where: {
+            id: review.id,
+          },
+          data: {
+            rating: input.rating,
+          },
+        })
+      }
+
+      return ctx.prisma.rating.create({
+        data: {
+          userId,
+          spotId: input.spotId,
+          rating: input.rating,
+        },
+      })
+    }),
   getRatingAverage: publicProcedure
     .input(z.object({ spotId: z.string() }))
     .query(async ({ input, ctx }) => {

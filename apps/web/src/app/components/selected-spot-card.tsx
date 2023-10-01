@@ -15,7 +15,7 @@ export type Props = {
 }
 
 export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
-  const { spot: sportRouter } = api.useContext()
+  const { spot: spotRouter } = api.useContext()
   const { data: isFavorite } = api.spot.getFavorite.useQuery({ spotId: selectedSpot.id })
   const { data: ratingAverage } = api.spot.getRatingAverage.useQuery({ spotId: selectedSpot.id })
 
@@ -23,7 +23,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
 
   const { mutate: mutateFavoriteSpot } = api.spot.favorite.useMutation({
     onSuccess: ({ spotId }) => {
-      sportRouter.getFavorite.invalidate({ spotId })
+      spotRouter.getFavorite.invalidate({ spotId })
     },
   })
 
@@ -151,7 +151,7 @@ export const SelectedSpotCard = ({ selectedSpot, userLocation }: Props) => {
 
           {ratingAverage && (
             <HStack mt="1" spacing="1" alignItems="center" h="100%">
-              <Icons.filledStar aria-hidden />
+              <Icons.ratingStar aria-hidden />
               <Text fontSize="2xs" color="tertiary" fontWeight="normal" h="4">
                 {ratingAverage}
               </Text>

@@ -10,6 +10,8 @@ import {
   ModalOverlay,
   Text,
 } from '@sportspot/ui'
+import { RatingSelector } from '../rating-selector'
+import { useState } from 'react'
 
 const CloseIcon = () => (
   <svg
@@ -40,38 +42,49 @@ const CloseIcon = () => (
 type Props = {
   isOpen: boolean
   onClose: () => void
-  handleSubmit: () => void
+  onSubmit: (rating: number) => void
 }
 
-export const RatingModal = ({ handleSubmit, isOpen, onClose }: Props) => (
-  <Modal isOpen={isOpen} onClose={onClose} isCentered>
-    <ModalOverlay />
+export const RatingModal = ({ onSubmit, isOpen, onClose }: Props) => {
+  const [rating, setRating] = useState(0)
 
-    <ModalContent maxW="90vw" bgColor="senary" borderRadius="2xl">
-      <ModalHeader fontWeight="bold" color="tertiary">
-        Rate your experience
-      </ModalHeader>
-      <ModalCloseButton>
-        <CloseIcon />
-      </ModalCloseButton>
-      <ModalBody>
-        {/* <Text fontSize="xs" color="quaternary">
-          Select rating from 1 to 5 stars:
-        </Text> */}
+  const handleRatingChange = (value: number) => {
+    setRating(value)
+  }
 
-        <Text fontSize="xs" color="quaternary">
-          Soon you will be able to rate your experience.
-        </Text>
-      </ModalBody>
+  const handleSubmit = () => {
+    onSubmit(rating)
+    onClose()
+  }
 
-      <ModalFooter>
-        <Button onClick={onClose} variant="outline" mr="2" color="tertiary" w="full">
-          Cancel
-        </Button>
-        <Button onClick={handleSubmit} w="full">
-          Submit
-        </Button>
-      </ModalFooter>
-    </ModalContent>
-  </Modal>
-)
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <ModalOverlay />
+
+      <ModalContent maxW="90vw" bgColor="senary" borderRadius="2xl">
+        <ModalHeader fontWeight="bold" color="tertiary">
+          Rate your experience
+        </ModalHeader>
+        <ModalCloseButton>
+          <CloseIcon />
+        </ModalCloseButton>
+        <ModalBody pb="3" pt="0">
+          <Text fontSize="xs" color="quaternary" mb="5">
+            Select rating from 1 to 5 stars:
+          </Text>
+
+          <RatingSelector onChange={handleRatingChange} value={rating} />
+        </ModalBody>
+
+        <ModalFooter>
+          <Button onClick={onClose} variant="outline" mr="2" color="tertiary" w="full">
+            Cancel
+          </Button>
+          <Button onClick={handleSubmit} w="full">
+            Submit
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  )
+}

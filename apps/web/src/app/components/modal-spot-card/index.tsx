@@ -19,6 +19,7 @@ import {
   useBreakpointValue,
   Button,
   useDisclosure,
+  useToast,
 } from '@sportspot/ui'
 
 import { MouseEvent } from 'react'
@@ -30,6 +31,7 @@ import { CarrouselSpot } from '../carrousel-spot'
 import { getRatingStars } from '~/utils/get-rating-stars'
 import { getKmDistanceBetweenTwoPoints } from '~/utils/distance'
 import { RatingModal } from '../rating-modal'
+import { api } from '~/helpers/trpc/api'
 
 const starSize = 18
 const favSize = 30
@@ -52,18 +54,38 @@ export const ModalSpotCard = ({
   ratingAverage,
   handleClickFavoriteSpot,
 }: ModalSpotCardProps) => {
+  const { spot: spotRouter } = api.useContext()
+
+  const { mutate: mutateRating } = api.spot.addRating.useMutation({
+    onSuccess: ({ spotId }) => {
+      spotRouter.getRatingAverage.invalidate({ spotId })
+    },
+  })
+
   const {
     isOpen: isOpenRatingModal,
     onOpen: onOpenRatingModal,
     onClose: onCloseRatingModal,
   } = useDisclosure()
 
+  const toast = useToast()
+
   const mapHeighSize = useBreakpointValue({ base: '132px', md: '240px' }, { ssr: false })
 
   const ratingStars = getRatingStars(ratingAverage!)
   const hasRating = ratingStars.some((isStar) => isStar)
 
-  const handleRatingSubmit = () => {}
+  const handleRatingSubmit = (rating: number) => {
+    mutateRating({ spotId: selectedSpot.id, rating })
+
+    toast({
+      status: 'success',
+      title: 'Success',
+      description: 'Your rating has been submitted.',
+    })
+
+    onCloseRatingModal()
+  }
 
   return (
     <>
@@ -78,7 +100,7 @@ export const ModalSpotCard = ({
         <ModalContent pos="absolute" bottom={0} bg="transparent" css={{ minHeight: '90dvh' }}>
           <BottomSheet onClose={onClose}>
             <CarrouselSpot selectedSpot={selectedSpot} />
-            {/* http://maps.google.com/maps?daddr=-23.55641256037349,-46.69160193257653 */}
+
             <ModalHeader p="1rem 1.25rem 1rem 0.875rem">
               <HStack w="full" justify="space-between">
                 {selectedSpot.latitude && selectedSpot.longitude && (
@@ -125,38 +147,34 @@ export const ModalSpotCard = ({
                 )}
               </HStack>
 
-              <VStack align="start" spacing="1">
+              <VStack align="start">
                 <Heading fontSize="1.5rem" fontWeight="bold">
                   {selectedSpot.name}
                 </Heading>
 
                 {hasRating ? (
-                  <HStack spacing={1} align="start">
-                    {ratingStars.map((isStar, key) =>
-                      isStar ? (
-                        <Icons.filledStar
+                  <HStack spacing={3} align="start">
+                    <HStack spacing="1">
+                      {ratingStars.map((isStar, key) => (
+                        <Icons.ratingStar
                           key={key}
+                          color={isStar ? '#E8EB5F' : '#D4D4D4'}
                           aria-hidden
                           style={{ width: starSize, height: starSize }}
                         />
-                      ) : (
-                        <Icons.outlineStar
-                          key={key}
-                          aria-hidden
-                          style={{ width: starSize, height: starSize }}
-                        />
-                      ),
-                    )}
+                      ))}
 
-                    <Text
-                      pl="4px"
-                      color="quaternary"
-                      fontSize="14px"
-                      lineHeight={6}
-                      fontWeight="medium"
-                    >
-                      {ratingAverage}
-                    </Text>
+                      <Text
+                        pl="4px"
+                        color="quaternary"
+                        fontSize="14px"
+                        lineHeight={1}
+                        fontWeight="medium"
+                      >
+                        {ratingAverage}
+                      </Text>
+                    </HStack>
+
                     <Button
                       onClick={onOpenRatingModal}
                       variant="ghost"
@@ -170,7 +188,8 @@ export const ModalSpotCard = ({
                       _hover={{ bgColor: 'transparent' }}
                       _active={{ bgColor: 'transparent' }}
                       lineHeight={1.1}
-                      alignSelf="flex-end"
+                      alignSelf="center"
+                      ml={2}
                     >
                       Rate Now
                     </Button>
@@ -252,7 +271,7 @@ export const ModalSpotCard = ({
       <RatingModal
         isOpen={isOpenRatingModal}
         onClose={onCloseRatingModal}
-        handleSubmit={handleRatingSubmit}
+        onSubmit={handleRatingSubmit}
       />
     </>
   )

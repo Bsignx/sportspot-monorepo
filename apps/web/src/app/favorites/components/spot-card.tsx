@@ -135,7 +135,7 @@ export const SpotCard = ({ spot, userLocation, onClickFavorite }: Props) => {
 
             {ratingAverage && (
               <HStack mt="1" spacing="1" alignItems="center" h="100%">
-                <Icons.filledStar aria-hidden />
+                <Icons.ratingStar aria-hidden />
                 <Text fontSize="xs" color="tertiary" fontWeight="normal" h="4">
                   {ratingAverage}
                 </Text>
