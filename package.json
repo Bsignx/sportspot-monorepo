@@ -12,7 +12,9 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "build:mobile": "turbo build --filter=\"...{./apps/mobile}\"",
-    "build:web": "turbo build --filter=\"...{./apps/web}\""
+    "build:web": "turbo build --filter=\"...{./apps/web}\"",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
@@ -20,7 +22,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.0",
-    "turbo": "latest"
+    "turbo": "latest",
+    "@babel/core": "^7.20.0"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -31,5 +34,14 @@
       ]
     }
   },
-  "packageManager": "pnpm@7.15.0"
+  "packageManager": "pnpm@7.15.0",
+  "name": "sportspot-monorepo",
+  "version": "1.0.0",
+  "dependencies": {
+    "expo": "~49.0.13",
+    "expo-splash-screen": "~0.20.5",
+    "expo-status-bar": "~1.6.0",
+    "react": "18.2.0",
+    "react-native": "0.72.5"
+  }
 }

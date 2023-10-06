@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <Stack
       spacing="0"
-      pt="9"
+      pt="14"
       pb="14"
       px="6"
       w="100%"

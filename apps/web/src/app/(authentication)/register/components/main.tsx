@@ -13,7 +13,7 @@ const Main = () => {
       w="100%"
       spacing="0"
       justifyContent="space-between"
-      pt="9"
+      pt="14"
       pb="14"
       px="6"
       css={{

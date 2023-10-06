@@ -32,6 +32,9 @@ export const theme = {
       'p, span, a, button': {
         color: 'quaternary',
       },
+      '#chakra-toast-manager-top': {
+        top: '3rem !important',
+      },
     },
   },
 } as ThemeTypes
